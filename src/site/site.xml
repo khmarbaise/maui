@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 
-    The Maven Unit Integration Test Guide
+    The Maven Unit Integration Test Guide (MaUI for short)
 
     Copyright (c) 2011 by SoftwareEntwicklung Beratung Schulung (SoEBeS)
     Copyright (c) 2011 by Karl Heinz Marbaise
@@ -22,17 +22,25 @@
     limitations under the License.
 
 -->
-<project xmlns="http://maven.apache.org/DECORATION/1.0.0"
+<project
+  xmlns="http://maven.apache.org/DECORATION/1.0.0"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/DECORATION/1.0.0 http://maven.apache.org/xsd/decoration-1.0.0.xsd"
   name="Maven Unit Integration Test Guide">
+
   <body>
-    <menu name="Overview">
-      <item name="Introduction" href="index.html"/>
-      <item name="Examples" href="examples.html"/>
-      <item name="Load File" href="load.html"/>
-      <item name="Features" href="features.html"/>
-    </menu>
+
+      <menu name="Overview">
+        <item name="Introduction" href="index.html"/>
+      </menu>
+      <menu name="Unit Tests">
+        <item name="Unit Tests" href="unit-test.html"/>
+        <item name="Unit Test Example" href="unit-test-example.html"/>
+      </menu>
+      <menu name="Integration Tests">
+        <item name="Integration Test" href="integration-test.html"/>
+      </menu>
+      <menu ref="reports" />
   </body>
 </project>
 

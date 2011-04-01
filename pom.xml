@@ -1,10 +1,15 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project
+  xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
   <modelVersion>4.0.0</modelVersion>
+
   <parent>
-    <groupId>com.soebes.smpp</groupId>
-    <artifactId>smpp</artifactId>
-    <version>0.1</version>
+    <groupId>com.soebes.maven.guide</groupId>
+    <artifactId>parent</artifactId>
+    <version>0.1-SNAPSHOT</version>
+    <relativePath>./parent/pom.xml</relativePath>
   </parent>
 
   <groupId>com.soebes.maven.guide</groupId>
@@ -12,43 +17,9 @@
   <version>0.1-SNAPSHOT</version>
 
   <name>Maven Unit Integration Test Guide</name>
-  <description>Best Practice for doing Unit Tests, Integration Tests</description>
-  <url>https://github.com/khmarbaise/maui</url>
-  <inceptionYear>2011</inceptionYear>
-
-  <organization>
-    <name>SoftwareEntwicklung Beratung Schulung</name>
-    <url>http://www.soebes.com</url>
-  </organization>
-
-  <licenses>
-    <license>
-      <name>Apache License 2.0</name>
-      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-      <distribution>repo</distribution>
-    </license>
-  </licenses>
-
-  <developers>
-    <developer>
-      <id>kama</id>
-      <name>Karl Heinz Marbaise</name>
-      <email>sapm@soebes.de</email>
-      <roles>
-        <role>Lead</role>
-        <role>Committer</role>
-      </roles>
-    </developer>
-  </developers>
-
-  <issueManagement>
-    <system>default</system>
-    <url>https://github.com/khmarbaise/maui/issues</url>
-  </issueManagement>
 
   <properties>
-    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <surefire.version>2.8</surefire.version>
   </properties>
 
   <scm>
@@ -56,60 +27,5 @@
     <connection>scm:git:git://github.com/khmarbaise/maui.git</connection>
     <url>https://github.com/khmarbaise/maui</url>
   </scm>
-
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-deploy-plugin</artifactId>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-release-plugin</artifactId>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <configuration>
-          <source>1.6</source>
-          <target>1.6</target>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-resources-plugin</artifactId>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-site-plugin</artifactId>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-project-info-reports-plugin</artifactId>
-      </plugin>
-    </plugins>
-  </build>
-
-  <reporting>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-changes-plugin</artifactId>
-        <version>2.3</version>
-        <configuration>
-          <issueLinkTemplatePerSystem>
-            <default>https://github.com/khmarbaise/maui/issues/%ISSUE%</default>
-          </issueLinkTemplatePerSystem>
-        </configuration>
-        <reportSets>
-          <reportSet>
-            <reports>
-              <report>changes-report</report>
-            </reports>
-          </reportSet>
-        </reportSets>
-      </plugin>
-    </plugins>
-  </reporting>
 
 </project>

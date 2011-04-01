@@ -20,25 +20,30 @@
 ~~ limitations under the License.
 
  ------
- Introduction
+ Unit Testing with Maven
  ------
  Karl Heinz Marbaise
  ------
  01 April 2011
  ------
 
-The Maven Unit and Integration Test Guide
-
-  This will be the place to find information about how to
-  do unit and integration tests in {{{http://maven.apache.org}Maven}} projects.
-
-  This is no plugin etc. it's only a guide how to do different things with {{{http://maven.apache.org}Maven}}.
+Unit Testing With Maven
 
 * Overview
 
-  This guide is separated into two big chapters where the first is about
-  {{{./unit-test.html}Unit Testing with Maven}} and the second about
-  {{{./integration-test.html}Integration Testing with Maven}}.
+  If you already familiar with Maven you know
+  {{{http://maven.apache.org/guides/introduction/introduction-to-the-standard-directory-layout.html}where to put your unit tests}}.
+  The <<Maven way>> is to put unit tests into <<<src/test/java>>> and their
+  appropriate resources into <<<src/test/resources>>>.
+
+
+* First simple example
+
+  Assume we have the following project structure.
+
+  simple example with one unit test class. and showing the pom for this
+  (with surefire).
+
 
 
   []

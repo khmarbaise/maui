@@ -1,8 +1,8 @@
 ~~
-~~ The Subversion Authentication Parse Module (SAPM for short).
+~~ The Maven Unit Integration Test Guide (MaUI for short)
 ~~
-~~ Copyright (c) 2010, 2011 by SoftwareEntwicklung Beratung Schulung (SoEBeS)
-~~ Copyright (c) 2010, 2011 by Karl Heinz Marbaise
+~~ Copyright (c) 2011 by SoftwareEntwicklung Beratung Schulung (SoEBeS)
+~~ Copyright (c) 2011 by Karl Heinz Marbaise
 ~~
 ~~ Licensed to the Apache Software Foundation (ASF) under one or more
 ~~ contributor license agreements.  See the NOTICE file distributed with
@@ -20,28 +20,34 @@
 ~~ limitations under the License.
 
  ------
- Load Authentication File
+ Integration Testing with Maven
  ------
  Karl Heinz Marbaise
  ------
- 06 January 2011
+ 1. April 2011
  ------
 
-Load Authentication file
+Integration Testing with Maven
 
-* First simple example
+* Overview
 
-  Usually you have an existing authentication file which
-  you like to use for your Java application.
+  Integration Tests have a more comprehensive character than unit tests.
 
-+----
-AuthorizationFile authorizationFile
-try {
-    authorizationFile = new AuthorizationFile();
-    authorizationFile.load(new File("/path/to/svnaccess.conf"));
-} catch (AuthorizationFileException e) {
-    System.out.println("Something has gone wrong: " + e.getMessage());
-}
+  two areas:
 
-AccessLevel al_user = authorizationFile.getAccessRules().getAccess(user, repository, accessPath);
-+----
+  * in module integration tests
+
+  * Simple integration test example (CLI Example in module)
+
+  * separate module for integration tests.
+
+  * IT example separate module...
+
+  * Complex examples
+
+  *** Integration test of a web app (war + tomcat?)
+
+  * Plugin Development integration tests
+
+
+  []
