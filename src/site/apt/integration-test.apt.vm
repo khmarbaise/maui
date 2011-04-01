@@ -34,7 +34,7 @@ Integration Testing with Maven
   If you already familiar with {{{http://maven.apache.org}Maven}} you
   know {{{http://maven.apache.org/guides/introduction/introduction-to-the-standard-directory-layout.html}where to put your unit tests}}
   but unfortunately currently there does not exist a definition like
-  this for integration tests. There are some suggestions poking around
+  this for integration tests. There are some suggestions circulating around
   like <<<src/test/it>>>, but these are only rumors.
 
   In this guide we suggest to put them into the same directory structure

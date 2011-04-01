@@ -1,8 +1,9 @@
-Maven Unit / Integration Test Guide
-========================================
+Maven Unit / Integration Test Guide (MaUI Test Guide)
+=====================================================
 
 
-Describe the best practice for doing unit tests, integrations tests
+Describe the best practice for doing unit and integrations tests in Maven.
+
 
 License
 -------
@@ -11,16 +12,22 @@ License
 Homepage
 --------
 
-The Maven Unit Integration Test Guide [http://khmarbaise.github.com/sapm](http://khmarbaise.github.com/maui)
+The Maven Unit Integration Test Guide [http://khmarbaise.github.com/maui](http://khmarbaise.github.com/maui)
 
 Name
 ----
- - MaUI Guide
+ - MaUI Test Guide
 
 Status
 ------
- - First ideas
+ - First description about unit test and integration test done.
 
 TODOs
 -----
+
+ - Integration test into separate module
+   - more exmaples how to use cargo?
+
+ - Integration test example for a Maven Plugin
+   - Maven Invoker Plugin
 
