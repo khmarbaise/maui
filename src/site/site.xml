@@ -39,6 +39,7 @@
       </menu>
       <menu name="Integration Tests">
         <item name="Integration Test" href="integration-test.html"/>
+        <item name="Integration Test Example" href="integration-test-example.html"/>
       </menu>
       <menu ref="reports" />
   </body>

@@ -24,10 +24,10 @@
  ------
  Karl Heinz Marbaise
  ------
- 01 April 2011
+ 1. April 2011
  ------
 
-The Maven Unit and Integration Test Guide
+The Maven Unit and Integration Test Guide (MaUI Test Guide)
 
   This will be the place to find information about how to
   do unit and integration tests in {{{http://maven.apache.org}Maven}} projects.

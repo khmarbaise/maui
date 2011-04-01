@@ -24,14 +24,17 @@
  ------
  Karl Heinz Marbaise
  ------
- 01 April 2011
+ 1. April 2011
  ------
 
 Unit Testing With Maven
 
 * Overview
 
-  If you already familiar with Maven you know
+  The execution of unit tests is handled by the
+  {{{http://maven.apache.org/plugins/maven-surefire-plugin/}Maven Surefire Plugin}}.
+
+  If you already familiar with {{{http://maven.apache.org}Maven}} you know
   {{{http://maven.apache.org/guides/introduction/introduction-to-the-standard-directory-layout.html}where to put your unit tests}}.
   The <<Maven way>> is to put unit tests into <<<src/test/java>>> and their
   appropriate resources into <<<src/test/resources>>>.
@@ -39,11 +42,8 @@ Unit Testing With Maven
 
 * First simple example
 
-  Assume we have the following project structure.
-
-  simple example with one unit test class. and showing the pom for this
-  (with surefire).
-
+  The first {{{./unit-test-example.html}unit test example}}  will show you a simple project with unit tests and
+  how a execution will look like.
 
 
   []

@@ -15,8 +15,10 @@
   <groupId>com.soebes.maven.guide</groupId>
   <artifactId>maui</artifactId>
   <version>0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
 
-  <name>Maven Unit Integration Test Guide</name>
+  <name>MaUI Test Guide</name>
+  <description>Maven Unit and Integration Test Guide (MaUI Test Guide)</description>
 
   <properties>
     <surefire.version>2.8</surefire.version>
