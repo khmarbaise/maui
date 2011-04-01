@@ -37,8 +37,8 @@ The Maven Unit and Integration Test Guide (MaUI Test Guide)
 * Overview
 
   This guide is separated into two big chapters where the first is about
-  {{{./unit-test.html}Unit Testing with Maven}} and the second about
-  {{{./integration-test.html}Integration Testing with Maven}}.
+  {{{./overview-unit-test.html}Unit Testing with Maven}} and the second about
+  {{{./overview-integration-test.html}Integration Testing with Maven}}.
 
 
   []

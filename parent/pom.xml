@@ -12,7 +12,7 @@
   <packaging>pom</packaging>
 
   <description>Best Practice for doing Unit Tests, Integration Tests</description>
-  <url>https://github.com/khmarbaise/maui</url>
+  <url>https://github.com/khmarbaise/</url>
   <inceptionYear>2011</inceptionYear>
 
   <organization>
@@ -146,6 +146,15 @@
           </plugin>
         </plugins>
       </build>
+      <reporting>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-linkcheck-plugin</artifactId>
+            <version>1.1</version>
+          </plugin>
+        </plugins>
+      </reporting>
     </profile>
     <profile>
       <id>maven-3</id>
