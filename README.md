@@ -4,6 +4,8 @@ Maven Unit / Integration Test Guide (MaUI Test Guide)
 
 Describe the best practice for doing unit and integrations tests in Maven.
 
+The Idea of this module based on [http://jira.codehaus.org/browse/MNG-1563](http://jira.codehaus.org/browse/MNG-1563).
+
 
 License
 -------
@@ -26,8 +28,10 @@ TODOs
 -----
 
  - Integration test into separate module
-   - more exmaples how to use cargo?
+   - examples how to use cargo?
 
- - Integration test example for a Maven Plugin
-   - Maven Invoker Plugin
+ - Maven Plugin Development
+   - Unit Test examples 
+   - Integration test examples
+     - for example with Maven Invoker Plugin
 
