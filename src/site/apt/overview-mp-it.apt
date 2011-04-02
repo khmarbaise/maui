@@ -1,0 +1,70 @@
+~~
+~~ The Maven Unit Integration Test Guide (MaUI for short)
+~~
+~~ Copyright (c) 2011 by SoftwareEntwicklung Beratung Schulung (SoEBeS)
+~~ Copyright (c) 2011 by Karl Heinz Marbaise
+~~
+~~ Licensed to the Apache Software Foundation (ASF) under one or more
+~~ contributor license agreements.  See the NOTICE file distributed with
+~~ this work for additional information regarding copyright ownership.
+~~ The ASF licenses this file to You under the Apache License, Version 2.0
+~~ (the "License"); you may not use this file except in compliance with
+~~ the License.  You may obtain a copy of the License at
+~~
+~~    http://www.apache.org/licenses/LICENSE-2.0
+~~
+~~ Unless required by applicable law or agreed to in writing, software
+~~ distributed under the License is distributed on an "AS IS" BASIS,
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+~~ See the License for the specific language governing permissions and
+~~ limitations under the License.
+
+ ------
+ Maven Plugin Integration Testing
+ ------
+ Karl Heinz Marbaise
+ ------
+ 1. April 2011
+ ------
+
+Maven Plugin Integration Testing
+
+* Overview
+
+  This chapter is made for people who are developing
+  {{{http://maven.apache.org/plugin-developers/index.html}Maven Plugins}}
+  and trying to do some integration testing on those plugins. The reason
+  is often that a unit tests is not comprehensive enough to check all
+  aspects of the behavior of a plugin. It's a good practice to do automatic
+  testing of the runtime behavior of a plugin and the best way to do this
+  is to write integration tests.
+
+  For different point of view you can take a look at the
+
+  {{{http://maven.apache.org/plugin-developers/plugin-testing.html}Plugin testing strategies}}
+  or you can take a look at the
+  {{{http://docs.codehaus.org/display/MAVENUSER/Review+of+Plugin+Testing+Strategies}wiki page which is referenced}}
+  there to get an overview, but i have to say that some of those sources ()..
+  are out of date in particular in relationship with Maven 3.
+
+  The only alternatives are the {{{http://mojo.codehaus.org/shitty-maven-plugin/}Maven SHITTY Plugin}} unfortunately
+  this plugin is from 2008 and it looks like that the development has
+  been abandoned (drop me a mail if this is not true).
+
+~~
+~~ Write something about Maven Invoker http://maven.apache.org/shared/maven-invoker/ (not the Maven Invoker Plugin)
+~~
+~~ Write something about this: https://cwiki.apache.org/confluence/display/MAVENOLD/Maven+Plugin+Harness
+~~
+
+  The other one is the
+  {{{http://maven.apache.org/plugins/maven-invoker-plugin/}Maven Invoker Plugin}}
+  which can easily be used for integration tests of Maven Plugins.
+
+
+  * Maven Plugin Integration Tests
+
+    * {{{./mp-it-example.html}Basic Example}}
+
+
+  []
