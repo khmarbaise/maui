@@ -36,6 +36,9 @@ In Module Integration Test Example
   We have now changed the contents of {{{./ut-example.html}our simple unit test project}} and added a supplemental
   class <<<BitMaskIT.java>>> which obviously is the integration test and follows the above naming conventions.
 
+  In this case we have put the integration test in parallel to the usual unit test class. This is usually only
+  reasonable if you have a single module.
+
 +--------
 .
 |-- pom.xml
@@ -72,7 +75,6 @@ In Module Integration Test Example
 <project ...>
   [...]
   <build>
-   <plugins>
       [...]
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -94,17 +96,8 @@ In Module Integration Test Example
         </executions>
       </plugin>
       [...]
-    </plugins>
   </build>
-  <dependencies>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.8.1</version>
-      <scope>test</scope>
-    </dependency>
-  </dependencies>
-
+  [...]
 </project>
 
 +--------

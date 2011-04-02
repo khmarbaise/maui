@@ -12,8 +12,8 @@
   <name>MaUI Test Guide :: Example Aggregator</name>
 
   <modules>
-    <module>unit-test-example</module>
-    <module>it-test-example</module>
-    <module>it-test-example-1</module>
+    <module>ut-example</module>
+    <module>it-example</module>
+    <module>it-example-1</module>
   </modules>
 </project>
