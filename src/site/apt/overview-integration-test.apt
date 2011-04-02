@@ -49,7 +49,11 @@ Integration Testing with Maven
   {{{http://maven.apache.org/plugins/maven-failsafe-plugin/}Maven Failsafe Plugin}}.
 
 
-  * {{{./integration-test-example.html}<In Module> Integration test example}}
+  * In Module Integration Test Examples
+
+    * {{{./integration-test-example.html}Integration test example}}
+
+    * {{{./integration-test-example-1.html}Different location of the integration test classes.}}
 
   * Simple integration test example (CLI Example in module)
 

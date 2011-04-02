@@ -31,7 +31,7 @@ Explanation
 
 * In Module / Separate Module for Integration Test
 
-  We distinguish between so called <in Module> integration tests and <separated module> integration tests.
+  We distinguish between a so called <in Module> integration tests and <separated module> integration tests.
   The <in module> means to have the integration tests within the same module which contains the unit tests.
   This approach is usually used if you a only a single module.
 

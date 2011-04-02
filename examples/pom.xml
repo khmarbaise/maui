@@ -14,5 +14,6 @@
   <modules>
     <module>unit-test-example</module>
     <module>it-test-example</module>
+    <module>it-test-example-1</module>
   </modules>
 </project>

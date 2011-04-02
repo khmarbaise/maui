@@ -1,0 +1,197 @@
+~~
+~~ The Maven Unit Integration Test Guide (MaUI for short)
+~~
+~~ Copyright (c) 2011 by SoftwareEntwicklung Beratung Schulung (SoEBeS)
+~~ Copyright (c) 2011 by Karl Heinz Marbaise
+~~
+~~ Licensed to the Apache Software Foundation (ASF) under one or more
+~~ contributor license agreements.  See the NOTICE file distributed with
+~~ this work for additional information regarding copyright ownership.
+~~ The ASF licenses this file to You under the Apache License, Version 2.0
+~~ (the "License"); you may not use this file except in compliance with
+~~ the License.  You may obtain a copy of the License at
+~~
+~~    http://www.apache.org/licenses/LICENSE-2.0
+~~
+~~ Unless required by applicable law or agreed to in writing, software
+~~ distributed under the License is distributed on an "AS IS" BASIS,
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+~~ See the License for the specific language governing permissions and
+~~ limitations under the License.
+
+ ------
+ In Module Integration Test Example with different source location
+ ------
+ Karl Heinz Marbaise
+ ------
+ 1. April 2011
+ ------
+
+In Module Integration Test Example with different source location
+
+  In the {{{./integration-test-example.html}previous example}} we had
+  located the integration test classes into the same folder as the
+  unit tests. Sometimes this might not represent your wishes. If you
+  like you can put the integration test sources into a different folder
+  like <<<src/it/java>>>.
+
++--------
+.
+|-- pom.xml
+`-- src
+    |-- it
+    |   `-- java
+    |       `-- com
+    |           `-- soebes
+    |               `-- training
+    |                   `-- maven
+    |                       `-- simple
+    |                           `-- BitMaskIT.java
+    |-- main
+    |   `-- java
+    |       `-- com
+    |           `-- soebes
+    |               `-- training
+    |                   `-- maven
+    |                       `-- simple
+    |                           `-- BitMask.java
+    `-- test
+        `-- java
+            `-- com
+                `-- soebes
+                    `-- training
+                        `-- maven
+                            `-- simple
+                                `-- BitMaskTest.java
++--------
+
+
+  The <<<pom.xml>>> for this integration test example must be changed
+  to handle the supplemental source folder <<<src/it/java>>>. This can
+  be simply achieved by using the
+  {{{http://mojo.codehaus.org/build-helper-maven-plugin/}Build Helper Maven Plugin}}.
+  If you need to add supplemental resources for the integration tests
+  you have to change the configuration accordingly. The following
+  <<<pom.xml>>> snippet will show what you have to add.
+
++--------
+<project ...>
+  [...]
+  <build>
+    [...]
+     <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>build-helper-maven-plugin</artifactId>
+        <version>1.5</version>
+        <executions>
+          <execution>
+            <id>add-test-source</id>
+            <phase>generate-test-sources</phase>
+            <goals>
+              <goal>add-test-source</goal>
+            </goals>
+            <configuration>
+              <sources>
+                <source>src/it/java</source>
+              </sources>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      [...]
+    </plugins>
+  </build>
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.8.1</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+</project>
+
++--------
+
+  Tip:
+
+  If you like to add the new source folder automatically to your Eclipse
+  configuration you need to change the phase from <<<generate-test-resources>>>
+  into <<<process-resources>>>. The result of this change is that you will
+  see the <<<src/it/java>>> folder as source folder within in Eclipse after
+  an <Update Project Configuration> as any other source folders.
+
+  The execution will be exactly the same as in the previous example.
+  This can be achieved by <<<mvn clean verify>>>.
+
++--------
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ------------------------------------------------------------------------
+[INFO] Building MaUI Test Guide :: Integration Test Example 1 0.1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO]
+[INFO] --- maven-clean-plugin:2.4.1:clean (default-clean) @ it-test-example-1 ---
+[INFO]
+[INFO] --- maven-resources-plugin:2.4.3:resources (default-resources) @ it-test-example-1 ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/kama/ws-git/maui/examples/it-test-example-1/src/main/resources
+[INFO]
+[INFO] --- maven-compiler-plugin:2.3.2:compile (default-compile) @ it-test-example-1 ---
+[INFO] Compiling 1 source file to /home/kama/ws-git/maui/examples/it-test-example-1/target/classes
+[INFO]
+[INFO] --- build-helper-maven-plugin:1.5:add-test-source (add-test-source) @ it-test-example-1 ---
+[INFO] Test Source directory: /home/kama/ws-git/maui/examples/it-test-example-1/src/it/java added.
+[INFO]
+[INFO] --- maven-resources-plugin:2.4.3:testResources (default-testResources) @ it-test-example-1 ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/kama/ws-git/maui/examples/it-test-example-1/src/test/resources
+[INFO]
+[INFO] --- maven-compiler-plugin:2.3.2:testCompile (default-testCompile) @ it-test-example-1 ---
+[INFO] Compiling 2 source files to /home/kama/ws-git/maui/examples/it-test-example-1/target/test-classes
+[INFO]
+[INFO] --- maven-surefire-plugin:2.7.2:test (default-test) @ it-test-example-1 ---
+[INFO] Surefire report directory: /home/kama/ws-git/maui/examples/it-test-example-1/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running com.soebes.training.maven.simple.BitMaskTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.084 sec
+
+Results :
+
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO]
+[INFO] --- maven-jar-plugin:2.3.1:jar (default-jar) @ it-test-example-1 ---
+[INFO] Building jar: /home/kama/ws-git/maui/examples/it-test-example-1/target/it-test-example-1-0.1.0-SNAPSHOT.jar
+[INFO]
+[INFO] --- maven-failsafe-plugin:2.8:integration-test (integration-test) @ it-test-example-1 ---
+[INFO] Failsafe report directory: /home/kama/ws-git/maui/examples/it-test-example-1/target/failsafe-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running com.soebes.training.maven.simple.BitMaskIT
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.095 sec
+
+Results :
+
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO]
+[INFO] --- maven-failsafe-plugin:2.8:verify (verify) @ it-test-example-1 ---
+[INFO] Failsafe report directory: /home/kama/ws-git/maui/examples/it-test-example-1/target/failsafe-reports
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 6.338s
+[INFO] Finished at: Sat Apr 02 16:02:57 CEST 2011
+[INFO] Final Memory: 11M/148M
+[INFO] ------------------------------------------------------------------------
++--------
+
+  []
+
