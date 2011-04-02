@@ -20,12 +20,18 @@ import java.util.List;
 import java.util.Set;
 
 import org.apache.maven.artifact.Artifact;
+import org.apache.maven.artifact.metadata.ArtifactMetadataSource;
 import org.apache.maven.artifact.repository.ArtifactRepository;
+import org.apache.maven.artifact.resolver.ArtifactNotFoundException;
+import org.apache.maven.artifact.resolver.ArtifactResolutionException;
+import org.apache.maven.artifact.resolver.ArtifactResolutionResult;
+import org.apache.maven.artifact.resolver.ArtifactResolver;
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.project.MavenProject;
 import org.apache.maven.project.MavenProjectBuilder;
 import org.apache.maven.project.ProjectBuildingException;
+import org.apache.maven.project.artifact.InvalidDependencyVersionException;
 
 
 /**
@@ -58,6 +64,11 @@ public class IntegrationTestMojo
     private MavenProjectBuilder projectBuilder;
 
     /**
+     * @component
+     */
+    private ArtifactResolver resolver;
+
+    /**
      * Location of the local repository.
      *
      * @parameter default-value="${localRepository}"
@@ -65,6 +76,14 @@ public class IntegrationTestMojo
      * @since 1.0
      */
     private ArtifactRepository localRepository;
+
+    /**
+     * @component
+     */
+    private ArtifactMetadataSource artifactMetadataSource;
+
+    /** @component */
+    private org.apache.maven.artifact.factory.ArtifactFactory artifactFactory;
 
     /**
      * List of Remote Repositories used by the resolver
@@ -86,60 +105,112 @@ public class IntegrationTestMojo
     public void execute()
         throws MojoExecutionException
     {
+        getLog().info("printOutArtifacts()");
         printOutArtifacts();
+        getLog().info("printOutDependencies()");
         printOutDependencies();
     }
 
     private void printOutArtifacts() throws MojoExecutionException {
         Set<?> depArtifacts = this.project.getDependencyArtifacts();
-//      project.getDependencies();
-//      project.getDependencyArtifacts();
+        // project.getDependencies();
+        // project.getDependencyArtifacts();
 
-      if (depArtifacts.isEmpty()) {
-          getLog().info("We haven't found any dependencyArtifacts().");
-          return;
-      }
+        if (depArtifacts.isEmpty()) {
+            getLog().info("We haven't found any dependencyArtifacts().");
+            return;
+        }
 
-      for (Iterator<?> depArtIter = depArtifacts.iterator(); depArtIter.hasNext(); ) {
-          Artifact depArt = (Artifact) depArtIter.next();
+        for (Iterator<?> depArtIter = depArtifacts.iterator(); depArtIter.hasNext();) {
+            Artifact depArt = (Artifact) depArtIter.next();
 
-          MavenProject depProject = null;
-          try
-          {
-             depProject = projectBuilder.buildFromRepository(depArt, remoteRepositories, localRepository, true);
-          }
-          catch (ProjectBuildingException e)
-          {
-             throw new MojoExecutionException( "Unable to build project: " + depArt.getDependencyConflictId(), e );
-          }
+            MavenProject depProject = null;
+            try {
+                depProject = projectBuilder.buildFromRepository(depArt,
+                        remoteRepositories, localRepository, true);
 
-          getLog().info("Dependency: " + depProject.getId());
-      }
+                Set<?> artifacts = project.createArtifacts(artifactFactory, null, null);
+                if ((artifacts == null) || (artifacts.size() == 0)) {
+                    continue;
+                }
+                // ArtifactFilter filter = ...
+                ArtifactResolutionResult arr = resolver.resolveTransitively(artifacts, depArt, localRepository, remoteRepositories, artifactMetadataSource, null);
+                if (arr.getArtifacts().size() == 0) {
+                    continue;
+                }
+
+                for (Iterator<?> artifactIter = arr.getArtifacts().iterator(); artifactIter.hasNext(); ) {
+                    Artifact item = (Artifact) artifactIter.next();
+                    getLog().info("->" + item.getId());
+                }
+
+            } catch (ProjectBuildingException e) {
+                throw new MojoExecutionException("Unable to build project: "
+                        + depArt.getDependencyConflictId(), e);
+            } catch (ArtifactResolutionException e) {
+                throw new MojoExecutionException("Unable to build project: "
+                        + depArt.getDependencyConflictId(), e);
+            } catch (ArtifactNotFoundException e) {
+                throw new MojoExecutionException("Unable to build project: "
+                        + depArt.getDependencyConflictId(), e);
+            } catch (InvalidDependencyVersionException e) {
+                throw new MojoExecutionException("Unable to build project: "
+                        + depArt.getDependencyConflictId(), e);
+            }
+
+            getLog().info("Dependency: " + depProject.getId());
+        }
     }
 
     private void printOutDependencies() throws MojoExecutionException {
         Set<?> depArtifacts = this.project.getArtifacts();
 
-      if (depArtifacts.isEmpty()) {
-          getLog().info("We haven't found any getArtifacts().");
-          return;
-      }
+        if (depArtifacts.isEmpty()) {
+            getLog().info("We haven't found any getArtifacts().");
+            return;
+        }
 
-      for (Iterator<?> depArtIter = depArtifacts.iterator(); depArtIter.hasNext(); ) {
-          Artifact depArt = (Artifact) depArtIter.next();
+        for (Iterator<?> depArtIter = depArtifacts.iterator(); depArtIter
+                .hasNext();) {
+            Artifact depArt = (Artifact) depArtIter.next();
 
-          MavenProject depProject = null;
-          try
-          {
-             depProject = projectBuilder.buildFromRepository(depArt, remoteRepositories, localRepository, true);
-          }
-          catch (ProjectBuildingException e)
-          {
-             throw new MojoExecutionException( "Unable to build project: " + depArt.getDependencyConflictId(), e );
-          }
+            MavenProject depProject = null;
+            try {
+                depProject = projectBuilder.buildFromRepository(depArt,
+                        remoteRepositories, localRepository, true);
+                Set<?> artifacts = project.createArtifacts(artifactFactory,
+                        null, null);
+                if ((artifacts == null) || (artifacts.size() == 0)) {
+                    continue;
+                }
 
-          getLog().info("Dependency: " + depProject.getId());
-      }
+                // ArtifactFilter filter = ...
+                ArtifactResolutionResult arr = resolver.resolveTransitively(
+                        artifacts, depArt, localRepository, remoteRepositories,
+                        artifactMetadataSource, null);
+                if (arr.getArtifacts().size() == 0) {
+                    continue;
+                }
+                for (Iterator<?> artifactIter = arr.getArtifacts().iterator(); artifactIter.hasNext();) {
+                    Artifact item = (Artifact) artifactIter.next();
+                    getLog().info("->" + item.getId());
+                }
+            } catch (ProjectBuildingException e) {
+                throw new MojoExecutionException("Unable to build project: "
+                        + depArt.getDependencyConflictId(), e);
+            } catch (InvalidDependencyVersionException e) {
+                throw new MojoExecutionException("Unable to build project: "
+                        + depArt.getDependencyConflictId(), e);
+            } catch (ArtifactResolutionException e) {
+                throw new MojoExecutionException("Unable to build project: "
+                        + depArt.getDependencyConflictId(), e);
+            } catch (ArtifactNotFoundException e) {
+                throw new MojoExecutionException("Unable to build project: "
+                        + depArt.getDependencyConflictId(), e);
+            }
+
+            getLog().info("Dependency: " + depProject.getId());
+        }
     }
 
     public void setVerbose(boolean verbose) {
