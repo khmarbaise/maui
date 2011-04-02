@@ -42,10 +42,13 @@
             <exclude>src/main/resources/**</exclude>
             <exclude>src/test/resources/**</exclude>
             <exclude>target/**</exclude>
+            <!-- Currently i have to exclude the following files, based on this issue: 
+                 http://code.google.com/p/maven-license-plugin/issues/detail?id=89 -->
+            <exclude>src/**/*.apt.vm</exclude>
           </excludes>
           <mapping>
             <g>DOUBLESLASH_STYLE</g>
-            <apt.vm>DOUBLETILDE_STYLE</apt.vm> <!--  This does currently not work! -->
+            <apt.vm>DOUBLETILDE_STYLE</apt.vm> <!--  This does currently not work! see above issue! -->
             <apt>DOUBLETILDE_STYLE</apt>
           </mapping>
           <properties>
