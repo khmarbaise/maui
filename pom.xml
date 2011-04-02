@@ -21,7 +21,8 @@
   <description>Maven Unit and Integration Test Guide (MaUI Test Guide)</description>
 
   <properties>
-    <surefire.version>2.8</surefire.version>
+    <surefireVersion>2.8</surefireVersion>
+    <failsafeVersion>2.8</failsafeVersion>
   </properties>
 
   <build>
@@ -42,7 +43,7 @@
             <exclude>src/main/resources/**</exclude>
             <exclude>src/test/resources/**</exclude>
             <exclude>target/**</exclude>
-            <!-- Currently i have to exclude the following files, based on this issue: 
+            <!-- Currently i have to exclude the following files, based on this issue:
                  http://code.google.com/p/maven-license-plugin/issues/detail?id=89 -->
             <exclude>src/**/*.apt.vm</exclude>
           </excludes>

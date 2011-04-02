@@ -26,7 +26,7 @@
   xmlns="http://maven.apache.org/DECORATION/1.0.0"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/DECORATION/1.0.0 http://maven.apache.org/xsd/decoration-1.0.0.xsd"
-  name="Maven Unit Integration Test Guide">
+  name="Maven Unit and Integration Test Guide">
 
   <body>
 
@@ -35,11 +35,12 @@
       </menu>
       <menu name="Unit Tests">
         <item name="Overview" href="overview-unit-test.html"/>
-        <item name="Unit Test Example" href="unit-test-example.html"/>
+        <item name="Unit Test Example" href="ut-example.html"/>
       </menu>
       <menu name="Integration Tests">
         <item name="Overview" href="overview-integration-test.html"/>
-        <item name="Integration Test Example" href="integration-test-example.html"/>
+        <item name="Basic Example" href="it-example.html"/>
+        <item name="Different Source Location" href="it-example-1.html"/>
       </menu>
       <menu ref="reports" />
   </body>

@@ -51,9 +51,9 @@ Integration Testing with Maven
 
   * In Module Integration Test Examples
 
-    * {{{./integration-test-example.html}Integration test example}}
+    * {{{./it-example.html}Integration test example}}
 
-    * {{{./integration-test-example-1.html}Different location of the integration test classes.}}
+    * {{{./it-example-1.html}Different location of the integration test classes.}}
 
   * Simple integration test example (CLI Example in module)
 

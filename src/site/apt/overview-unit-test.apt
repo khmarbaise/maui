@@ -42,7 +42,7 @@ Unit Testing with Maven
 
 * First simple example
 
-  The first {{{./unit-test-example.html}unit test example}}  will show you a simple project with unit tests and
+  The first {{{./ut-example.html}unit test example}}  will show you a simple project with unit tests and
   how a execution will look like.
 
 

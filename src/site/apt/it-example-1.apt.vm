@@ -29,7 +29,7 @@
 
 In Module Integration Test Example with different source location
 
-  In the {{{./integration-test-example.html}previous example}} we had
+  In the {{{./it-example.html}previous example}} we had
   located the integration test classes into the same folder as the
   unit tests. Sometimes this might not represent your wishes. If you
   like you can put the integration test sources into a different folder
