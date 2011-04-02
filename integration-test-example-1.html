@@ -131,19 +131,10 @@
         &lt;/executions&gt;
       &lt;/plugin&gt;
       [...]
-    &lt;/plugins&gt;
   &lt;/build&gt;
-  &lt;dependencies&gt;
-    &lt;dependency&gt;
-      &lt;groupId&gt;junit&lt;/groupId&gt;
-      &lt;artifactId&gt;junit&lt;/artifactId&gt;
-      &lt;version&gt;4.8.1&lt;/version&gt;
-      &lt;scope&gt;test&lt;/scope&gt;
-    &lt;/dependency&gt;
-  &lt;/dependencies&gt;
-
+  [...]
 &lt;/project&gt;
-</pre></div><p>Tip:</p><p>If you like to add the new sources folder automatically to your Eclipse configuration you need to change the phase from <tt>generate-test-resources</tt> into <tt>process-resources</tt>. The result of this change is that you will see the <tt>src/it/java</tt> folder as source folder within in Eclipse after an <i>Update Maven Configuration</i> as any other sources folder.</p><p>The execution will be exactly the same as in the previous example. This can be achieved by <tt>mvn clean verify</tt>.</p><div class="source"><pre>[INFO] Scanning for projects...
+</pre></div><p>Tip:</p><p>If you like to add the new source folder automatically to your Eclipse configuration you need to change the phase from <tt>generate-test-resources</tt> into <tt>process-resources</tt>. The result of this change is that you will see the <tt>src/it/java</tt> folder as source folder within in Eclipse after an <i>Update Project Configuration</i> as any other source folders.</p><p>The execution will be exactly the same as in the previous example. This can be achieved by <tt>mvn clean verify</tt>.</p><div class="source"><pre>[INFO] Scanning for projects...
 [INFO]
 [INFO] ------------------------------------------------------------------------
 [INFO] Building MaUI Test Guide :: Integration Test Example 1 0.1.0-SNAPSHOT
