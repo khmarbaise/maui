@@ -40,14 +40,16 @@ Integration Testing with Maven
   In this guide we suggest to put them into the same directory structure
   like the unit tests which means in other words <<<src/test/java>>> and
   make them distinguishable by the
-  {{{http://maven.apache.org/plugins/maven-failsafe-plugin/integration-test-mojo.html#includes}naming conventions}}.
+  {{{http://maven.apache.org/plugins/maven-failsafe-plugin/integration-test-mojo.html#includes}naming conventions}},
+  but in future Maven releases this might be changed.
 
 ~~ Integration Tests have a more comprehensive character than unit tests.
 
   The execution of integration tests is handled by the
   {{{http://maven.apache.org/plugins/maven-failsafe-plugin/}Maven Failsafe Plugin}}.
 
-  * {{{./integration-test-example.html}in module integration test example}}
+
+  * {{{./integration-test-example.html}<In Module> Integration test example}}
 
   * Simple integration test example (CLI Example in module)
 

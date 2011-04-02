@@ -34,11 +34,11 @@
         <item name="Introduction" href="index.html"/>
       </menu>
       <menu name="Unit Tests">
-        <item name="Overview Unit Tests" href="overview-unit-test.html"/>
+        <item name="Overview" href="overview-unit-test.html"/>
         <item name="Unit Test Example" href="unit-test-example.html"/>
       </menu>
       <menu name="Integration Tests">
-        <item name="Overview Integration Tests" href="overview-integration-test.html"/>
+        <item name="Overview" href="overview-integration-test.html"/>
         <item name="Integration Test Example" href="integration-test-example.html"/>
       </menu>
       <menu ref="reports" />

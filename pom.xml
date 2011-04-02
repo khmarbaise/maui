@@ -24,6 +24,46 @@
     <surefire.version>2.8</surefire.version>
   </properties>
 
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>com.mycila.maven-license-plugin</groupId>
+        <artifactId>maven-license-plugin</artifactId>
+        <version>${maven-license-plugin.version}</version>
+        <configuration>
+          <header>src/main/etc/header.txt</header>
+          <quiet>false</quiet>
+          <aggregate>true</aggregate>
+          <failIfMissing>false</failIfMissing>
+          <includes>
+            <include>src/**</include>
+          </includes>
+          <excludes>
+            <exclude>src/main/resources/**</exclude>
+            <exclude>src/test/resources/**</exclude>
+            <exclude>target/**</exclude>
+          </excludes>
+          <mapping>
+            <g>DOUBLESLASH_STYLE</g>
+            <apt.vm>DOUBLETILDE_STYLE</apt.vm> <!--  This does currently not work! -->
+            <apt>DOUBLETILDE_STYLE</apt>
+          </mapping>
+          <properties>
+            <year>2011</year>
+            <email>maui@soebes.de</email>
+          </properties>
+        </configuration>
+        <executions>
+          <execution>
+            <goals>
+              <goal>check</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+
   <scm>
     <developerConnection>scm:git:git@github.com:khmarbaise/maui.git</developerConnection>
     <connection>scm:git:git://github.com/khmarbaise/maui.git</connection>

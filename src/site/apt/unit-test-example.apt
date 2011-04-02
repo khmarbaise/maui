@@ -58,9 +58,14 @@ Unit Test Example
                                 `-- BitMaskTest.java
 +--------
 
-  For the sake of clarity the <<<pom.xml>>> excerpt contains only the relevant things. If you don't
-  know what a scope and/or a dependency is, i recommend to take a look into the documentation about
+  For the sake of clarity the <<<pom.xml>>> excerpt contains only the
+  relevant things. If you don't know what a scope and/or a dependency
+  is, i recommend to take a look into the documentation about
   {{{http://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html}dependency mechanism in Maven}}.
+
+  In this case we use {{{http://www.junit.org}JUnit}} for writing the unit test.
+  This will work as well with {{{http://www.testng.org}TestNG}} if you prefer
+  TestNG over JUnit.
 
 +--------
 <project ...>
@@ -78,8 +83,9 @@ Unit Test Example
 </project>
 +--------
 
-  If you like to execute the unit tests of the project, which can simply be achieved by calling <<<mvn package>>>
-  you will get a result like the following:
+  If you like to execute the unit tests of the project, which can simply be
+  achieved by calling <<<mvn package>>>, you will get a result like the
+  following:
 
 +--------
 [INFO] Scanning for projects...
