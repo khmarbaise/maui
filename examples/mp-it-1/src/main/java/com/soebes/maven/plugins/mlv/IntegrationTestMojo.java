@@ -31,11 +31,8 @@ import org.apache.maven.settings.Settings;
  * @phase prepare-package
  * @author Karl Heinz Marbaise
  */
-public class IntegrationTestMojo
-    extends AbstractMojo
+public class IntegrationTestMojo extends AbstractMojo
 {
-
-
     /**
      * The Maven Project Object
      *
