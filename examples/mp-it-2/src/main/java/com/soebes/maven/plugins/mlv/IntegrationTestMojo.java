@@ -21,6 +21,7 @@ import org.apache.maven.artifact.repository.ArtifactRepository;
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.project.MavenProject;
+import org.apache.maven.project.MavenProjectBuilder;
 import org.apache.maven.settings.Settings;
 
 
@@ -40,6 +41,13 @@ public class IntegrationTestMojo extends AbstractMojo
      * @since 1.0
      */
     private MavenProject project;
+
+    /**
+     * Used to build a maven projects from artifacts in the remote repository.
+     *
+     * @component
+     */
+    private MavenProjectBuilder projectBuilder;
 
     /**
      * @parameter default-value="${localRepository}"
