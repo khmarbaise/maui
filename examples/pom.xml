@@ -15,5 +15,6 @@
     <module>ut-example</module>
     <module>it-example</module>
     <module>it-example-1</module>
+    <module>mp-it-1</module>
   </modules>
 </project>
