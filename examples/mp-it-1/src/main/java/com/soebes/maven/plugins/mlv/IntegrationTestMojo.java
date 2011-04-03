@@ -15,23 +15,14 @@
  */
 package com.soebes.maven.plugins.mlv;
 
-import java.util.Iterator;
 import java.util.List;
-import java.util.Set;
 
-import org.apache.maven.artifact.Artifact;
-import org.apache.maven.artifact.metadata.ArtifactMetadataSource;
 import org.apache.maven.artifact.repository.ArtifactRepository;
-import org.apache.maven.artifact.resolver.ArtifactNotFoundException;
-import org.apache.maven.artifact.resolver.ArtifactResolutionException;
-import org.apache.maven.artifact.resolver.ArtifactResolutionResult;
-import org.apache.maven.artifact.resolver.ArtifactResolver;
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.project.MavenProject;
 import org.apache.maven.project.MavenProjectBuilder;
-import org.apache.maven.project.ProjectBuildingException;
-import org.apache.maven.project.artifact.InvalidDependencyVersionException;
+import org.apache.maven.settings.Settings;
 
 
 /**
@@ -57,33 +48,14 @@ public class IntegrationTestMojo
     /**
      * Used to build a maven projects from artifacts in the remote repository.
      *
-     * @component role="org.apache.maven.project.MavenProjectBuilder"
-     * @readonly
-     * @since 1.0
+     * @component
      */
     private MavenProjectBuilder projectBuilder;
 
     /**
-     * @component
-     */
-    private ArtifactResolver resolver;
-
-    /**
-     * Location of the local repository.
-     *
      * @parameter default-value="${localRepository}"
-     * @readonly
-     * @since 1.0
      */
     private ArtifactRepository localRepository;
-
-    /**
-     * @component
-     */
-    private ArtifactMetadataSource artifactMetadataSource;
-
-    /** @component */
-    private org.apache.maven.artifact.factory.ArtifactFactory artifactFactory;
 
     /**
      * List of Remote Repositories used by the resolver
@@ -93,6 +65,11 @@ public class IntegrationTestMojo
      * @since 1.0
      */
     private List<ArtifactRepository> remoteRepositories;
+
+    /**
+     * @parameter default-value="${settings}"
+     */
+    private Settings settings;
 
     /**
      * This will turn on verbose behavior and will print out
@@ -105,111 +82,37 @@ public class IntegrationTestMojo
     public void execute()
         throws MojoExecutionException
     {
-        getLog().info("printOutArtifacts()");
-        printOutArtifacts();
-        getLog().info("printOutDependencies()");
-        printOutDependencies();
-    }
-
-    private void printOutArtifacts() throws MojoExecutionException {
-        Set<?> depArtifacts = this.project.getDependencyArtifacts();
-        // project.getDependencies();
-        // project.getDependencyArtifacts();
-
-        if (depArtifacts.isEmpty()) {
-            getLog().info("We haven't found any dependencyArtifacts().");
-            return;
+        if (isVerbose()) {
+            getLog().info("This is an output in verbose mode");
         }
 
-        for (Iterator<?> depArtIter = depArtifacts.iterator(); depArtIter.hasNext();) {
-            Artifact depArt = (Artifact) depArtIter.next();
+        getLog().info("groupId:" + project.getGroupId());
+        getLog().info("artifactId:" + project.getArtifactId());
+        getLog().info("artifactId:" + project.getVersion());
 
-            MavenProject depProject = null;
-            try {
-                depProject = projectBuilder.buildFromRepository(depArt,
-                        remoteRepositories, localRepository, true);
+        getLog().info("name:" + project.getName());
+        getLog().info("description:" + project.getDescription());
+        getLog().info("file: " + project.getFile());
 
-                Set<?> artifacts = project.createArtifacts(artifactFactory, null, null);
-                if ((artifacts == null) || (artifacts.size() == 0)) {
-                    continue;
-                }
-                // ArtifactFilter filter = ...
-                ArtifactResolutionResult arr = resolver.resolveTransitively(artifacts, depArt, localRepository, remoteRepositories, artifactMetadataSource, null);
-                if (arr.getArtifacts().size() == 0) {
-                    continue;
-                }
+        getLog().info("Active profiles:");
+        for (String profile : settings.getActiveProfiles()) {
+            getLog().info("profile: " + profile);
+        }
 
-                for (Iterator<?> artifactIter = arr.getArtifacts().iterator(); artifactIter.hasNext(); ) {
-                    Artifact item = (Artifact) artifactIter.next();
-                    getLog().info("->" + item.getId());
-                }
+        if (isVerbose()) {
+            getLog().info("-- Local Repository --");
+            getLog().info("Id:" + localRepository.getId());
+            getLog().info("baseDir:" + localRepository.getBasedir());
+            getLog().info("key:" + localRepository.getKey());
+            getLog().info("Url:" + localRepository.getUrl());
 
-            } catch (ProjectBuildingException e) {
-                throw new MojoExecutionException("Unable to build project: "
-                        + depArt.getDependencyConflictId(), e);
-            } catch (ArtifactResolutionException e) {
-                throw new MojoExecutionException("Unable to build project: "
-                        + depArt.getDependencyConflictId(), e);
-            } catch (ArtifactNotFoundException e) {
-                throw new MojoExecutionException("Unable to build project: "
-                        + depArt.getDependencyConflictId(), e);
-            } catch (InvalidDependencyVersionException e) {
-                throw new MojoExecutionException("Unable to build project: "
-                        + depArt.getDependencyConflictId(), e);
+            getLog().info("-- Remote Repositories --");
+            for (ArtifactRepository ar : remoteRepositories) {
+                getLog().info("Id:" + ar.getId());
+                getLog().info("baseDir:" + ar.getBasedir());
+                getLog().info("key:" + ar.getKey());
+                getLog().info("Url:" + ar.getUrl());
             }
-
-            getLog().info("Dependency: " + depProject.getId());
-        }
-    }
-
-    private void printOutDependencies() throws MojoExecutionException {
-        Set<?> depArtifacts = this.project.getArtifacts();
-
-        if (depArtifacts.isEmpty()) {
-            getLog().info("We haven't found any getArtifacts().");
-            return;
-        }
-
-        for (Iterator<?> depArtIter = depArtifacts.iterator(); depArtIter
-                .hasNext();) {
-            Artifact depArt = (Artifact) depArtIter.next();
-
-            MavenProject depProject = null;
-            try {
-                depProject = projectBuilder.buildFromRepository(depArt,
-                        remoteRepositories, localRepository, true);
-                Set<?> artifacts = project.createArtifacts(artifactFactory,
-                        null, null);
-                if ((artifacts == null) || (artifacts.size() == 0)) {
-                    continue;
-                }
-
-                // ArtifactFilter filter = ...
-                ArtifactResolutionResult arr = resolver.resolveTransitively(
-                        artifacts, depArt, localRepository, remoteRepositories,
-                        artifactMetadataSource, null);
-                if (arr.getArtifacts().size() == 0) {
-                    continue;
-                }
-                for (Iterator<?> artifactIter = arr.getArtifacts().iterator(); artifactIter.hasNext();) {
-                    Artifact item = (Artifact) artifactIter.next();
-                    getLog().info("->" + item.getId());
-                }
-            } catch (ProjectBuildingException e) {
-                throw new MojoExecutionException("Unable to build project: "
-                        + depArt.getDependencyConflictId(), e);
-            } catch (InvalidDependencyVersionException e) {
-                throw new MojoExecutionException("Unable to build project: "
-                        + depArt.getDependencyConflictId(), e);
-            } catch (ArtifactResolutionException e) {
-                throw new MojoExecutionException("Unable to build project: "
-                        + depArt.getDependencyConflictId(), e);
-            } catch (ArtifactNotFoundException e) {
-                throw new MojoExecutionException("Unable to build project: "
-                        + depArt.getDependencyConflictId(), e);
-            }
-
-            getLog().info("Dependency: " + depProject.getId());
         }
     }
 

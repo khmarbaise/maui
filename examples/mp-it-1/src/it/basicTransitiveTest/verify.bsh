@@ -10,12 +10,24 @@ if ( !file.exists() )
 }
 
 String[] checkedLines = {
-    "[INFO] --- maven-license-verifier:",
-    "[WARNING] ]UNKNOWN[ (compile) The artifact log4j:log4j:jar:1.2.12 has a license which is categorized as unknown",
+    "[INFO] --- mp-it-1:0.1-SNAPSHOT:verify (default) @ mp-it1-basicTransitiveTest ---",
+    "[INFO] groupId:com.soebes.maven.plugins",
+    "[INFO] artifactId:mp-it1-basicTransitiveTest",
+    "[INFO] artifactId:1.0-SNAPSHOT",
+    "[INFO] name:MP-IT-1 BasicTransitiveTest",
+    "[INFO] description:null",
+    "[INFO] Active profiles:",
+    "[WARNING] JAR will be empty - no content was marked for inclusion!",
     "[INFO] BUILD SUCCESS",
 };
 
 Boolean[] checked = {
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
     false,
     false,
     false,
