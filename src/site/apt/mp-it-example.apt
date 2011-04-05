@@ -36,12 +36,12 @@ Maven Plugin Integration Test Example
   So the question is now: How to test this Plugin? Of course we can do
   an <<<mvn install>>> an run every time we change something but this
   is very time consuming and error prone so we prefer to do
-  an automatic integration tests which can be achieved by using
+  an automatic integration tests which can be achieved by using the
   {{{http://maven.apache.org/plugins/maven-invoker-plugin/}Maven Invoker Plugin}}.
 
-  The Maven Invoker Plugin will setup an complete environment which
-  contains a local Maven repository and the execution of the integration
-  tests as well.
+  The {{{http://maven.apache.org/plugins/maven-invoker-plugin/}Maven Invoker Plugin}}
+  will setup an complete environment which contains a local Maven repository
+  and will do the execution of the integration tests as well.
 
   We have to change our project layout and add a first integration test
   of which results into the following structure:
@@ -73,16 +73,6 @@ Maven Plugin Integration Test Example
 +--------
 <project...>
   [...]
-  <dependencies>
-    [...]
-    <dependency>
-      <groupId>org.apache.maven.plugins</groupId>
-      <artifactId>maven-invoker-plugin</artifactId>
-      <version>1.5</version>
-    </dependency>
-    [...]
-  </dependencies>
-
   <!-- Profile definition for running integration-test running the integration
     tests with the following command line: mvn -Prun-its integration-test -->
   <profiles>
@@ -130,14 +120,71 @@ Maven Plugin Integration Test Example
 
 +--------
 
-  During the integration test the
-  {{{http://maven.apache.org/plugins/maven-invoker-plugin/}Maven Invoker Plugin}}
-  will copy all contents from the <basicTest> area to a location under
-  the <<<target>>> folder. The
-  {{{http://maven.apache.org/plugins/maven-invoker-plugin/examples/filtering.html}Maven Invoker Plugin is able to filter all files}}
-  which are located under <src/it> and copy the filtered results into
-  <target/it> folder as the preparation to run the integration tests.
+~~ Give here some examples where to find the "Best Practice" ?
 
+  First i have to mention that the configuration for the
+  {{{http://maven.apache.org/plugins/maven-invoker-plugin/}Maven Invoker Plugin}}
+  is put into a profile which must be activated manually.
+  The reason is that many plugins do it that way. You can 
+  call it "Best Practice", but i'm not sure if it is. 
+  I would recommend to put into a real configuration without
+  a profile. The disadvantage of such a setup is that
+  the integration tests will run during the release process.
+
+  Before the integration tests starts the 
+  {{{http://maven.apache.org/plugins/maven-invoker-plugin/}Maven Invoker Plugin}}
+  will copy all contents from the <<<src/it/basicTest>>> area to a location under
+  the <<<target/it/>>> folder which is controlled by the
+  <cloneProjectsTo>. Furthermore is the
+  {{{http://maven.apache.org/plugins/maven-invoker-plugin/examples/filtering.html}Maven Invoker Plugin able to filter all files}}
+  which are located under <<<src/it>>> and copied to the <<<target/it>>> location.
+
+~~ Insert pom.xml from it/basicTest here.
+
+  During the run of the integration tests the Maven Invoker Plugin
+  will create a local repository controlled by <localRepositoryPath>.
+  It's intention is not to pollute the users local repository <<<.m2/repository>>>
+  with artifacts which came from the integration tests.
+
+  To get the setup work it's needed to have a <<<settings.xml>>> file which
+  has a special configuration. This is achieved by the <settingsFile>
+  configuration. 
+
++-------
+<settings>
+  <profiles>
+    <profile>
+      <id>it-repo</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <repositories>
+        <repository>
+          <id>local.central</id>
+          <url>@localRepositoryUrl@</url>
+          <releases>
+            <enabled>true</enabled>
+          </releases>
+          <snapshots>
+            <enabled>true</enabled>
+          </snapshots>
+        </repository>
+      </repositories>
+      <pluginRepositories>
+        <pluginRepository>
+          <id>local.central</id>
+          <url>@localRepositoryUrl@</url>
+          <releases>
+            <enabled>true</enabled>
+          </releases>
+          <snapshots>
+            <enabled>true</enabled>
+          </snapshots>
+        </pluginRepository>
+      </pluginRepositories>
+    </profile>
+  </profiles>
+</settings>
++-------
 
   []
-

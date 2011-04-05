@@ -142,7 +142,7 @@ public class IntegrationTestMojo extends AbstractMojo
   The mojo will be executed and will printout some information about the current
   project in this case the groupId, artifactId etc.
 
-  The pom.xml for the Maven plugin looks like this. The excerpt contains only
+  The pom.xml for the Maven plugin looks like this. This excerpt contains only
   the relevant parts.
 
 +--------

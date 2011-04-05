@@ -41,9 +41,11 @@
         <item name="Overview" href="overview-integration-test.html"/>
         <item name="Basic Example" href="it-example.html"/>
         <item name="Different Source Location" href="it-example-1.html"/>
+        <item name="Container Example" href="it-example-contain.html"/>
       </menu>
       <menu name="Maven Plugin Integration Tests">
         <item name="Overview" href="overview-mp-it.html"/>
+        <item name="Basic Source Example" href="mp-it-source-example.html"/>
         <item name="Basic Example" href="mp-it-example.html"/>
       </menu>
       <menu ref="reports" />
