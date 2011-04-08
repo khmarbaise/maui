@@ -1,0 +1,62 @@
+import java.io.*;
+import java.util.*;
+
+
+// First we check if the resulted build.log output exists.
+File file = new File( basedir, "build.log" );
+if ( !file.exists() )
+{
+    throw new FileNotFoundException( "Could not find the build.log file.: " + file );
+}
+
+String[] checkedLines = {
+    "[INFO] groupId:com.soebes.maven.plugins",
+    "[INFO] artifactId:mp-it1-basicTest",
+    "[INFO] artifactId:1.0-SNAPSHOT",
+    "[INFO] name:MP-IT-1 BasicTest",
+    "[INFO] description:null",
+
+    "[INFO] Active profiles:",
+    "[INFO] --- mp-it-1:0.1-SNAPSHOT:verify (default) @ mp-it1-basicTest ---",
+    "[INFO] BUILD SUCCESS",
+};
+
+Boolean[] checked = {
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+};
+
+//
+// Check if we find the following lines in the log file...
+try {
+        BufferedReader in = new BufferedReader(new FileReader(file));
+        String str;
+        while ((str = in.readLine()) != null) {
+            for(int i=0; i<checkedLines.length; i++) {
+                if (str.startsWith(checkedLines[i])) {
+                    checked[i] = true;
+                }
+            }
+        }
+        in.close();
+} catch (IOException e) {
+    throw e;
+}
+
+// Check to see if every line has occured in the log file.
+// if only one will not appear we will broke the integration test.
+boolean result = true;
+for(int i=0; i<checkedLines.length; i++) {
+    if (checked[i] == false) {
+        System.out.println("Unexpected content: " + checkedLines[i]);
+        result = false;
+    }
+}
+
+return result;

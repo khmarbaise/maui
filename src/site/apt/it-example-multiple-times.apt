@@ -20,27 +20,24 @@
 ~~ limitations under the License.
 
  ------
- Explanation
+ Running Integration Tests multiple Times
  ------
  Karl Heinz Marbaise
  ------
- 1. April 2011
+ 8. April 2011
  ------
 
-Explanation
+Running Integration Tests Multiple Times.
 
-* In Module / Separate Module for Integration Test
+  In rare cases you may need to run you integration tests multiple times with
+  different parameters.
+  This can be achieved by using the <<<executions>>> sections in the pom.xml and
+  configure the Maven Failsafe Plugin appropriately.
+  
+  An example for such scenario could be if you are testing a DAO backend which is
+  done with MySQL but you want to test with Oracle as well.
 
-  We distinguish between a so called <in Module> integration tests and <separated module> integration tests.
-  The <in module> means to have the integration tests within the same module which contains the unit tests and
-  your production code <<<src/main/java>>>.
-  This approach is usually used if you have a single module.
-
-
-* Unit Tests
-
-  Using classes from an other module within the current unit tests.
-  Execution of unit tests within a test-jar.jar file (currently not supported by surefire plugin).
+  continue...
 
   []
 

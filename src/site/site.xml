@@ -42,6 +42,7 @@
         <item name="Basic Example" href="it-example.html"/>
         <item name="Different Source Location" href="it-example-1.html"/>
         <item name="Container Example" href="it-example-container.html"/>
+        <item name="Running multiple times" href="it-example-multiple-times.html"/>
       </menu>
       <menu name="Maven Plugin Integration Tests">
         <item name="Overview" href="overview-mp-it.html"/>
