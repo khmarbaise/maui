@@ -25,6 +25,9 @@
     <failsafeVersion>2.8</failsafeVersion>
   </properties>
 
+  <modules>
+    <module>examples</module>
+  </modules>
   <build>
     <plugins>
       <plugin>

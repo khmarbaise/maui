@@ -8,13 +8,30 @@
   <groupId>com.soebes.maven.guide</groupId>
   <artifactId>maui-examples-aggregator</artifactId>
   <version>0.1-SNAPSHOT</version>
-  <packaging>pom</packaging>
+  <packaging>jar</packaging>
   <name>MaUI Test Guide :: Example Aggregator</name>
 
-  <modules>
-    <module>ut-example</module>
-    <module>it-example</module>
-    <module>it-example-1</module>
-    <module>mp-it-1</module>
-  </modules>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <version>2.2</version>
+        <configuration>
+          <descriptorRefs>
+            <descriptorRef>src</descriptorRef>
+          </descriptorRefs>
+        </configuration>
+        <executions>
+          <execution>
+            <id>make-assembly</id>
+            <phase>package</phase>
+            <goals>
+              <goal>single</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
 </project>

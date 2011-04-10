@@ -20,32 +20,27 @@
 ~~ limitations under the License.
 
  ------
- Explanation
+ Unit Tests which were used by many modules
  ------
  Karl Heinz Marbaise
  ------
  1. April 2011
  ------
 
-Explanation
+Unit Tests which were used by many modules
 
-* In Module / Separate Module for Integration Test
 
-  We distinguish between a so called <in Module> integration tests and <separated module> integration tests.
-  The <in module> means to have the integration tests within the same module which contains the unit tests and
-  your production code <<<src/main/java>>>. This approach is usually used if you have only a single module.
++--------
 
-  The other approach is to have at least two modules ...
-  The assumption is to have structure like the following:
+  +-- root
+  +-- interface
+  +-- implementation-a
+  +-- implementation-b
+  +-- tests
 
-+-----
++--------
 
-+-----
 
-* Unit Tests
-
-  Using classes from an other module within the current unit tests.
-  Execution of unit tests within a test-jar.jar file (currently not supported by surefire plugin).
 
   []
 

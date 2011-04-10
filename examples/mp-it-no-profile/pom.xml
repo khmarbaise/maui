@@ -6,10 +6,10 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.soebes.training.module</groupId>
-  <artifactId>mp-it-1</artifactId>
+  <artifactId>mp-it-no-profile</artifactId>
   <packaging>maven-plugin</packaging>
   <version>0.1-SNAPSHOT</version>
-  <name>Maven Plugin Integration Test</name>
+  <name>Maven Plugin Integration Test without profile</name>
 
   <inceptionYear>2011</inceptionYear>
   <description>Maven Plugin Integration Test</description>
