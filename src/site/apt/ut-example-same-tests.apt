@@ -29,9 +29,13 @@
 
 Unit Tests which are used by many modules
 
-  A typical situation where you might be coming to the point to
-  say i need my unit tests in different modules. 
-  A project like the following is not unusual.
+  A typical situation where you might think that you
+  need a unit test package which contains your unit tests
+  could be a project structure like the following where
+  you have a interface and multiple implementations of that
+  interface.
+  You wan't to avoid to copy&amp;paste your unit
+  tests to every implementation module.
 
 +--------
 
@@ -42,6 +46,10 @@ Unit Tests which are used by many modules
   +-- tests
 +--------
 
+  Usually the name interface is replaced by <<<api>>>
+  in cases.
+
+  
 
 
   []
