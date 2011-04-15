@@ -5,11 +5,13 @@
 
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.soebes.training.module</groupId>
-  <artifactId>unit-test-example</artifactId>
+  <groupId>com.soebes.training.module.ut.mu</groupId>
+  <artifactId>parent</artifactId>
   <version>0.1.0-SNAPSHOT</version>
 
-  <name>MaUI Test Guide :: Unit Test Example</name>
+  <packaging>pom</packaging>
+
+  <name>MaUI Test Guide :: UT Example - Parent</name>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -17,11 +19,25 @@
   </properties>
 
   <build>
-   <plugins>
+   <pluginManagement>
+     <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>2.3.1</version>
+      </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
         <version>2.3.2</version>
+      </plugin>
+     </plugins>
+   </pluginManagement>
+
+   <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
         <configuration>
           <source>1.6</source>
           <target>1.6</target>
@@ -29,14 +45,31 @@
       </plugin>
     </plugins>
   </build>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>4.8.1</version>
+        <scope>test</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+  
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>4.8.1</version>
       <scope>test</scope>
     </dependency>
   </dependencies>
 
+  <modules>
+    <module>interface</module>
+    <module>impl-a</module>
+    <module>impl-b</module>
+    <module>test</module>
+  </modules>
 </project>
 

@@ -27,17 +27,19 @@
  1. April 2011
  ------
 
-Unit Tests which were used by many modules
+Unit Tests which are used by many modules
 
+  A typical situation where you might be coming to the point to
+  say i need my unit tests in different modules. 
+  A project like the following is not unusual.
 
 +--------
 
-  +-- root
++-- root
   +-- interface
-  +-- implementation-a
-  +-- implementation-b
+  +-- impl-a
+  +-- impl-b
   +-- tests
-
 +--------
 
 
