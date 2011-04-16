@@ -33,19 +33,15 @@ Unit Test Multiple Usage
   which you would like to reuse in different projects of your own.
 
 +--------
-+-- pom.xml
---- m1
---- m2
---- test
-
+  pom.xml
+  m1
+  m2
+  test
 +--------
 
 
 +--------
 <project ...>
-  [...]
-  [...]
-  </dependencies>
   [...]
 </project>
 +--------

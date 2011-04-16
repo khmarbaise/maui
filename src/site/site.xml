@@ -36,6 +36,7 @@
       <menu name="Unit Tests">
         <item name="Overview" href="overview-unit-test.html"/>
         <item name="Example" href="ut-example.html"/>
+        <item name="Interface" href="ut-example-interface.html"/>
         <item name="Multiple Usage" href="ut-example-mu.html"/>
       </menu>
       <menu name="Integration Tests">
