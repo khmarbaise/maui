@@ -27,10 +27,27 @@
  16. April 2011
  ------
 
-Unit Test Multiple Usage
+Multiple Usage of Test Classes
 
-  If you have a larger project it happens that you have test classes or helper classes
+  If you have larger projects it happens that you have test classes or helper classes
   which you would like to reuse in different projects of your own.
+
+  Let us take a look at the following projects <<<m1>>>, <<<m2>>> and <<<test>>>.
+  The projects m1 and m2 are created within your company but otherwise they are unrelated.
+  So there some basic setup's for you projects which are always the same. So you decided
+  to put them into a separated module <<<test>>>, but now the problem occurs that you
+  like to access those classes from the other moduls.
+
++--------
+  m1
+  m2
+  test (common unit test helper)
++--------
+
+
+
+
+  In a multi-module build you can reuse unit test class in the same way.
 
 +--------
   pom.xml
