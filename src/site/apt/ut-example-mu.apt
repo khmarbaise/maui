@@ -20,32 +20,35 @@
 ~~ limitations under the License.
 
  ------
- Unit Test Interfaces
+ Unit Test Multiple Usage
  ------
  Karl Heinz Marbaise
  ------
- 1. April 2011
+ 16. April 2011
  ------
 
-How to unit test Interfaces
+Unit Test Multiple Usage
 
-  A typical situation within a project is that you
-  created an interface and have a number of implementations
-  of this interface and following upon that you have a
-  structure like as follows:
+  If you have a larger project it happens that you have test classes or helper classes
+  which you would like to reuse in different projects of your own.
+
++--------
++-- pom.xml
+--- m1
+--- m2
+--- test
 
 +--------
 
-    root
-  \-- interface
-  \-- impl-a
-  \-- impl-b
-+--------
 
-  So the question in this case is: How to test the implementations?
-  You could write unit tests in both modules <<<impl-a>>> and <<<impl-b>>>
-  which means in other words to copy&amp;paste the unit tests but
-  this is error prone and of course not effective.
++--------
+<project ...>
+  [...]
+  [...]
+  </dependencies>
+  [...]
+</project>
++--------
 
 
   []

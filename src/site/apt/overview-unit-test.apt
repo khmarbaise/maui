@@ -45,6 +45,10 @@ Unit Testing with Maven
   The first {{{./ut-example.html}unit test example}}  will show you a simple project with unit tests and
   how a execution will look like.
 
+  The other examples like the {{{./ut-example-mu.html}unit test multiple usage}} shows how to reuse a classes which
+  are defined in src/test/java area.
+
+
 
   []
 
