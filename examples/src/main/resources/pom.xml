@@ -11,32 +11,6 @@
   <packaging>pom</packaging>
   <name>MaUI Test Guide :: Example Aggregator</name>
 
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-assembly-plugin</artifactId>
-        <version>2.2</version>
-        <configuration>
-          <descriptors>
-            <descriptor>${basedir}/src.xml</descriptor>
-          </descriptors>
-        <tarLongFileMode>gnu</tarLongFileMode>
-        </configuration>
-        <executions>
-          <execution>
-            <id>make-assembly</id>
-            <phase>package</phase>
-            <goals>
-              <goal>single</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-    </plugins>
-  </build>
-
-<!--
   <modules>
     <module>ut-example</module>
     <module>ut-example-interface</module>
@@ -48,5 +22,4 @@
     <module>mp-it-ex</module>
     <module>mp-it-no-profile</module>
   </modules>
--->
 </project>
