@@ -31,22 +31,142 @@ How to unit test Interfaces
 
   A typical situation within a project is that you
   created an interface and have a number of implementations
-  of this interface and following upon that you have a
-  structure like as follows:
+  of the particular interface. Daraus folgert folgende structure ...
 
 +--------
-
-    root
-  \-- interface
-  \-- impl-a
-  \-- impl-b
+.
+|-- interface-impl-a
+|   |-- pom.xml
+|   ...
+|-- interface-impl-b
+|   |-- pom.xml
+|   ...
+|-- interface-interface
+|   |-- pom.xml
+|   ...
+|-- interface-test
+|   |-- pom.xml
+|   ...
+`-- pom.xml
 +--------
 
   So the question in this case is: How to test the implementations?
-  You could write unit tests in both modules <<<impl-a>>> and <<<impl-b>>>
-  which means in other words to copy&amp;paste the unit tests but
-  this is error prone and of course not effective.
+  You could write unit tests in both modules <<<interface-impl-a>>>
+  and <<<interface-impl-b>>> which means in other words to copy&amp;paste
+  the unit test code but this is error prone and of course not effective.
 
+  This means we want to define the test code implementation only once which
+  will be done in the <<<interface-test>>> module as an abstract class
+  which results into the following code:
+
++----------
+public abstract class ImplementationUnitTest {
+
+    protected static IFunction function;
+
+    @Test
+    public void firstTest() {
+        assertTrue(function.function("function1"));
+    }
+
+    @Test
+    public void secondTest() {
+        assertFalse(function.function("function"));
+    }
+}
++----------
+
+  Based on that we can now implement the unit test for
+  implementation-a like this:
+
++----------
+public class ImplementationAUnitTest extends ImplementationUnitTest {
+  @BeforeClass
+  public static void beforeClass() {
+    function = new ImplementationA();
+  }
+}
++----------
+
+  And for implementation-b like this:
+
++----------
+public class ImplementationBUnitTest extends ImplementationUnitTest {
+  @BeforeClass
+  public static void beforeClass() {
+    function = new ImplementationB();
+  }
+}
++----------
+
+  The only thing we need to implement is the initialization
+  code to create an instance of the particular class.
+
++----------
+.
+|-- interface-impl-a
+|   |-- pom.xml
+|   `-- src
+|       |-- main
+|       |   `-- java
+|       |       `-- com
+|       |           `-- soebes
+|       |               `-- training
+|       |                   `-- module
+|       |                       `-- ut
+|       |                           `-- ImplementationA.java
+|       `-- test
+|           `-- java
+|               `-- com
+|                   `-- soebes
+|                       `-- training
+|                           `-- module
+|                               `-- ut
+|                                   `-- ImplementationAUnitTest.java
+|-- interface-impl-b
+|   |-- pom.xml
+|   `-- src
+|       |-- main
+|       |   `-- java
+|       |       `-- com
+|       |           `-- soebes
+|       |               `-- training
+|       |                   `-- module
+|       |                       `-- ut
+|       |                           `-- ImplementationB.java
+|       `-- test
+|           `-- java
+|               `-- com
+|                   `-- soebes
+|                       `-- training
+|                           `-- module
+|                               `-- ut
+|                                   `-- ImplementationBUnitTest.java
+|-- interface-interface
+|   |-- pom.xml
+|   `-- src
+|       `-- main
+|           `-- java
+|               `-- com
+|                   `-- soebes
+|                       `-- training
+|                           `-- module
+|                               `-- ut
+|                                   `-- IFunction.java
+|-- interface-test
+|   |-- pom.xml
+|   `-- src
+|       |-- main
+|       `-- test
+|           `-- java
+|               `-- com
+|                   `-- soebes
+|                       `-- training
+|                           `-- module
+|                               `-- ut
+|                                   `-- ImplementationUnitTest.java
+`-- pom.xml
++----------
 
   []
 
