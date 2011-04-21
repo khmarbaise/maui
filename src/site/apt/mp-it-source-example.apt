@@ -27,7 +27,9 @@
  3. April 2011
  ------
 
-Maven Plugin Integration Test Code Example
+Maven Plugin Development
+
+* Integration Test Code Example
 
   In this example we will implement a very simple Maven Plugin which will
   printout some information about the current project. This results

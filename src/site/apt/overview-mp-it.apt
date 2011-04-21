@@ -27,9 +27,11 @@
  1. April 2011
  ------
 
-Maven Plugin Integration Testing
+Maven Plugin Development
 
-* Overview
+* Integration Testing
+
+** Overview
 
   This chapter is made for people who are developing
   {{{http://maven.apache.org/plugin-developers/index.html}Maven Plugins}}

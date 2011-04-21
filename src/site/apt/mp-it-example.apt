@@ -27,14 +27,16 @@
  3. April 2011
  ------
 
-Maven Plugin Integration Test Example
+Maven Plugin Development
+
+* Integration Test Example
 
   In this example we will
   {{{./mp-it-source-example.html}implement a very simple Maven Plugin}}
   which will printout some information about the current project.
 
   So the question is now: How to test this Plugin? Of course we can do
-  an <<<mvn install>>> an run every time we change something but this
+  a <<<mvn install>>> an run every time we change something but this
   is very time consuming and error prone so we prefer to do
   an automatic integration tests which can be achieved by using the
   {{{http://maven.apache.org/plugins/maven-invoker-plugin/}Maven Invoker Plugin}}.
