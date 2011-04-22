@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>Maven Unit and Integration Test Guide - Issue Tracking</title>
+    <title>Maven Unit and Integration Test Guide - Reactor Dependency Convergence</title>
     <style type="text/css" media="all">
       @import url("./css/maven-base.css");
       @import url("./css/maven-theme.css");
@@ -110,14 +110,14 @@
                           <a href="dependencies.html" title="Dependencies">Dependencies</a>
             </li>
                       <li class="none">
-                          <a href="dependency-convergence.html" title="Dependency Convergence">Dependency Convergence</a>
-            </li>
+            <strong>Dependency Convergence</strong>
+          </li>
                       <li class="none">
                           <a href="distribution-management.html" title="Distribution Management">Distribution Management</a>
             </li>
                       <li class="none">
-            <strong>Issue Tracking</strong>
-          </li>
+                          <a href="issue-tracking.html" title="Issue Tracking">Issue Tracking</a>
+            </li>
                       <li class="none">
                           <a href="mail-lists.html" title="Mailing Lists">Mailing Lists</a>
             </li>
@@ -154,7 +154,11 @@
     </div>
     <div id="bodyColumn">
       <div id="contentBox">
-        <div class="section"><h2>Overview<a name="Overview"></a></h2><a name="Overview"></a><p>This project uses default to manage its issues.</p></div><div class="section"><h2>Issue Tracking<a name="Issue_Tracking"></a></h2><a name="Issue_Tracking"></a><p>Issues, bugs, and feature requests should be submitted to the following issue tracking system for this project.</p><div class="source"><pre><a class="externalLink" href="https://github.com/khmarbaise/maui/issues">https://github.com/khmarbaise/maui/issues</a></pre></div></div>
+        <div class="section"><h2>Reactor Dependency Convergence<a name="Reactor_Dependency_Convergence"></a></h2><table border="0" class="bodyTable"><caption>
+  <b>Legend:</b>
+</caption><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td><td>All projects share one version of the dependency.</td></tr><tr class="b"><td><img alt="error" src="images/icon_error_sml.gif" /></td><td>At least one project has a differing version of the dependency.</td></tr></table><br /><table border="0" class="bodyTable"><caption>
+  <b>Statistics:</b>
+</caption><tr class="a"><th>Number of sub-projects:</th><td>2</td></tr><tr class="b"><th>Number of dependencies (NOD):</th><td>0</td></tr><tr class="a"><th>Number of unique artifacts (NOA):</th><td>0</td></tr><tr class="b"><th>Number of SNAPSHOT artifacts (NOS):</th><td>0</td></tr><tr class="a"><th>Convergence (NOD/NOA):</th><td><img alt="error" src="images/icon_error_sml.gif" />&#160;<b>0%</b></td></tr><tr class="b"><th>Ready for Release (100% Convergence and no SNAPSHOTS):</th><td><img alt="error" src="images/icon_error_sml.gif" />&#160;<b>Error</b><br />You do not have 100% convergence.</td></tr></table></div><div class="section"><h3>Dependencies used in sub-projects<a name="Dependencies_used_in_sub-projects"></a></h3></div>
       </div>
     </div>
     <div class="clear">
