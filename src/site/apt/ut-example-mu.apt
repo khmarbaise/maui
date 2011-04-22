@@ -1,5 +1,5 @@
 ~~
-~~ The Maven Unit Integration Test Guide (MaUI for short)
+~~ The Maven Unit- and Integration Test Guide (MaUI for short)
 ~~
 ~~ Copyright (c) 2011 by SoftwareEntwicklung Beratung Schulung (SoEBeS)
 ~~ Copyright (c) 2011 by Karl Heinz Marbaise
@@ -18,6 +18,7 @@
 ~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 ~~ See the License for the specific language governing permissions and
 ~~ limitations under the License.
+~~
 
  ------
  Unit Test Multiple Usage

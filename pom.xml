@@ -33,7 +33,6 @@
       <plugin>
         <groupId>com.mycila.maven-license-plugin</groupId>
         <artifactId>maven-license-plugin</artifactId>
-        <version>${maven-license-plugin.version}</version>
         <configuration>
           <header>src/main/etc/header.txt</header>
           <quiet>false</quiet>
@@ -41,12 +40,13 @@
           <failIfMissing>false</failIfMissing>
           <includes>
             <include>src/**</include>
+            <include>src/site/**</include>
           </includes>
           <excludes>
             <exclude>src/main/resources/**</exclude>
             <exclude>src/test/resources/**</exclude>
             <exclude>target/**</exclude>
-            <!-- Currently i have to exclude the following files, based on 
+            <!-- Currently i have to exclude the following files, based on
               this issue: http://code.google.com/p/maven-license-plugin/issues/detail?id=89 -->
             <exclude>src/**/*.apt.vm</exclude>
           </excludes>
@@ -54,6 +54,7 @@
             <g>DOUBLESLASH_STYLE</g>
             <apt.vm>DOUBLETILDE_STYLE</apt.vm> <!-- This does currently not work! see above issue! -->
             <apt>DOUBLETILDE_STYLE</apt>
+            <xml>XML_STYLE</xml>
           </mapping>
           <properties>
             <year>2011</year>

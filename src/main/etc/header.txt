@@ -1,4 +1,4 @@
-The Maven Unit Integration Test Guide (MaUI for short)
+The Maven Unit- and Integration Test Guide (MaUI for short)
 
 Copyright (c) ${year} by SoftwareEntwicklung Beratung Schulung (SoEBeS)
 Copyright (c) ${year} by Karl Heinz Marbaise
