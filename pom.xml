@@ -152,7 +152,7 @@
         </snapshotRepository>
         <site>
             <id>maui-project-site</id>
-            <url>gitsite:git@github.com/khmarbaise/mauil.git</url>
+            <url>gitsite:git@github.com/khmarbaise/maui.git</url>
         </site>
     </distributionManagement>
 </project>
