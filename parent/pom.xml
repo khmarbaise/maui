@@ -52,18 +52,18 @@
   </properties>
 
   <distributionManagement>
-    <repository>
-      <id>ossrh-staging</id>
-      <url>http://oss.sonatype.org/service/local/staging/deploy/maven2</url>
-    </repository>
-    <snapshotRepository>
-      <id>ossrh-snapshots</id>
-      <url>http://oss.sonatype.org/content/repositories/snapshots</url>
-    </snapshotRepository>
-    <site>
-      <id>site.supose.org</id>
-      <url>scp://minden205.server4you.de:/usr/local/vhosts/site.supose.org/${project.groupId}/${project.artifactId}/${project.version}/</url>
-    </site>
+      <repository>
+          <id>ossrh-staging</id>
+          <url>http://oss.sonatype.org/service/local/staging/deploy/maven2</url>
+      </repository>
+      <snapshotRepository>
+          <id>ossrh-snapshots</id>
+          <url>http://oss.sonatype.org/content/repositories/snapshots</url>
+      </snapshotRepository>
+      <site>
+          <id>maui-project-site</id>
+          <url>gitsite:git@github.com/khmarbaise/maui.git</url>
+      </site>
   </distributionManagement>
 
   <build>
@@ -96,6 +96,24 @@
         </plugin>
       </plugins>
     </pluginManagement>
+    <extensions>
+      <extension>
+        <groupId>org.apache.maven.scm</groupId>
+        <artifactId>maven-scm-provider-gitexe</artifactId>
+        <version>1.5</version>
+      </extension>
+      <extension>
+        <groupId>org.apache.maven.scm</groupId>
+        <artifactId>maven-scm-manager-plexus</artifactId>
+        <version>1.5</version>
+      </extension>
+      <extension>
+        <groupId>org.kathrynhuxtable.maven.wagon</groupId>
+        <artifactId>wagon-gitsite</artifactId>
+        <version>0.3.1</version>
+      </extension>
+    </extensions>
+
   </build>
 
   <reporting>

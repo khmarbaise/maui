@@ -28,25 +28,8 @@
   <modules>
     <module>examples</module>
   </modules>
-  <build>
-    <extensions>
-      <extension>
-        <groupId>org.apache.maven.scm</groupId>
-        <artifactId>maven-scm-provider-gitexe</artifactId>
-        <version>1.5</version>
-      </extension>
-      <extension>
-        <groupId>org.apache.maven.scm</groupId>
-        <artifactId>maven-scm-manager-plexus</artifactId>
-        <version>1.5</version>
-      </extension>
-      <extension>
-        <groupId>org.kathrynhuxtable.maven.wagon</groupId>
-        <artifactId>wagon-gitsite</artifactId>
-        <version>0.3.1</version>
-      </extension>
-    </extensions>
 
+  <build>
     <plugins>
       <plugin>
         <groupId>com.mycila.maven-license-plugin</groupId>
@@ -132,11 +115,6 @@
           </execution>
         </executions>
       </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-site-plugin</artifactId>
-        <version>2.2</version>
-      </plugin>
     </plugins>
   </build>
 
@@ -146,18 +124,4 @@
     <url>https://github.com/khmarbaise/maui</url>
   </scm>
 
-    <distributionManagement>
-        <repository>
-            <id>ossrh-staging</id>
-            <url>http://oss.sonatype.org/service/local/staging/deploy/maven2</url>
-        </repository>
-        <snapshotRepository>
-            <id>ossrh-snapshots</id>
-            <url>http://oss.sonatype.org/content/repositories/snapshots</url>
-        </snapshotRepository>
-        <site>
-            <id>maui-project-site</id>
-            <url>gitsite:git@github.com/khmarbaise/maui.git</url>
-        </site>
-    </distributionManagement>
 </project>

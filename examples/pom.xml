@@ -4,7 +4,13 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
   <modelVersion>4.0.0</modelVersion>
-
+<!--
+  <parent>
+    <groupId>com.soebes.maven.guide</groupId>
+    <artifactId>maui</artifactId>
+    <version>0.1-SNAPSHOT</version>
+  </parent>
+-->
   <groupId>com.soebes.maven.guide</groupId>
   <artifactId>maui-examples</artifactId>
   <version>0.1-SNAPSHOT</version>
@@ -36,17 +42,4 @@
     </plugins>
   </build>
 
-<!--
-  <modules>
-    <module>ut-example</module>
-    <module>ut-example-interface</module>
-    <module>ut-example-mu</module>
-    <module>it-example</module>
-    <module>it-example-1</module>
-    <module>mp-it-1</module>
-    <module>mp-it-2</module>
-    <module>mp-it-ex</module>
-    <module>mp-it-no-profile</module>
-  </modules>
--->
 </project>
