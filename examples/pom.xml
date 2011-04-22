@@ -6,10 +6,10 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.soebes.maven.guide</groupId>
-  <artifactId>maui-examples-aggregator</artifactId>
+  <artifactId>maui-examples</artifactId>
   <version>0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
-  <name>MaUI Test Guide :: Example Aggregator</name>
+  <name>MaUI Test Guide :: Examples</name>
 
   <build>
     <plugins>

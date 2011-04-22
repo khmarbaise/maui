@@ -46,13 +46,13 @@
             <exclude>src/main/resources/**</exclude>
             <exclude>src/test/resources/**</exclude>
             <exclude>target/**</exclude>
-            <!-- Currently i have to exclude the following files, based on this issue:
-                 http://code.google.com/p/maven-license-plugin/issues/detail?id=89 -->
+            <!-- Currently i have to exclude the following files, based on 
+              this issue: http://code.google.com/p/maven-license-plugin/issues/detail?id=89 -->
             <exclude>src/**/*.apt.vm</exclude>
           </excludes>
           <mapping>
             <g>DOUBLESLASH_STYLE</g>
-            <apt.vm>DOUBLETILDE_STYLE</apt.vm> <!--  This does currently not work! see above issue! -->
+            <apt.vm>DOUBLETILDE_STYLE</apt.vm> <!-- This does currently not work! see above issue! -->
             <apt>DOUBLETILDE_STYLE</apt>
           </mapping>
           <properties>
@@ -65,6 +65,51 @@
             <goals>
               <goal>check</goal>
             </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <version>2.2</version>
+        <executions>
+          <execution>
+            <id>copy</id>
+            <phase>site</phase>
+            <goals>
+              <goal>copy</goal>
+            </goals>
+            <configuration>
+              <artifactItems>
+                <artifactItem>
+                  <groupId>com.soebes.maven.guide</groupId>
+                  <artifactId>maui-examples</artifactId>
+                  <version>${project.version}</version>
+                  <classifier>src</classifier>
+                  <type>tar.gz</type>
+                  <overWrite>true</overWrite>
+                  <outputDirectory>${project.build.directory}/site/</outputDirectory>
+                </artifactItem>
+                <artifactItem>
+                  <groupId>com.soebes.maven.guide</groupId>
+                  <artifactId>maui-examples</artifactId>
+                  <version>${project.version}</version>
+                  <classifier>src</classifier>
+                  <type>tar.bz2</type>
+                  <overWrite>true</overWrite>
+                  <outputDirectory>${project.build.directory}/site/</outputDirectory>
+                </artifactItem>
+                <artifactItem>
+                  <groupId>com.soebes.maven.guide</groupId>
+                  <artifactId>maui-examples</artifactId>
+                  <version>${project.version}</version>
+                  <classifier>src</classifier>
+                  <type>zip</type>
+                  <overWrite>true</overWrite>
+                  <outputDirectory>${project.build.directory}/site/</outputDirectory>
+                </artifactItem>
+              </artifactItems>
+            </configuration>
           </execution>
         </executions>
       </plugin>
