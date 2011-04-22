@@ -35,7 +35,8 @@ Explanation
   The <in module> means to have the integration tests within the same module which contains the unit tests and
   your production code <<<src/main/java>>>. This approach is usually used if you have only a single module.
 
-  The other approach is to have at least two modules ...
+  The other approach is to have at least two modules plus a parent module which will work as the reactor for the
+  projects.
   The assumption is to have structure like the following:
 
 +-----

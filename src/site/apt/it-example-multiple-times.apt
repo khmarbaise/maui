@@ -32,8 +32,9 @@ Running Integration Tests Multiple Times.
   In rare cases you may need to run you integration tests multiple times with
   different parameters.
   This can be achieved by using the <<<executions>>> sections in the pom.xml and
-  configure the Maven Failsafe Plugin appropriately.
-  
+  configure the {{{http://maven.apache.org/plugins/maven-failsafe-plugin/}Maven Failsafe Plugin}}
+  appropriately.
+
   An example for such scenario could be if you are testing a DAO backend which is
   done with MySQL but you want to test with Oracle as well.
 
