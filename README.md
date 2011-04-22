@@ -35,3 +35,13 @@ TODOs
    - Integration test examples
      - for example with Maven Invoker Plugin
 
+Prefixes
+--------
+
+  - Prefixes of the projects:
+
+  mp - Maven Plugin
+  ut - Unit Test
+  it - Integration Test
+
+  mp-it-... - Maven Plugin - Integration Test

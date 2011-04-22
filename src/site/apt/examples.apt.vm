@@ -33,11 +33,11 @@ Examples
   explain the usage of a build tool without examples based on that all shown examples
   can be downloaded from this page. Use the following links:
 
-  * {{{./maui-examples-${project.version}-src.tar.gz}Examples as tar.gz archive}}
+  * {{{./maui-${project.version}-src.tar.gz}Examples as tar.gz archive}}
 
-  * {{{./maui-examples-${project.version}-src.tar.bz2}Examples as tar.bz2 archive}}
+  * {{{./maui-${project.version}-src.tar.bz2}Examples as tar.bz2 archive}}
 
-  * {{{./maui-examples-${project.version}-src.zip}Examples as zip archive}}
+  * {{{./maui-${project.version}-src.zip}Examples as zip archive}}
 
   []
 #

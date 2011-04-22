@@ -9,12 +9,10 @@
     <groupId>com.soebes.maven.guide</groupId>
     <artifactId>parent</artifactId>
     <version>0.1-SNAPSHOT</version>
-    <relativePath>./parent/pom.xml</relativePath>
+    <relativePath>parent/pom.xml</relativePath>
   </parent>
 
-  <groupId>com.soebes.maven.guide</groupId>
   <artifactId>maui</artifactId>
-  <version>0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <name>MaUI Test Guide</name>
@@ -25,9 +23,9 @@
     <failsafeVersion>2.8</failsafeVersion>
   </properties>
 
-  <modules>
-    <module>examples</module>
-  </modules>
+<!--  <modules>-->
+<!--    <module>examples</module>-->
+<!--  </modules>-->
 
   <build>
     <plugins>
@@ -70,6 +68,28 @@
           </execution>
         </executions>
       </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <version>2.2</version>
+        <configuration>
+          <descriptors>
+            <descriptor>${basedir}/src.xml</descriptor>
+          </descriptors>
+        <tarLongFileMode>gnu</tarLongFileMode>
+        </configuration>
+        <executions>
+          <execution>
+            <id>make-assembly</id>
+            <phase>pre-site</phase>
+            <goals>
+              <goal>single</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-dependency-plugin</artifactId>
@@ -85,7 +105,7 @@
               <artifactItems>
                 <artifactItem>
                   <groupId>com.soebes.maven.guide</groupId>
-                  <artifactId>maui-examples</artifactId>
+                  <artifactId>maui</artifactId>
                   <version>${project.version}</version>
                   <classifier>src</classifier>
                   <type>tar.gz</type>
@@ -94,7 +114,7 @@
                 </artifactItem>
                 <artifactItem>
                   <groupId>com.soebes.maven.guide</groupId>
-                  <artifactId>maui-examples</artifactId>
+                  <artifactId>maui</artifactId>
                   <version>${project.version}</version>
                   <classifier>src</classifier>
                   <type>tar.bz2</type>
@@ -103,7 +123,7 @@
                 </artifactItem>
                 <artifactItem>
                   <groupId>com.soebes.maven.guide</groupId>
-                  <artifactId>maui-examples</artifactId>
+                  <artifactId>maui</artifactId>
                   <version>${project.version}</version>
                   <classifier>src</classifier>
                   <type>zip</type>
