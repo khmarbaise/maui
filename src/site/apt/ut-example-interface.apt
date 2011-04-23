@@ -28,7 +28,7 @@
  1. April 2011
  ------
 
-How to unit test Interfaces
+How to Unit Test Interfaces
 
   A typical situation within a project is that you created an interface and
   have a number of implementations. Concluding the former idea the structure

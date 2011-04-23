@@ -36,7 +36,7 @@ Running Integration Tests Multiple Times.
   configure the {{{http://maven.apache.org/plugins/maven-failsafe-plugin/}Maven Failsafe Plugin}}
   appropriately.
 
-  An example for such scenario could be if you are testing a DAO backend which is
+  An example for such scenario could be if you are testing a DAO back-end which is
   done with MySQL but you want to test with Oracle as well.
 
   continue...
