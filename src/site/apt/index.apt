@@ -31,18 +31,18 @@
 Overview
 
   This is the <The Maven Unit and Integration Test Guide> (MaUI Test Guide) which
-  describes the different options how to do unit- and integration testing with 
+  describes the different options how to do unit- and integration testing with
   {{{http://maven.apache.org}Maven}} in different situations. For example if
   you are writing a Maven Plugin or just developing different other modules.
 
-  This is no plugin or development project is is just a guide how to unit 
+  This is no plugin or development project is is just a guide how to unit
   and or integration tests in relationship with {{{http://maven.apache.org}Maven}}.
 
 * Prerequisites
 
-  This guides requires that you already know Maven and it's
+  This guides requires that you already familiar with Maven and it's
   {{{http://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html}life-cycles}}
-  etc. It will not explain how to configure a Maven Plugin etc.
+  etc. It will not explain how to configure a Maven Plugin or how to run a plugin etc.
 
   If you don't know {{{http://maven.apache.org}Maven}} or it's basic usage i recommend you to read
   {{{http://www.sonatype.com/books/mvnref-book/reference/public-book.html}Maven: The Complete Reference}}
@@ -64,6 +64,6 @@ Overview
   This guide is separated into three chapters where the first is about
   {{{./overview-unit-test.html}Unit Testing with Maven}}, the second about
   {{{./overview-integration-test.html}Integration Testing with Maven}} and
-  the last one is {{{./overview-mp-it.html}Maven Plugin Integration Testing}}.
+  the last one is about {{{./overview-mp-it.html}Maven Plugin Integration Testing}}.
 
   []
