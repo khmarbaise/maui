@@ -30,6 +30,7 @@
 
 How to do Integration Test with Interfaces
 
+  This is a starting point.
   Based on the earlier examples (...unit test interfaces)..
   A typical situation within a project is that you created an interface and
   have a number of implementations. Concluding the former idea the structure
