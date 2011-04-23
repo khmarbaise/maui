@@ -32,7 +32,6 @@
     <body>
         <release version="0.1.0 First" date="2011-04-22" description="First Release">
           <action dev="Karl Heinz Marbaise" type="update">
-          This is the first entry.
           </action>
         </release>
     </body>
