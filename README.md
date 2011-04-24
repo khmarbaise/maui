@@ -20,6 +20,17 @@ Name
 ----
  - MaUI Test Guide
 
+Roadmap
+-------
+ - Unit Testing with Maven
+   - maven-surefire-plugin
+
+ - Integration Testing with Maven
+   - maven-failsafe-plugin
+
+ - Integration Testing in Maven Plugin Development
+   - maven-invoker-plugin
+
 Status
 ------
  - First description about unit test and integration test done.
@@ -35,8 +46,8 @@ TODOs
    - Integration test examples
      - for example with Maven Invoker Plugin
 
-Prefixes
---------
+Naming Convention for the examples
+----------------------------------
 
   - Prefixes of the projects:
 
@@ -44,4 +55,7 @@ Prefixes
   ut - Unit Test
   it - Integration Test
 
+  ut-       - Unit Test
+  it-       - Integration Tests
   mp-it-... - Maven Plugin - Integration Test
+
