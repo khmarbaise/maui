@@ -43,7 +43,6 @@ Overview
   This guides requires that you already familiar with Maven and it's
   {{{http://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html}life-cycles}}
   etc. It will not explain how to configure a Maven Plugin or how to run a plugin etc.
-
   If you don't know {{{http://maven.apache.org}Maven}} or it's basic usage i recommend you to read
   {{{http://www.sonatype.com/books/mvnref-book/reference/public-book.html}Maven: The Complete Reference}}
   or
