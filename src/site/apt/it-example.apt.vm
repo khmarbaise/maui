@@ -34,10 +34,11 @@ In Module Integration Test Example
   which are defined by the {{{http://maven.apache.org/plugins/maven-failsafe-plugin/}Maven Failsafe Plugin}}.
 
   We have now changed the contents of {{{./ut-example.html}our simple unit test project}} and added a supplemental
-  class <<<BitMaskIT.java>>> which obviously is the integration test and follows the above naming conventions.
+  class <<<BitMaskIT.java>>> which obviously is the integration test and
+  ollows the above naming conventions.
 
-  In this case we have put the integration test in parallel to the usual unit test class. This is usually only
-  reasonable if you have a single module.
+  In this case we have put the integration test in parallel to the usual
+  unit test class. This is usually only reasonable if you have a single module.
 
 +--------
 .

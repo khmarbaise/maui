@@ -8,19 +8,18 @@
   <section id="it-overview">
     <title>Overview</title>
 
+
     <para>
       This is the <literal>The Maven Unit and Integration Test Guide</literal>
       (MaUI Test Guide) which describes the different options how to do unit-
-      and integration testing with
+      and integration testing with <ulink url="http://maven.apache.org">Maven</ulink>
+      in different situations. For example if you are writing a Maven Plugin
+      or just developing different other modules.
 
-      <ulink url="http://maven.apache.org">Maven</ulink>
-      in different situations. For example if you are writing a Maven
-      Plugin or just developing different other modules.</para>
-
-    <para>
-      This is no plugin or development project is is just a guide how to
-      unit and or integration tests in relationship with
-      <ulink url="http://maven.apache.org">Maven</ulink>.</para>
+      This is no plugin or development project is is just a guide how to unit
+      and or integration tests in relationship with
+      <ulink url="http://maven.apache.org">Maven</ulink>.
+    </para>
 
     <section>
       <title>Prerequisites</title>

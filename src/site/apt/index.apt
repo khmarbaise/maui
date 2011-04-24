@@ -42,8 +42,9 @@ Overview
 
   This guides requires that you already familiar with Maven and it's
   {{{http://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html}life-cycles}}
-  etc. It will not explain how to configure a Maven Plugin or how to run a plugin etc.
-  If you don't know {{{http://maven.apache.org}Maven}} or it's basic usage i recommend you to read
+  etc. It will not explain how to configure a Maven Plugin or how to run a
+  plugin etc. If you don't know {{{http://maven.apache.org}Maven}} or it's
+  basic usage i recommend you to read
   {{{http://www.sonatype.com/books/mvnref-book/reference/public-book.html}Maven: The Complete Reference}}
   or
   {{{http://www.sonatype.com/books/mvnex-book/reference/public-book.html}Maven by Example}} or
@@ -51,12 +52,15 @@ Overview
 
 * Definition of Terms
 
-  We distinguish between a so called <in Module> integration tests and a <separated module> integration tests.
-  The <in module> means to have the integration tests within the same module which contains the unit tests and
-  your production code <<<src/main/java>>>. This approach is usually used if you have only a single module.
+  We distinguish between a so called <in Module> integration tests and a
+  <separated module> integration tests. The <in module> means to have the
+  integration tests within the same module which contains the unit tests
+  and your production code <<<src/main/java>>>. This approach is usually
+  used if you have only a single module.
 
-  The <separated module> integration is mostly used if you have already a multiple module build. The result will
-  be to have a supplemental module which contains the integration tests only.
+  The <separated module> integration is mostly used if you have already a
+  multiple module build. The result will be to have a supplemental module
+  which contains the integration tests only.
 
 * Overview
 
