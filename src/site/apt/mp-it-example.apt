@@ -57,7 +57,6 @@ Maven Plugin Development
     |   |-- basicTest
     |   |   |-- invoker.properties
     |   |   |-- pom.xml
-    |   |   |-- src
     |   |   `-- verify.bsh
     |   `-- settings.xml
     `-- main
@@ -65,9 +64,10 @@ Maven Plugin Development
             `-- com
                 `-- soebes
                     `-- maven
-                        `-- plugins
-                            `-- mlv
-                                `-- IntegrationTestMojo.java
+                        `-- guide
+                            `-- mp
+                                `-- it
+                                    `-- IntegrationTestMojo.java
 +--------
 
   Furthermore we have to add the configuration for the Maven Invoker Plugin
@@ -128,13 +128,13 @@ Maven Plugin Development
   First i have to mention that the configuration for the
   {{{http://maven.apache.org/plugins/maven-invoker-plugin/}Maven Invoker Plugin}}
   is put into a profile which must be activated manually.
-  The reason is that many plugins do it that way. You can 
-  call it "Best Practice", but i'm not sure if it is. 
+  The reason is that many plugins do it that way. You can
+  call it "Best Practice", but i'm not sure if it is.
   I would recommend to put into a real configuration without
   a profile. The disadvantage of such a setup is that
   the integration tests will run during the release process.
 
-  Before the integration tests starts the 
+  Before the integration tests starts the
   {{{http://maven.apache.org/plugins/maven-invoker-plugin/}Maven Invoker Plugin}}
   will copy all contents from the <<<src/it/basicTest>>> area to a location under
   the <<<target/it/>>> folder which is controlled by the
@@ -151,7 +151,7 @@ Maven Plugin Development
 
   To get the setup work it's needed to have a <<<settings.xml>>> file which
   has a special configuration. This is achieved by the <settingsFile>
-  configuration. 
+  configuration.
 
 +-------
 <settings>

@@ -10,8 +10,8 @@ if ( !file.exists() )
 }
 
 String[] checkedLines = {
-    "[INFO] --- mp-it-1:0.1-SNAPSHOT:verify (default) @ mp-it1-basicTransitiveTest ---",
-    "[INFO] groupId:com.soebes.maven.plugins",
+    "[INFO] --- mp-it-2:0.1-SNAPSHOT:verify (default) @ mp-it1-basicTransitiveTest ---",
+    "[INFO] groupId:com.soebes.maven.guide.mp.it",
     "[INFO] artifactId:mp-it1-basicTransitiveTest",
     "[INFO] artifactId:1.0-SNAPSHOT",
     "[INFO] name:MP-IT-1 BasicTransitiveTest",

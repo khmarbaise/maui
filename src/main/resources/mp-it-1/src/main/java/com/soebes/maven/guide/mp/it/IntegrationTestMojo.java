@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.soebes.maven.plugins.mlv;
+package com.soebes.maven.guide.mp.it;
 
 import java.util.List;
 
@@ -21,11 +21,11 @@ import org.apache.maven.artifact.repository.ArtifactRepository;
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.project.MavenProject;
-import org.apache.maven.project.MavenProjectBuilder;
 import org.apache.maven.settings.Settings;
 
 
 /**
+ * The example Mojo to have a real mojo.
  *
  * @goal verify
  * @phase prepare-package
@@ -41,13 +41,6 @@ public class IntegrationTestMojo extends AbstractMojo
      * @since 1.0
      */
     private MavenProject project;
-
-    /**
-     * Used to build a maven projects from artifacts in the remote repository.
-     *
-     * @component
-     */
-    private MavenProjectBuilder projectBuilder;
 
     /**
      * @parameter default-value="${localRepository}"

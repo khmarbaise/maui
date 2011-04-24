@@ -38,12 +38,11 @@ Maven Plugin Development
   {{{http://maven.apache.org/plugin-developers/index.html}Maven Plugins}}
   and trying to do some integration testing on those plugins. The reason
   is often that a unit tests is not comprehensive enough to check all
-  aspects of the behavior of a plugin. It's a good practice to do automatic
+  aspects of the behavior in particular of a plugin. It's a good practice to do automatic
   testing of the runtime behavior of a plugin and the best way to do this
   is to write integration tests.
 
   For different point of view you can take a look at the
-
   {{{http://maven.apache.org/plugin-developers/plugin-testing.html}Plugin testing strategies}}
   or you can take a look at the
   {{{http://docs.codehaus.org/display/MAVENUSER/Review+of+Plugin+Testing+Strategies}wiki page which is referenced}}
@@ -51,8 +50,8 @@ Maven Plugin Development
   are out of date in particular in relationship with Maven 3.
 
   The only alternatives are the {{{http://mojo.codehaus.org/shitty-maven-plugin/}Maven SHITTY Plugin}} unfortunately
-  this plugin is from 2008 and it looks like that the development has
-  been abandoned (drop me a mail if this is not true).
+  this plugin is from 2008 and it looks like that the development has been
+  abandoned (drop me a mail if this is not true).
 
 ~~
 ~~ Write something about Maven Invoker http://maven.apache.org/shared/maven-invoker/ (not the Maven Invoker Plugin)

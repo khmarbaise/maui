@@ -63,8 +63,8 @@ Integration Testing with Maven
   * IT example separate module...
 
   * Complex examples
-    
-    Integration Test of a Implementaiton against an Interface 
+
+    Integration Test of a implementation against an Interface
     with at least two implementations; Injection for example via
     guice.
 
