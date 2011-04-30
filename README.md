@@ -31,6 +31,10 @@ Roadmap
  - Integration Testing in Maven Plugin Development
    - maven-invoker-plugin
 
+ - Code Coverage for Unit Testing
+
+ - Code Coverage for Integration Testing
+
 Status
 ------
  - First description about unit test and integration test done.
