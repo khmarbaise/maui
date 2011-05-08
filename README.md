@@ -32,9 +32,20 @@ Roadmap
    - maven-invoker-plugin
 
  - Code Coverage for Unit Testing
+   - Cobertura, Emma
+     http://mojo.codehaus.org/emma-maven-plugin/index.html
+     http://mojo.codehaus.org/cobertura-maven-plugin/index.html
 
  - Code Coverage for Integration Testing
+   - Coberatura?, Emma4it ? 
+   - How to do this?
+     
+    http://www.sonatype.com/people/2009/06/integration-tests-with-maven-part-2-test-coverage-reports/
+    http://blog.jayway.com/2008/12/13/getting-coverage-for-integration-tests/
+    https://github.com/activelylazy/coverage-example
 
+ - JBehave
+   - http://jbehave.org/reference/stable/maven-goals.html
 Status
 ------
  - First description about unit test and integration test done.
