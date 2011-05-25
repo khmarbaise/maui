@@ -40,14 +40,15 @@ Roadmap
    - Coberatura?, Emma4it ? 
    - How to do this?
      
-    http://www.sonatype.com/people/2009/06/integration-tests-with-maven-part-2-test-coverage-reports/
-    http://blog.jayway.com/2008/12/13/getting-coverage-for-integration-tests/
-    https://github.com/activelylazy/coverage-example
+   - http://www.sonatype.com/people/2009/06/integration-tests-with-maven-part-2-test-coverage-reports/
+   - http://blog.jayway.com/2008/12/13/getting-coverage-for-integration-tests/
+   - https://github.com/activelylazy/coverage-example
 
  - mvn release:.... -Darguments="-Dxxxx" caused by calling instance during release process.
 
  - JBehave
    - http://jbehave.org/reference/stable/maven-goals.html
+
 Status
 ------
  - First description about unit test and integration test done.
@@ -68,11 +69,11 @@ Naming Convention for the examples
 
   - Prefixes of the projects:
 
-  mp - Maven Plugin
-  ut - Unit Test
-  it - Integration Test
+    mp - Maven Plugin
+    ut - Unit Test
+    it - Integration Test
 
-  ut-       - Unit Test
-  it-       - Integration Tests
-  mp-it-... - Maven Plugin - Integration Test
+    ut-       - Unit Test
+    it-       - Integration Tests
+    mp-it-... - Maven Plugin - Integration Test
 
