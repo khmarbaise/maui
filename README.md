@@ -44,6 +44,8 @@ Roadmap
     http://blog.jayway.com/2008/12/13/getting-coverage-for-integration-tests/
     https://github.com/activelylazy/coverage-example
 
+ - mvn release:.... -Darguments="-Dxxxx" caused by calling instance during release process.
+
  - JBehave
    - http://jbehave.org/reference/stable/maven-goals.html
 Status
