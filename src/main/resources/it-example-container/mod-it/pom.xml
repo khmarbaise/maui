@@ -1,0 +1,120 @@
+<project
+    xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>com.soebes.training.module.it-container</groupId>
+    <artifactId>parent</artifactId>
+    <version>0.1.0-SNAPSHOT</version>
+  </parent>
+
+  <artifactId>mod-it</artifactId>
+  <packaging>pom</packaging>
+  <name>XXX :: Integration Test</name>
+
+  <dependencies>
+    <dependency>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>mod-war</artifactId>
+      <version>${project.version}</version>
+      <type>war</type>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <executions>
+          <execution>
+            <goals>
+              <goal>testCompile</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.cargo</groupId>
+        <artifactId>cargo-maven2-plugin</artifactId>
+        <configuration>
+          <wait>false</wait>
+          <container>
+            <containerId>tomcat${tomcat.major}x</containerId>
+            <zipUrlInstaller>
+              <url>http://archive.apache.org/dist/tomcat/tomcat-${tomcat.major}/v${tomcat.version}/bin/apache-tomcat-${tomcat.version}.tar.gz</url>
+              <downloadDir>${project.build.directory}/cargo/download/</downloadDir>
+              <extractDir>${installDir}</extractDir>
+            </zipUrlInstaller>
+            <output>${project.build.directory}/tomcat${tomcat.major}x.log</output>
+            <log>${project.build.directory}/cargo.log</log>
+          </container>
+          <configuration>
+            <home>${project.build.directory}/tomcat-${tomcat.version}/container</home>
+            <properties>
+              <cargo.logging>high</cargo.logging>
+              <cargo.servlet.port>9080</cargo.servlet.port>
+            </properties>
+          </configuration>
+        </configuration>
+        <executions>
+          <execution>
+            <id>start-container</id>
+            <phase>pre-integration-test</phase>
+            <goals>
+              <goal>start</goal>
+              <goal>deploy</goal>
+            </goals>
+            <configuration>
+              <deployer>
+                <deployables>
+                  <deployable>
+                    <groupId>${project.groupId}</groupId>
+                    <artifactId>mod-war</artifactId>
+                    <type>war</type>
+                    <pingURL>http://localhost:9080/mod-war</pingURL>
+                    <pingTimeout>30000</pingTimeout>
+                    <properties>
+                      <context>mod-war</context>
+                    </properties>
+                  </deployable>
+                </deployables>
+              </deployer>
+            </configuration>
+          </execution>
+          <execution>
+            <id>stop-container</id>
+            <phase>post-integration-test</phase>
+            <goals>
+              <goal>stop</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <executions>
+          <execution>
+            <phase>integration-test</phase>
+            <goals>
+              <goal>test</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <printSummary>true</printSummary>
+          <testFailureIgnore>true</testFailureIgnore>
+        </configuration>
+      </plugin>
+
+    </plugins>
+  </build>
+</project>
+
+
+
