@@ -14,7 +14,7 @@
     <artifactId>mod-war</artifactId>
   <packaging>war</packaging>
   <!-- TODO project name -->
-  <name>My First Wicket</name>
+  <name>MaUI Test Guide :: IT Container - WAR</name>
   <description></description>
   <properties>
     <wicket.version>1.4.17</wicket.version>

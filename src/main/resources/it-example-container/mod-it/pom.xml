@@ -13,7 +13,7 @@
 
   <artifactId>mod-it</artifactId>
   <packaging>pom</packaging>
-  <name>XXX :: Integration Test</name>
+  <name>MaUI Test Guide :: IT Container - Mod-IT</name>
 
   <dependencies>
     <dependency>
