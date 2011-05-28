@@ -64,6 +64,11 @@ TODOs
    - Integration test examples
      - for example with Maven Invoker Plugin
 
+ - Maven Unit Testing
+   - Example for multiple usage:
+     - copy xyz-test.jar into target/test folder (dependency:unpack)
+       run the tests there..
+
 Naming Convention for the examples
 ----------------------------------
 
