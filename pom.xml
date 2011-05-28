@@ -23,34 +23,17 @@
     <failsafeVersion>2.8</failsafeVersion>
   </properties>
 
-<!--  <modules>-->
-<!--    <module>examples</module>-->
-<!--  </modules>-->
+  <!-- <modules> -->
+  <!-- <module>examples</module> -->
+  <!-- </modules> -->
 
   <build>
     <plugins>
-<!--
-      <plugin>
-        <groupId>com.agilejava.docbkx</groupId>
-        <artifactId>docbkx-maven-plugin</artifactId>
-        <version>2.0.12</version>
-        <dependencies>
-          <dependency>
-            <groupId>docbook</groupId>
-            <artifactId>docbook-xml</artifactId>
-            <version>4.5</version>
-          </dependency>
-        </dependencies>
-        <executions>
-          <execution>
-            <goals>
-              <goal>generate-html</goal>
-            </goals>
-            <phase>pre-site</phase>
-          </execution>
-        </executions>
-      </plugin>
--->
+      <!-- <plugin> <groupId>com.agilejava.docbkx</groupId> <artifactId>docbkx-maven-plugin</artifactId>
+        <version>2.0.12</version> <dependencies> <dependency> <groupId>docbook</groupId>
+        <artifactId>docbook-xml</artifactId> <version>4.5</version> </dependency>
+        </dependencies> <executions> <execution> <goals> <goal>generate-html</goal>
+        </goals> <phase>pre-site</phase> </execution> </executions> </plugin> -->
       <plugin>
         <groupId>com.mycila.maven-license-plugin</groupId>
         <artifactId>maven-license-plugin</artifactId>
@@ -99,7 +82,7 @@
           <descriptors>
             <descriptor>${basedir}/src.xml</descriptor>
           </descriptors>
-        <tarLongFileMode>gnu</tarLongFileMode>
+          <tarLongFileMode>gnu</tarLongFileMode>
         </configuration>
         <executions>
           <execution>
@@ -157,6 +140,54 @@
           </execution>
         </executions>
       </plugin>
+
+    <plugin>
+      <groupId>org.apache.maven.doxia</groupId>
+      <artifactId>doxia-maven-plugin</artifactId>
+      <version>1.1.4</version>
+        <executions>
+          <execution>
+            <phase>pre-site</phase>
+            <goals>
+              <goal>render-books</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <books>
+            <book>
+              <directory>src/site/apt</directory>
+              <descriptor>src/site/mauiguide.xml</descriptor>
+              <formats>
+                <!-- <format> <id>pdf</id> </format> -->
+                <format>
+                  <id>latex</id>
+                </format>
+              </formats>
+            </book>
+          </books>
+        </configuration>
+      </plugin>
+
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>latex-maven-plugin</artifactId>
+          <version>1.1</version>
+        <executions>
+          <execution>
+            <phase>pre-site</phase>
+            <goals>
+              <goal>latex</goal>
+            </goals>
+          <configuration>
+            <binariesPath>/usr/bin/pdflatex</binariesPath>
+            <docsRoot>${project.build.directory}/generated-site/latex/maui-guide/maui-guide.tex</docsRoot>
+            <latexBuildDir>${project.build.directory}/generated-site/latex/maui-guide/</latexBuildDir>
+          </configuration>
+          </execution>
+        </executions>
+        </plugin>
+
     </plugins>
   </build>
 

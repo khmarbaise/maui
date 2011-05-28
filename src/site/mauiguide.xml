@@ -1,0 +1,76 @@
+<book>
+    <id>maui-guide</id>
+    <title>The Maven Unit and Integration Test Guide</title>
+    <chapters>
+        <chapter>
+            <title>Overview</title>
+            <id>overview</id>
+            <sections>
+                <section>
+                    <id>index</id>
+                </section>
+<!--                <section>-->
+<!--                    <id>examples</id>-->
+<!--                </section>-->
+            </sections>
+        </chapter>
+        <chapter>
+          <title>Unit Tests</title>
+          <id>unit-tests</id>
+          <sections>
+            <section>
+                <id>overview-unit-test</id>
+            </section>
+            <section>
+                <id>ut-example</id>
+            </section>
+            <section>
+                <id>ut-example-interface</id>
+            </section>
+            <section>
+                <id>ut-example-mu</id>
+            </section>
+          </sections>
+        </chapter>
+
+        <chapter>
+          <title>Integration Tests</title>
+          <id>integration-tests</id>
+          <sections>
+            <section>
+                <id>overview-integration-test</id>
+            </section>
+            <section>
+                <id>it-example</id>
+            </section>
+            <section>
+                <id>it-example-container</id>
+            </section>
+            <section>
+                <id>it-example-interface</id>
+            </section>
+            <section>
+                <id>it-example-multiple-times</id>
+            </section>
+          </sections>
+        </chapter>
+
+        <chapter>
+          <title>Maven Plugin Integration Test</title>
+          <id>mp-it-tests</id>
+          <sections>
+            <section>
+                <id>overview-mp-it</id>
+            </section>
+            <section>
+                <id>mp-it-source-example</id>
+            </section>
+            <section>
+                <id>mp-it-example</id>
+            </section>
+          </sections>
+        </chapter>
+
+    </chapters>
+</book>
+
