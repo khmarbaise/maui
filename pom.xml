@@ -141,9 +141,6 @@
         </executions>
       </plugin>
 
-<!--
-    Currently uncommented cause of
-    http://jira.codehaus.org/browse/MLATEX-12
     <plugin>
       <groupId>org.apache.maven.doxia</groupId>
       <artifactId>doxia-maven-plugin</artifactId>
@@ -170,7 +167,9 @@
           </books>
         </configuration>
       </plugin>
--->
+<!--
+    Currently uncommented cause of
+    http://jira.codehaus.org/browse/MLATEX-12
   <plugin>
     <groupId>org.codehaus.mojo</groupId>
     <artifactId>latex-maven-plugin</artifactId>
@@ -189,6 +188,7 @@
       </execution>
     </executions>
   </plugin>
+-->
 
     </plugins>
   </build>
