@@ -9,6 +9,9 @@
                 <section>
                     <id>index</id>
                 </section>
+                <section>
+                    <id>explanation</id>
+                </section>
 <!--                <section>-->
 <!--                    <id>examples</id>-->
 <!--                </section>-->

@@ -35,7 +35,7 @@ In Module Integration Test Example
 
   We have now changed the contents of {{{./ut-example.html}our simple unit test project}} and added a supplemental
   class <<<BitMaskIT.java>>> which obviously is the integration test and
-  ollows the above naming conventions.
+  follows the above naming conventions.
 
   In this case we have put the integration test in parallel to the usual
   unit test class. This is usually only reasonable if you have a single module.
@@ -103,10 +103,11 @@ In Module Integration Test Example
 
 +--------
 
-  If you like to execute the integration tests as well as the unit tests you can
-  simply call <<<mvn verify>>> which includes the <<<package>>> phase and of course the integration-test phase.
-  The Maven Failsafe Plugin will be called after the unit test and will execute the
-  integration test in the <<<BitMaskIT.java>>> class.
+  If you like to execute the integration tests as well as the unit tests you
+  can simply call <<<mvn verify>>> which includes the <<<package>>> phase and
+  of course the <<<integration-test>>> phase. The Maven Failsafe Plugin will
+  be called after the unit test and will execute the integration test in the
+  <<<BitMaskIT.java>>> class.
 
 +--------
 [INFO] Scanning for projects...

@@ -51,7 +51,8 @@ Maven Plugin Development
                                     `-- IntegrationTestMojo.java
 +--------
 
-  The code of the Mojo (IntegrationTestMojo.java) is very simple and looks like the following:
+  The code of the Mojo (IntegrationTestMojo.java) is very simple and looks like
+  the following:
 
 +--------
 /**
@@ -143,11 +144,11 @@ public class IntegrationTestMojo extends AbstractMojo
 }
 +--------
 
-  The mojo will be executed and will printout some information about the current
-  project which in this case are the groupId, artifactId etc.
+  The mojo will be executed and will printout some information about the
+  current project which in this case are the groupId, artifactId etc.
 
-  The pom.xml for the Maven Plugin looks like this. This excerpt contains only
-  the relevant parts.
+  The <<<pom.xml>>> for the Maven Plugin looks like this. This excerpt contains
+  only the relevant parts.
 
 +--------
 <project..>

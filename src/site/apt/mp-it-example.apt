@@ -129,7 +129,7 @@ Maven Plugin Development
   {{{http://maven.apache.org/plugins/maven-invoker-plugin/}Maven Invoker Plugin}}
   is put into a profile which must be activated manually.
   The reason is that many plugins do it that way. You can
-  call it "Best Practice", but i'm not sure if it is.
+  call it "Best Practice", but i'm not sure if it really is.
   I would recommend to put into a real configuration without
   a profile. The disadvantage of such a setup is that
   the integration tests will run during the release process.

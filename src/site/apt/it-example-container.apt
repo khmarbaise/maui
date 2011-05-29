@@ -30,23 +30,184 @@
 
 Integration Test Example Container
 
-  This example will describe how to do an integration-test with
+  This example will describe how to do integration-testing with
   a web application which will be deployed to a servlet container
-  like Tomcat.
+  like {{{http://tomcat.apache.org}Tomcat}}.
 
-  We use the {{{http://cargo.codehaus.org/Home}CARGO}} to do the 
-  integration test of a web application.
-
-  By the help of Cargo it's possible to do the startup of a container,
-  deploy the web application (war) start the container and run the 
-  integration tests and finally stop the container.
+  In this example we use the {{{http://cargo.codehaus.org/Home}CARGO Plugin}}
+  to do the integration test of a web application. By the help of Cargo it's
+  simply possible to do the startup of a container, deploy the web application
+  (war) start the container and run the integration tests and finally stop the
+  container.
 
   {{{http://cargo.codehaus.org/Home#Home-ContainerSupport}Cargo supports a large number of containers}}
   which can be used either via the {{{http://cargo.codehaus.org/Javadocs}Java API}}
   or in our case via the {{{http://cargo.codehaus.org/Maven2+plugin}Maven 2/3 Plugin}}.
 
+  This is of course not the only possibility to start a container,
+  but in my opinion the simplest one but in spite of that very effective.
+
+  In this example we have the following structure of the different modules which
+  are more or less typical for a Maven project which contains a WAR part. This
+  is also true if you have EAR part.
+
+  This first example does not contain any real integration test it will show
+  only the structure of how an integration test looks like in relationship
+  with a WAR package.
+
 +--------
-   
+.
+|-- mod-api
+|   `-- pom.xml
+|-- mod-it
+|   `-- pom.xml
+|-- mod-war
+|   |-- pom.xml
+|   `-- src
+|       |-- main
+|       |   |-- java
+|       |   |   `-- com
+|       |   |       `-- soebes
+|       |   |           `-- wicket
+|       |   |               |-- HomePage.java
+|       |   |               `-- WicketApplication.java
+|       |   |-- resources
+|       |   |   |-- com
+|       |   |   |   `-- soebes
+|       |   |   |       `-- wicket
+|       |   |   |           `-- HomePage.html
+|       |   |   `-- log4j.properties
+|       |   `-- webapp
+|       |       `-- WEB-INF
+|       |           `-- web.xml
+|       `-- test
+|           `-- java
+|               `-- com
+|                   `-- soebes
+|                       `-- wicket
+|                           |-- Start.java
+|                           `-- TestHomePage.java
+`-- pom.xml
++--------
+
+
+  Now let us focus on the <<<mod-it>>> module which contains the configuration for
+  the <<<cargo-maven2-plugin>>> which is responsible to start, deploy and stop the
+  container.
+
+
+  One of the most important things is that your <<<mod-it>>> module contains a dependency
+  to your war project which looks like this in the <<<pom.xml>>> file.
+
++---------
+  [...]
+  <dependencies>
+    <dependency>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>mod-war</artifactId>
+      <version>${project.version}</version>
+      <type>war</type>
+    </dependency>
+  </dependencies>
+  [...]
++---------
+
+  Furthermore we take a look onto the configuration for the cargo-maven2-plugin which
+  contains first the kind of container we would like to run which is defined by the
+  <<<containerId>>> and the <<<zipUrlInstaller>>> area which defines where to
+  get the container from. In this example the container (Tomcat) will be downloaded
+  automatically from the given download area (url) downloaded into the given
+  folder <<<downloadDir>>> and extracted into the given folder <<<extractDir>>>.
+  Here we use the default which is defined by the <<<cargo-maven2-plugin>>>.
+
+  This approach has the advantage that you don't need to have an installed
+  Tomcat somewhere. This build will work on every platform. The only limitation
+  is that the download via the given url needs internet access.
+
+  The other important thing is under which port the given instance of Tomcat
+  will. This is defined by the <<<cargo.servlet.port>>>. This might be changed
+  later using an environment variable to be able to control it from outside.
+  This can be usefull if you are running on an continous integration solution
+  like Jenkins etc.
+
++--------
+  [...]
+  <plugin>
+    <groupId>org.codehaus.cargo</groupId>
+    <artifactId>cargo-maven2-plugin</artifactId>
+    <configuration>
+      <wait>false</wait>
+      <container>
+        <containerId>tomcat${tomcat.major}x</containerId>
+        <zipUrlInstaller>
+          <url>http://archive.apache.org/dist/tomcat/tomcat-${tomcat.major}/v${tomcat.version}/bin/apache-tomcat-${tomcat.version}.tar.gz</url>
+          <downloadDir>${project.build.directory}/cargo/download/</downloadDir>
+          <extractDir>${installDir}</extractDir>
+        </zipUrlInstaller>
+        <output>${project.build.directory}/tomcat${tomcat.major}x.log</output>
+        <log>${project.build.directory}/cargo.log</log>
+      </container>
+      <configuration>
+        <home>${project.build.directory}/tomcat-${tomcat.version}/container</home>
+        <properties>
+          <cargo.logging>high</cargo.logging>
+          <cargo.servlet.port>9080</cargo.servlet.port>
+        </properties>
+      </configuration>
+    </configuration>
+    [...]
++----------
+
+  The next part is to start and deploy the war file into the container which
+  can be achieved by using the following execution block. The pingURL is needed
+  to see if your application startup is finished or not. The pingTimeout defines
+  how long this will be tried in the worst case. The value is given in ms.
+  The context is usually the name of the war file, but this is not very convenient
+  so you can change this by using the <<<context>>> property to control this.
+  Further details can be found in the documentation of the cargo-maven2-plugin.
+
++-----------
+    <executions>
+      <execution>
+        <id>start-container</id>
+        <phase>pre-integration-test</phase>
+        <goals>
+          <goal>start</goal>
+          <goal>deploy</goal>
+        </goals>
+        <configuration>
+          <deployer>
+            <deployables>
+              <deployable>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>mod-war</artifactId>
+                <type>war</type>
+                <pingURL>http://localhost:9080/mod-war</pingURL>
+                <pingTimeout>30000</pingTimeout>
+                <properties>
+                  <context>mod-war</context>
+                </properties>
+              </deployable>
+            </deployables>
+          </deployer>
+        </configuration>
+      </execution>
++-----------
+
+  And last but not least the final part stopping the container is simply
+  configured by the following execution block.
+
++-----------
+      <execution>
+        <id>stop-container</id>
+        <phase>post-integration-test</phase>
+        <goals>
+          <goal>stop</goal>
+        </goals>
+      </execution>
+    </executions>
+  </plugin>
+  [...]
 +--------
 
 

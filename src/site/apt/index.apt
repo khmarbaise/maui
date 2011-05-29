@@ -20,7 +20,7 @@
 ~~ limitations under the License.
 ~~
 
-Overview
+Introduction
 
   This is the <The Maven Unit and Integration Test Guide> (MaUI Test Guide) which
   describes the different options how to do unit- and integration testing with
@@ -45,7 +45,7 @@ Overview
 * Definition of Terms
 
   We distinguish between a so called <in Module> integration tests and a
-  <separated module> integration tests. The <in module> means to have the
+  <separated module> with integration tests. The <in module> means to have the
   integration tests within the same module which contains the unit tests
   and your production code <<<src/main/java>>>. This approach is usually
   used if you have only a single module.
@@ -54,7 +54,7 @@ Overview
   multiple module build. The result will be to have a supplemental module
   which contains the integration tests only.
 
-* Overview
+* Chapter Overview
 
   This guide is separated into three chapters where the first is about
   {{{./overview-unit-test.html}Unit Testing with Maven}}, the second about
