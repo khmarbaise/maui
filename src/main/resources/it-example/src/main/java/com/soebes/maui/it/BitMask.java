@@ -1,4 +1,4 @@
-package com.soebes.training.maven.simple;
+package com.soebes.maui.it;
 
 
 

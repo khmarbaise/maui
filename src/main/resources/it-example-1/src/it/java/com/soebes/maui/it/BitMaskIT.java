@@ -1,10 +1,10 @@
-package com.soebes.training.maven.simple;
+package com.soebes.maui.it;
 
 import static junit.framework.Assert.assertEquals;
 
 import org.junit.Test;
 
-public class BitMaskTest {
+public class BitMaskIT {
 
     @Test
     public void checkFirstBitTest() {

@@ -43,26 +43,24 @@ In Module Integration Test Example with different source location
     |   `-- java
     |       `-- com
     |           `-- soebes
-    |               `-- training
-    |                   `-- maven
-    |                       `-- simple
-    |                           `-- BitMaskIT.java
+    |               `-- maui
+    |                   `-- it
+    |                       `-- BitMaskIT.java
     |-- main
     |   `-- java
     |       `-- com
     |           `-- soebes
-    |               `-- training
-    |                   `-- maven
-    |                       `-- simple
-    |                           `-- BitMask.java
+    |               `-- maui
+    |                   `-- it
+    |                       `-- BitMask.java
     `-- test
         `-- java
             `-- com
                 `-- soebes
-                    `-- training
-                        `-- maven
-                            `-- simple
-                                `-- BitMaskTest.java
+                    `-- maui
+                        `-- it
+                            `-- BitMaskTest.java
+
 +--------
 
 
@@ -123,33 +121,31 @@ In Module Integration Test Example with different source location
 [INFO] Building MaUI Test Guide :: Integration Test Example 1 0.1.0-SNAPSHOT
 [INFO] ------------------------------------------------------------------------
 [INFO]
-[INFO] --- maven-clean-plugin:2.4.1:clean (default-clean) @ it-test-example-1 ---
-[INFO]
 [INFO] --- maven-resources-plugin:2.4.3:resources (default-resources) @ it-test-example-1 ---
 [INFO] Using 'UTF-8' encoding to copy filtered resources.
-[INFO] skip non existing resourceDirectory /home/kama/ws-git/maui/examples/it-test-example-1/src/main/resources
-[INFO]
-[INFO] --- maven-compiler-plugin:2.3.2:compile (default-compile) @ it-test-example-1 ---
-[INFO] Compiling 1 source file to /home/kama/ws-git/maui/examples/it-test-example-1/target/classes
+[INFO] skip non existing resourceDirectory /examples/it-example-1/src/main/resources
 [INFO]
 [INFO] --- build-helper-maven-plugin:1.5:add-test-source (add-test-source) @ it-test-example-1 ---
-[INFO] Test Source directory: /home/kama/ws-git/maui/examples/it-test-example-1/src/it/java added.
+[INFO] Test Source directory: /examples/it-example-1/src/it/java added.
+[INFO]
+[INFO] --- maven-compiler-plugin:2.3.2:compile (default-compile) @ it-test-example-1 ---
+[INFO] Compiling 1 source file to /examples/it-example-1/target/classes
 [INFO]
 [INFO] --- maven-resources-plugin:2.4.3:testResources (default-testResources) @ it-test-example-1 ---
 [INFO] Using 'UTF-8' encoding to copy filtered resources.
-[INFO] skip non existing resourceDirectory /home/kama/ws-git/maui/examples/it-test-example-1/src/test/resources
+[INFO] skip non existing resourceDirectory /examples/it-example-1/src/test/resources
 [INFO]
 [INFO] --- maven-compiler-plugin:2.3.2:testCompile (default-testCompile) @ it-test-example-1 ---
-[INFO] Compiling 2 source files to /home/kama/ws-git/maui/examples/it-test-example-1/target/test-classes
+[INFO] Compiling 2 source files to /examples/it-example-1/target/test-classes
 [INFO]
 [INFO] --- maven-surefire-plugin:2.7.2:test (default-test) @ it-test-example-1 ---
-[INFO] Surefire report directory: /home/kama/ws-git/maui/examples/it-test-example-1/target/surefire-reports
+[INFO] Surefire report directory: /examples/it-example-1/target/surefire-reports
 
 -------------------------------------------------------
  T E S T S
 -------------------------------------------------------
-Running com.soebes.training.maven.simple.BitMaskTest
-Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.084 sec
+Running com.soebes.maui.it.BitMaskTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.061 sec
 
 Results :
 
@@ -157,16 +153,16 @@ Tests run: 5, Failures: 0, Errors: 0, Skipped: 0
 
 [INFO]
 [INFO] --- maven-jar-plugin:2.3.1:jar (default-jar) @ it-test-example-1 ---
-[INFO] Building jar: /home/kama/ws-git/maui/examples/it-test-example-1/target/it-test-example-1-0.1.0-SNAPSHOT.jar
+[INFO] Building jar: /examples/it-example-1/target/it-test-example-1-0.1.0-SNAPSHOT.jar
 [INFO]
 [INFO] --- maven-failsafe-plugin:2.8:integration-test (integration-test) @ it-test-example-1 ---
-[INFO] Failsafe report directory: /home/kama/ws-git/maui/examples/it-test-example-1/target/failsafe-reports
+[INFO] Failsafe report directory: /examples/it-example-1/target/failsafe-reports
 
 -------------------------------------------------------
  T E S T S
 -------------------------------------------------------
-Running com.soebes.training.maven.simple.BitMaskIT
-Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.095 sec
+Running com.soebes.maui.it.BitMaskIT
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.061 sec
 
 Results :
 
@@ -174,13 +170,13 @@ Tests run: 5, Failures: 0, Errors: 0, Skipped: 0
 
 [INFO]
 [INFO] --- maven-failsafe-plugin:2.8:verify (verify) @ it-test-example-1 ---
-[INFO] Failsafe report directory: /home/kama/ws-git/maui/examples/it-test-example-1/target/failsafe-reports
+[INFO] Failsafe report directory: /examples/it-example-1/target/failsafe-reports
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 6.338s
-[INFO] Finished at: Sat Apr 02 16:02:57 CEST 2011
-[INFO] Final Memory: 11M/148M
+[INFO] Total time: 4.264s
+[INFO] Finished at: Sat Jun 04 21:52:51 CEST 2011
+[INFO] Final Memory: 11M/142M
 [INFO] ------------------------------------------------------------------------
 +--------
 
