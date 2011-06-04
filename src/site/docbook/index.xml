@@ -8,7 +8,6 @@
   <section id="it-overview">
     <title>Overview</title>
 
-
     <para>
       This is the <literal>The Maven Unit and Integration Test Guide</literal>
       (MaUI Test Guide) which describes the different options how to do unit-
@@ -31,9 +30,9 @@
 
         If you don't know <ulink url="http://maven.apache.org">Maven</ulink>
         or it's basic usage i recommend you to read
-        <ulink url="http://www.sonatype.com/books/mvnref-book/reference/public-book.html">Maven: The Complete Reference</ulink>.
+        <ulink url="http://www.sonatype.com/index.php/Support/Books/Maven-The-Complete-Reference">Maven: The Complete Reference</ulink>.
         or
-        <ulink url="http://www.sonatype.com/books/mvnex-book/reference/public-book.html">Maven by Example</ulink>.
+        <ulink url="http://www.sonatype.com/index.php/Support/Books/Maven-By-Example">Maven by Example</ulink>.
         other sources.</para>
     </section>
   </section>
