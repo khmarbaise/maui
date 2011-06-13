@@ -1,4 +1,6 @@
-package com.soebes.training.module.ut;
+package com.soebes.maui.ut.inter;
+
+import com.soebes.maui.ut.inter.IFunction;
 
 public class ImplementationA implements IFunction {
 

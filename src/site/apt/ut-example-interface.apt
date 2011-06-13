@@ -20,13 +20,13 @@
 ~~ limitations under the License.
 ~~
 
- ------
- Unit Test Interfaces
- ------
- Karl Heinz Marbaise
- ------
- 1. April 2011
- ------
+  ------
+  Unit Test Interfaces
+  ------
+  Karl Heinz Marbaise
+  ------
+  1. April 2011
+  ------
 
 How to Unit Test Interfaces
 
@@ -145,7 +145,6 @@ public class ImplementationBUnitTest extends ImplementationUnitTest {
   code to create an instance of the particular class.
 
 +----------
-.
 |-- interface-impl-a
 |   |-- pom.xml
 |   `-- src
@@ -153,17 +152,17 @@ public class ImplementationBUnitTest extends ImplementationUnitTest {
 |       |   `-- java
 |       |       `-- com
 |       |           `-- soebes
-|       |               `-- training
-|       |                   `-- module
-|       |                       `-- ut
+|       |               `-- maui
+|       |                   `-- ut
+|       |                       `-- inter
 |       |                           `-- ImplementationA.java
 |       `-- test
 |           `-- java
 |               `-- com
 |                   `-- soebes
-|                       `-- training
-|                           `-- module
-|                               `-- ut
+|                       `-- maui
+|                           `-- ut
+|                               `-- inter
 |                                   `-- ImplementationAUnitTest.java
 |-- interface-impl-b
 |   |-- pom.xml
@@ -172,17 +171,17 @@ public class ImplementationBUnitTest extends ImplementationUnitTest {
 |       |   `-- java
 |       |       `-- com
 |       |           `-- soebes
-|       |               `-- training
-|       |                   `-- module
-|       |                       `-- ut
+|       |               `-- maui
+|       |                   `-- ut
+|       |                       `-- inter
 |       |                           `-- ImplementationB.java
 |       `-- test
 |           `-- java
 |               `-- com
 |                   `-- soebes
-|                       `-- training
-|                           `-- module
-|                               `-- ut
+|                       `-- maui
+|                           `-- ut
+|                               `-- inter
 |                                   `-- ImplementationBUnitTest.java
 |-- interface-interface
 |   |-- pom.xml
@@ -191,24 +190,27 @@ public class ImplementationBUnitTest extends ImplementationUnitTest {
 |           `-- java
 |               `-- com
 |                   `-- soebes
-|                       `-- training
-|                           `-- module
-|                               `-- ut
+|                       `-- maui
+|                           `-- ut
+|                               `-- inter
 |                                   `-- IFunction.java
 |-- interface-test
 |   |-- pom.xml
 |   `-- src
-|       |-- main
 |       `-- test
 |           `-- java
 |               `-- com
 |                   `-- soebes
-|                       `-- training
-|                           `-- module
-|                               `-- ut
+|                       `-- maui
+|                           `-- ut
+|                               `-- inter
 |                                   `-- ImplementationUnitTest.java
 `-- pom.xml
 +----------
+
+  You will find the complete code for this example in the 
+  {{{./examples.html}examples distribution}} under the
+  folder <<<ut-examples-interface>>>.
 
   []
 

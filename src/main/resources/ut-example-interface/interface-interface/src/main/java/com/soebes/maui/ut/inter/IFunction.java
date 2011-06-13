@@ -1,4 +1,4 @@
-package com.soebes.training.module.ut;
+package com.soebes.maui.ut.inter;
 
 
 /**

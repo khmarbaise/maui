@@ -1,6 +1,9 @@
-package com.soebes.training.module.ut;
+package com.soebes.maui.ut.inter;
 
 import org.junit.BeforeClass;
+
+import com.soebes.maui.ut.inter.ImplementationA;
+import com.soebes.maui.ut.inter.ImplementationUnitTest;
 
 
 public class ImplementationAUnitTest extends ImplementationUnitTest {

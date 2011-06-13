@@ -19,21 +19,21 @@
 ~~ See the License for the specific language governing permissions and
 ~~ limitations under the License.
 
- ------
- Examples
- ------
- Karl Heinz Marbaise
- ------
- 22. April 2011
- ------
+  ------
+  Examples
+  ------
+  Karl Heinz Marbaise
+  ------
+  22. April 2011
+  ------
 
 Examples
 
-  This guide describes many aspects of Maven by using examples, cause it would be
-  too boring to printout all examples in full detail to veil the details of the Maven
-  configuration and how to do things with Maven which is the real intention of this
-  guide. So all Maven examples are only excerpts of the full fledged examples which
-  can be downloaded via the following links:
+  This guide describes many aspects of Maven by using examples, cause it would
+  be too boring to printout all examples in full detail which would veil 
+  the details of he Maven configuration and how to do things with Maven which 
+  is the real intention of this guide. So all Maven examples are only excerpts
+  of the full fledged examples which can be downloaded via the following links:
 
   * {{{./maui-${project.version}-src.tar.gz}Examples as tar.gz archive}}
 

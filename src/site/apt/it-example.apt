@@ -19,13 +19,13 @@
 ~~ See the License for the specific language governing permissions and
 ~~ limitations under the License.
 
- ------
- In Module Integration Test Example
- ------
- Karl Heinz Marbaise
- ------
- 1. April 2011
- ------
+  ------
+  In Module Integration Test Example
+  ------
+  Karl Heinz Marbaise
+  ------
+  1. April 2011
+  ------
 
 In Module Integration Test Example
 
@@ -33,12 +33,12 @@ In Module Integration Test Example
   {{{http://maven.apache.org/plugins/maven-failsafe-plugin/integration-test-mojo.html#includes}naming conventions}}
   which are defined by the {{{http://maven.apache.org/plugins/maven-failsafe-plugin/}Maven Failsafe Plugin}}.
 
-  We have now changed the contents of {{{./ut-example.html}our simple unit test project}} and added a supplemental
-  class <<<BitMaskIT.java>>> which obviously is the integration test and
-  follows the above naming conventions.
+  We have now changed the contents of {{{./ut-example.html}our simple unit test project}}
+  and added a supplemental class <<<BitMaskIT.java>>> which obviously is the 
+  integration test and follows the above naming conventions.
 
-  In this case we have put the integration test in parallel to the usual
-  unit test class. This is usually only reasonable if you have a single module.
+  In this case we have put the integration test in parallel to the usual unit 
+  test class. This is usually only reasonable if you have a single module.
 
 +--------
 .
@@ -63,10 +63,10 @@ In Module Integration Test Example
 
 
   The <<<pom.xml>>> for the integration test example has one particular
-  enhancement in comparsion to the {{{./ut-example.html}original unit test example}}.
+  enhancement in comparison to the {{{./ut-example.html}original unit test example}}.
   The Maven Failsafe Plugin has been bound to the <<<integration-test>>>
-  phase with its <<<integration-test>>> goal and the <<<verify>>> goal of the plugin
-  has been bound to the <<<verify>>>
+  life-cycle-phase with its <<<integration-test>>> goal and the <<<verify>>> goal
+  of the plugin has been bound to the <<<verify>>>
   {{{http://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html}life-cycle-phase}}
   of Maven.
 
