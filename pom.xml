@@ -170,26 +170,26 @@
 <!--
     Currently uncommented cause of
     http://jira.codehaus.org/browse/MLATEX-12
+-->
+<!--
   <plugin>
     <groupId>org.codehaus.mojo</groupId>
     <artifactId>latex-maven-plugin</artifactId>
-    <version>1.1</version>
+    <version>1.2-SNAPSHOT</version>
     <executions>
       <execution>
         <phase>pre-site</phase>
         <goals>
-          <goal>latex</goal>
+          <goal>single</goal>
         </goals>
         <configuration>
-          <binariesPath>/usr/bin/pdflatex</binariesPath>
-          <docsRoot>${project.build.directory}/generated-site/latex/maui-guide/maui-guide.tex</docsRoot>
+          <masterFile>${project.build.directory}/generated-site/latex/maui-guide/maui-guide</masterFile>
           <latexBuildDir>${project.build.directory}/generated-site/latex/maui-guide/</latexBuildDir>
         </configuration>
       </execution>
     </executions>
   </plugin>
 -->
-
     </plugins>
   </build>
 
