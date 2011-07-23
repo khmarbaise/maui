@@ -27,7 +27,7 @@ Introduction
   {{{http://maven.apache.org}Maven}} in different situations. For example if
   you are writing a Maven Plugin or just developing different other modules.
 
-  This is no plugin or development project is is just a guide how to unit
+  This is no plugin or development project it is just a guide how to do unit
   and or integration tests in relationship with {{{http://maven.apache.org}Maven}}.
 
 * Prerequisites

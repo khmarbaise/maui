@@ -125,10 +125,15 @@ Integration Test Example Container
   is that the download via the given url needs internet access.
 
   The other important thing is under which port the given instance of Tomcat
-  will. This is defined by the <<<cargo.servlet.port>>>. This might be changed
+  will run which is defined by the <<<cargo.servlet.port>>>. This might be changed
   later using an environment variable to be able to control it from outside.
   This can be usefull if you are running on an continous integration solution
   like Jenkins etc.
+
+~~
+~~ We have to update the example with the new version of cargo, cause the parameter downloadDir and extractDir have
+~~ changed.
+~~
 
 +--------
   [...]
@@ -158,12 +163,13 @@ Integration Test Example Container
     [...]
 +----------
 
-  The next part is to start and deploy the war file into the container which
-  can be achieved by using the following execution block. The pingURL is needed
-  to see if your application startup is finished or not. The pingTimeout defines
-  how long this will be tried in the worst case. The value is given in ms.
-  The context is usually the name of the war file, but this is not very convenient
-  so you can change this by using the <<<context>>> property to control this.
+  The next part is to start the container and deploy the war file into the container
+  which can be achieved by using the following execution block. The <<<pingURL>>>
+  is needed to see if your application startup is finished or not. The
+  <<<pingTimeout>>> defines how long this will be tried in the worst case. The
+  value is given in ms. The context is usually the name of the war file, but 
+  this is not very convenient so you can change this by using the <<<context>>> 
+  property to control this.
   Further details can be found in the documentation of the cargo-maven2-plugin.
 
 +-----------

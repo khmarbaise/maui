@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<chapter id="integration-testing">
+  <title>Integration Testing</title>
+
+  <section id="it-overview">
+    <title>Overview</title>
+
+    <para>
+      This is the
+      <literal>The Maven Unit and Integration Test Guide</literal>
+      (MaUI Test Guide) which describes the different options how to do unit-
+      and integration testing with
+      <ulink url="http://maven.apache.org">Maven</ulink>
+      in different situations. For example if you are writing a Maven Plugin
+      or just developing different other modules.
+    </para>
+    <para>
+      This is no plugin or development project is is just a guide how to unit
+      and or integration tests in relationship with
+      <ulink url="http://maven.apache.org">Maven</ulink>
+      .
+    </para>
+
+    <section>
+      <title>Prerequisites</title>
+
+      <para>
+        This guides requires that you already familiar with Maven and it's
+        <ulink url="http://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html">life-cycles</ulink>
+        etc. It will not explain how to configure a Maven Plugin etc.
+
+        If you don't know
+        <ulink url="http://maven.apache.org">Maven</ulink>
+        or it's basic usage i recommend you to read
+        <ulink url="http://www.sonatype.com/index.php/Support/Books/Maven-The-Complete-Reference">Maven: The Complete Reference</ulink>
+        .
+        or
+        <ulink url="http://www.sonatype.com/index.php/Support/Books/Maven-By-Example">Maven by Example</ulink>
+        .
+        other sources.
+      </para>
+    </section>
+  </section>
+  
+
+
+</chapter>
+

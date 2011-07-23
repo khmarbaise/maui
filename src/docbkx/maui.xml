@@ -13,130 +13,27 @@
         <email>maui@soebes.de</email>
       </author>
     </authorgroup>
-    
+
     <abstract role="description-short">
-      <para>The Maven Unit and Integration Test Guide is about Unit and Integration Testing with Maven.</para>
-    </abstract>
-    
-  </bookinfo>
-
-  <preface id="copyright" role="copyright">
-    <title>Copyright</title>
-  
-    <para>Copyright © ${project.inceptionYear} ${project.organization.name}</para>
-  
-      <para>This work is licensed under a Creative Commons
-      Attribution-Noncommercial-No Derivative Works 3.0 United States license.
-      For more information about this license, see <ulink
-      url="http://creativecommons.org/licenses/by-nc-nd/3.0/us/">http://creativecommons.org/licenses/by-nc-nd/3.0/us/</ulink>.</para>
-  
-    <para>Online version published by ${project.organization.name},
-    ${organization.address}.</para>
-  
-    <para>Nexus™, Nexus Professional™, and all Nexus-related logos are
-    trademarks or registered trademarks of Sonatype, Inc., in the United States
-    and other countries.</para>
-  
-    <para>Java™ and all Java-based trademarks and logos are trademarks or
-    registered trademarks of Sun Microsystems, Inc., in the United States and
-    other countries.</para>
-  
-    <para>IBM® and WebSphere® are trademarks or registered trademarks of
-    International Business Machines, Inc., in the United States and other
-    countries.</para>
-  
-    <para>Eclipse™ is a trademark of the Eclipse Foundation, Inc., in the United
-    States and other countries.</para>
-  
-    <para>Apache and the Apache feather logo are trademarks of The Apache
-    Software Foundation.</para>
-  
-    <para>Linux® is the registered trademark of Linus Torvalds in the U.S. and
-    other countries.</para>
-  
-    <para>Many of the designations used by manufacturers and sellers to
-    distinguish their products are claimed as trademarks. Where those
-    designations appear in this book, and ${project.organization.name} was aware
-    of a trademark claim, the designations have been printed in caps or initial
-    caps.</para>
-  
-    <para>While every precaution has been taken in the preparation of this book,
-    the publisher and authors assume no responsibility for errors or omissions,
-    or for damages resulting from the use of the information contained
-    herein.</para>
-  
-  </preface>
-
-  <chapter id="unit-testing">
-    <title>Unit Testing</title>
-    <section id="ut-overview">
-      <title>Overview</title>
-      <para>bla...
-      </para>
-            <programlisting>&lt;project xmlns="http://maven.apache.org/POM/4.0.0" 
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
-                             http://maven.apache.org/maven-v4_0_0.xsd"&gt;
-  &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
-  &lt;groupId&gt;org.sonatype.mcookbook&lt;/groupId&gt;
-  &lt;artifactId&gt;junit-tests&lt;/artifactId&gt;
-  &lt;packaging&gt;jar&lt;/packaging&gt;
-  &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;
-  &lt;name&gt;junit-tests&lt;/name&gt;
-  &lt;dependencies&gt;
-    &lt;dependency&gt;
-      &lt;groupId&gt;junit&lt;/groupId&gt;
-      &lt;artifactId&gt;junit&lt;/artifactId&gt;
-      &lt;version&gt;4.5&lt;/version&gt;
-      &lt;scope&gt;test&lt;/scope&gt;
-    &lt;/dependency&gt;
-  &lt;/dependencies&gt;
-&lt;/project&gt;</programlisting>
-      
-    </section>
-  </chapter>
-
-  <chapter id="int-testing">
-  
-    <title>Integration Testing</title>
-  
-    <section id="it-overview">
-      <title>Overview</title>
-  
-      <para>
-        This is the
+      <para>This is the
         <literal>The Maven Unit and Integration Test Guide</literal>
         (MaUI Test Guide) which describes the different options how to do unit-
-        and integration testing with <ulink url="http://maven.apache.org">Maven</ulink>
+        and integration testing with
+        <ulink url="http://maven.apache.org">Maven</ulink>
         in different situations. For example if you are writing a Maven Plugin
         or just developing different other modules.
       </para>
       <para>
-        This is no plugin or development project is is just a guide how to unit
+        This is no plugin or development project it is just a guide how to do unit
         and or integration tests in relationship with
-        <ulink url="http://maven.apache.org">Maven</ulink>.
-      </para>
-  
-      <section>
-        <title>Prerequisites</title>
-  
-        <para>
-          This guides requires that you already familiar with Maven and it's
-          <ulink url="http://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html">life-cycles</ulink>
-          etc. It will not explain how to configure a Maven Plugin etc.
-  
-          If you don't know
-          <ulink url="http://maven.apache.org">Maven</ulink>
-          or it's basic usage i recommend you to read
-          <ulink url="http://www.sonatype.com/index.php/Support/Books/Maven-The-Complete-Reference">Maven: The Complete Reference</ulink>
-          .
-          or
-          <ulink url="http://www.sonatype.com/index.php/Support/Books/Maven-By-Example">Maven by Example</ulink>
-          .
-          other sources.
-        </para>
-      </section>
-    </section>
-  </chapter>
+        <ulink url="http://maven.apache.org">Maven</ulink>.</para>
+    </abstract>
+  </bookinfo>
+
+  <xi:include href="copyright.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+
+  <xi:include href="unit-testing.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+
+  <xi:include href="integration-testing.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
 
 </book>
