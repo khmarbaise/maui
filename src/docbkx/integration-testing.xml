@@ -6,44 +6,28 @@
   <section id="it-overview">
     <title>Overview</title>
 
-    <para>
-      This is the
-      <literal>The Maven Unit and Integration Test Guide</literal>
-      (MaUI Test Guide) which describes the different options how to do unit-
-      and integration testing with
-      <ulink url="http://maven.apache.org">Maven</ulink>
-      in different situations. For example if you are writing a Maven Plugin
-      or just developing different other modules.
+    <para>The execution of integration tests is handled by the 
+      <ulink url="http://maven.apache.org/plugins/maven-failsafe-plugin/">Maven Failsafe Plugin</ulink>
+      in contradiction to the 
+      <ulink url="http://maven.apache.org/plugins/maven-surefire-plugin/">Maven Surefire Plugin</ulink>
+      for the unit tests.
+      
+      By assuming that you are already familiar with Maven and it's 
+      <ulink url="http://maven.apache.org/guides/introduction/introduction-to-the-standard-directory-layout.html">directory layout</ulink>
+      you know where to put unit tests but unfortunately there does not exist a 
+      definition like this for integration tests. There are some suggestions circulating
+      around like <literal>src/it/java</literal>, but these are only rumors.
+   </para>    
+
+   <para>
+      In this guide we suggest to put them into the same directory structure
+      like the unit tests which means in other words <literal>src/test/java</literal> and
+      make them distinguishable by the
+      {{{http://maven.apache.org/plugins/maven-failsafe-plugin/integration-test-mojo.html#includes}naming conventions}},
+      but in future Maven releases this might be changed.
     </para>
-    <para>
-      This is no plugin or development project is is just a guide how to unit
-      and or integration tests in relationship with
-      <ulink url="http://maven.apache.org">Maven</ulink>
-      .
-    </para>
-
-    <section>
-      <title>Prerequisites</title>
-
-      <para>
-        This guides requires that you already familiar with Maven and it's
-        <ulink url="http://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html">life-cycles</ulink>
-        etc. It will not explain how to configure a Maven Plugin etc.
-
-        If you don't know
-        <ulink url="http://maven.apache.org">Maven</ulink>
-        or it's basic usage i recommend you to read
-        <ulink url="http://www.sonatype.com/index.php/Support/Books/Maven-The-Complete-Reference">Maven: The Complete Reference</ulink>
-        .
-        or
-        <ulink url="http://www.sonatype.com/index.php/Support/Books/Maven-By-Example">Maven by Example</ulink>
-        .
-        other sources.
-      </para>
-    </section>
   </section>
   
-
 
 </chapter>
 

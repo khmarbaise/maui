@@ -2,19 +2,41 @@
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <chapter id="unit-testing">
   <title>Unit Testing</title>
+  
+  
   <section id="ut-overview">
     <title>Overview</title>
-    <para>bla...</para>
-  </section>
+    <para>The execution of unit tests is controlled by the
+    <ulink url="http://maven.apache.org/plugins/maven-surefire-plugin/">Maven Surefire Plugin</ulink>
+    which handles the execution of the unit tests within the life-cycle.
+    </para>
+    <para>
+      If you already familiar with <ulink url="http://maven.apache.org">Maven</ulink>
+      you know <ulink url="http://maven.apache.org/guides/introduction/introduction-to-the-standard-directory-layout.html">where to put the unit tests</ulink>.
+      This means your unit tests are located in <filename>src/test/java</filename> and the 
+      appropriate resources are located in <filename>src/test/resources</filename>.
+<!-- 
+* First simple example
+
+  The first {{{./ut-example.html}unit test example}}  will show you a simple project with unit tests and
+  how a execution will look like.
+
+  The other examples like the {{{./ut-example-mu.html}unit test multiple usage}} shows how to reuse a classes which
+  are defined in src/test/java area.
   
+   -->
+    </para>
+  </section>
   
   <section>
-  <title>First basic</title>
-  <para>bla bla</para>
-  
-  
+    <title>First basic</title>
+    <para>bla bla</para>
   </section>
-  
+
+  <section>
+    <title></title>
+    <para>xxx</para>
+  </section>  
   
 </chapter>
 

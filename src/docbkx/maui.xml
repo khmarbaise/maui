@@ -24,9 +24,21 @@
         or just developing different other modules.
       </para>
       <para>
-        This is no plugin or development project it is just a guide how to do unit
-        and or integration tests in relationship with
+        This is no plugin or development project it is <literal>just</literal> 
+        a guide how to do unit and or integration tests in relationship with
         <ulink url="http://maven.apache.org">Maven</ulink>.</para>
+     <para>
+        This guides requires that you are already familiar with Maven and it's
+        <ulink url="http://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html">life-cycles</ulink>
+        etc. It will not explain how to configure a Maven Plugin etc.
+        If you don't know
+        <ulink url="http://maven.apache.org">Maven</ulink> or it's basic usage 
+        i recommend you to read
+        <ulink url="http://www.sonatype.com/index.php/Support/Books/Maven-The-Complete-Reference">Maven: The Complete Reference</ulink>
+        or
+        <ulink url="http://www.sonatype.com/index.php/Support/Books/Maven-By-Example">Maven by Example</ulink>
+        other sources.
+      </para>
     </abstract>
   </bookinfo>
 
