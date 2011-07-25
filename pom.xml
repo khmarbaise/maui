@@ -40,7 +40,7 @@
           <dependency>
             <groupId>docbook</groupId>
             <artifactId>docbook-xml</artifactId>
-            <version>4.5</version>
+            <version>4.4</version>
           </dependency>
         </dependencies>
         <executions>
