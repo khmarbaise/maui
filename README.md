@@ -69,6 +69,11 @@ TODOs
      - copy xyz-test.jar into target/test folder (dependency:unpack)
        run the tests there..
 
+ - Reporting Unit Tests results
+ - Reporting code coverage results
+ - Reporting Integration test results
+ - Reporting Integration test coverage results.
+
 Naming Convention for the examples
 ----------------------------------
 
