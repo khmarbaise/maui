@@ -12,7 +12,8 @@
     </para>
     <para>
       If you already familiar with <ulink url="http://maven.apache.org">Maven</ulink>
-      you know <ulink url="http://maven.apache.org/guides/introduction/introduction-to-the-standard-directory-layout.html">where to put the unit tests</ulink>.
+      you know
+      <ulink url="http://maven.apache.org/guides/introduction/introduction-to-the-standard-directory-layout.html">where to put the unit tests</ulink>.
       This means your unit tests are located in <filename>src/test/java</filename> and the 
       appropriate resources are located in <filename>src/test/resources</filename>.
 <!-- 
@@ -29,12 +30,68 @@
   </section>
   
   <section>
-    <title>First basic</title>
-    <para>bla bla</para>
+    <title>First Basic Unit Test Example</title>
+    <para>Assuming we have the following structure of a simple Java project currently consists
+    of a simple class <literal>BitMask.java</literal> and of course the unit test class <literal>BitMaskTest.java</literal>.
+    </para>
+   
+    <example>
+      <title>Folder Strucutre of the basic unit test example</title>
+
+      <programlisting>
+.
+|-- pom.xml
+`-- src
+    |-- main
+    |   `-- java
+    |       `-- com
+    |           `-- soebes
+    |               `-- training
+    |                   `-- maven
+    |                       `-- simple
+    |                           `-- BitMask.java
+    `-- test
+        `-- java
+            `-- com
+                `-- soebes
+                    `-- training
+                        `-- maven
+                            `-- simple
+                                `-- BitMaskTest.java
+      </programlisting>
+    </example>
+
+    <para>For the sake of clarity the <literal>pom.xml</literal> excerpt contains only the relevant things. 
+    If you don't know what a scope and/or a dependency is, i recommend to take a look into the documentation about
+    <ulink url="http://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html">dependency mechanism in Maven</ulink>.
+    </para>
+    <para> In this case we use <ulink url="http://www.junit.org">JUnit</ulink> for writing the unit test.
+    This will work as well with <ulink url="http://www.testng.org">TestNG</ulink> if you prefer
+    TestNG over JUnit.
+    </para>
+
+    <para>The following POM snippet shows how to add the dependency of JUnit to your project.</para>
+    <example>
+      <title>POM for Unit Tests</title>
+      <programlisting>&lt;project ...&gt;
+  [...]
+  &lt;dependencies&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;junit&lt;/groupId&gt;
+      &lt;artifactId&gt;junit&lt;/artifactId&gt;
+      &lt;version&gt;4.8.1&lt;/version&gt;
+      &lt;scope&gt;test&lt;/scope&gt;
+    &lt;/dependency&gt;
+  [...]
+  &lt;/dependencies&gt;
+  [...]
+&lt;/project&gt;</programlisting>
+    </example>
+
   </section>
 
   <section>
-    <title></title>
+    <title>This is the second example</title>
     <para>xxx</para>
   </section>  
   

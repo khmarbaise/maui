@@ -35,7 +35,8 @@ Unit Test Example
   which are defined by the {{{http://maven.apache.org/plugins/maven-surefire-plugin/index.html}Maven Surefire Plugin}}.
 
   Assume we have the following structure of a simple Java project which currently consist of simple class <<<BitMask.java>>> and
-  of course a unit test class <<<BitMaskTest.java>>>.
+  of course a unit test class <<<BitMaskTest.java>>>. Based on that we get the following folder
+  structure in the unit test example.
 
 +--------
 .
