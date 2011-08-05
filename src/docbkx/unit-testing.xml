@@ -38,8 +38,7 @@
     <example>
       <title>Folder Strucutre of the basic unit test example</title>
 
-      <programlisting>
-.
+      <programlisting>.
 |-- pom.xml
 `-- src
     |-- main
@@ -57,8 +56,7 @@
                     `-- training
                         `-- maven
                             `-- simple
-                                `-- BitMaskTest.java
-      </programlisting>
+                                `-- BitMaskTest.java</programlisting>
     </example>
 
     <para>For the sake of clarity the <literal>pom.xml</literal> excerpt contains only the relevant things. 
@@ -67,10 +65,9 @@
     </para>
     <para> In this case we use <ulink url="http://www.junit.org">JUnit</ulink> for writing the unit test.
     This will work as well with <ulink url="http://www.testng.org">TestNG</ulink> if you prefer
-    TestNG over JUnit.
-    </para>
+    TestNG over JUnit. The following <literal>pom.xml</literal> snippet shows 
+    how to add the dependency of JUnit to your project.</para>
 
-    <para>The following POM snippet shows how to add the dependency of JUnit to your project.</para>
     <example>
       <title>POM for Unit Tests</title>
       <programlisting>&lt;project ...&gt;
@@ -88,6 +85,59 @@
 &lt;/project&gt;</programlisting>
     </example>
 
+    <para>If you like to execute the unit tests of the project, which can simply be
+    achieved by calling <command>mvn package</command>, you will get a result like the
+    following</para>
+    
+    <example>
+      <title>Execution of the Unit Tests</title>
+      <programlisting>[INFO] Scanning for projects...
+[INFO]
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Unit Test :: example 0.1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO]
+[INFO] --- maven-clean-plugin:2.4.1:clean (default-clean) @ unit-test-example ---
+[INFO] Deleting /maui/examples/unit-test-example/target
+[INFO]
+[INFO] --- maven-resources-plugin:2.4.3:resources (default-resources) @ unit-test-example ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /maui/examples/unit-test-example/src/main/resources
+[INFO]
+[INFO] --- maven-compiler-plugin:2.3.2:compile (default-compile) @ unit-test-example ---
+[INFO] Compiling 1 source file to /maui/examples/unit-test-example/target/classes
+[INFO]
+[INFO] --- maven-resources-plugin:2.4.3:testResources (default-testResources) @ unit-test-example ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /maui/examples/unit-test-example/src/test/resources
+[INFO]
+[INFO] --- maven-compiler-plugin:2.3.2:testCompile (default-testCompile) @ unit-test-example ---
+[INFO] Compiling 1 source file to /maui/examples/unit-test-example/target/test-classes
+[INFO]
+[INFO] --- maven-surefire-plugin:2.7.2:test (default-test) @ unit-test-example ---
+[INFO] Surefire report directory: /maui/examples/unit-test-example/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running com.soebes.training.maven.simple.BitMaskTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.078 sec
+
+Results :
+
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO]
+[INFO] --- maven-jar-plugin:2.3.1:jar (default-jar) @ unit-test-example ---
+[INFO] Building jar: /maui/examples/unit-test-example/target/unit-test-example-0.1.0-SNAPSHOT.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 4.834s
+[INFO] Finished at: Fri Apr 01 20:02:40 CEST 2011
+[INFO] Final Memory: 9M/92M
+[INFO] ------------------------------------------------------------------------</programlisting>
+    </example>
   </section>
 
   <section>

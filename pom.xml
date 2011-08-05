@@ -53,7 +53,7 @@
               <sourceDirectory>${basedir}/src/docbkx</sourceDirectory>
               <xincludeSupported>true</xincludeSupported>
               <includes>maui.xml</includes>
-<!--               <foCustomization>src/docbkx/fopdf.xsl</foCustomization>,0 -->
+              <foCustomization>src/docbkx/fopdf.xsl</foCustomization>
             </configuration>
           </execution>
         </executions>

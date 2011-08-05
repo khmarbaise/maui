@@ -41,8 +41,13 @@
       ################################################### -->
 
   <!-- Paper type, no headers on blank pages, no double sided printing -->
-  <xsl:param name="page.height" select="'11.00in'"/>
-  <xsl:param name="page.width" select="'8.5in'"/>
+  <!--
+     11.00in english paper sizes
+     
+     DIN A4 297x210 mm
+   -->
+  <xsl:param name="page.height" select="'29.7cm'"/>
+  <xsl:param name="page.width" select="'21.0cm'"/>
   <xsl:param name="headers.on.blank.pages">0</xsl:param>
   <xsl:param name="footers.on.blank.pages">0</xsl:param>
 
@@ -55,8 +60,8 @@
 
   <xsl:param name="page.margin.bottom" select="'0.50in'" />
   <xsl:param name="page.margin.top" select="'0.50in'" />
-  <xsl:param name="page.margin.inner" select="'0.60in'" />
-  <xsl:param name="page.margin.outer" select="'0.60in'" />
+  <xsl:param name="page.margin.inner" select="'0.50in'" />
+  <xsl:param name="page.margin.outer" select="'0.50in'" />
 
   <xsl:param name="body.start.indent" select="'0pt'" />
 
@@ -121,16 +126,16 @@
       ################################################### Custom Title Page
       ###################################################
     -->
-  <xsl:template name="book.titlepage.recto">
-  </xsl:template>
+<!--   <xsl:template name="book.titlepage.recto"> -->
+<!--   </xsl:template> -->
 
   <!-- Prevent blank pages in output -->
-  <xsl:template name="book.titlepage.before.verso">
-  </xsl:template>
-  <xsl:template name="book.titlepage.verso">
-  </xsl:template>
-  <xsl:template name="book.titlepage.separator">
-  </xsl:template>
+<!--   <xsl:template name="book.titlepage.before.verso"> -->
+<!--   </xsl:template> -->
+<!--   <xsl:template name="book.titlepage.verso"> -->
+<!--   </xsl:template> -->
+<!--   <xsl:template name="book.titlepage.separator"> -->
+<!--   </xsl:template> -->
 
   <!--###################################################
       Header

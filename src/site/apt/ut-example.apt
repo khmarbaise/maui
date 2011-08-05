@@ -68,6 +68,8 @@ Unit Test Example
   In this case we use {{{http://www.junit.org}JUnit}} for writing the unit test.
   This will work as well with {{{http://www.testng.org}TestNG}} if you prefer
   TestNG over JUnit.
+  
+  The following <<<pom.xml>>> snippet shows how to add the dependency of JUnit to your project.
 
 +--------
 <project ...>
