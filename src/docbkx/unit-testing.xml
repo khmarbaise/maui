@@ -141,9 +141,96 @@ Tests run: 5, Failures: 0, Errors: 0, Skipped: 0
   </section>
 
   <section>
-    <title>This is the second example</title>
-    <para>xxx</para>
-  </section>  
+    <title>Interface Testing</title>
+    <para>A typical situation within a project is that you created an interface and
+    having a number of implementations. Concluding the former idea the structure
+    of the project follows:</para>
+    <example>
+      <title>Interface Testing</title>
+      <programlisting>.
+|-- interface-impl-a
+|   |-- pom.xml
+|   ...
+|-- interface-impl-b
+|   |-- pom.xml
+|   ...
+|-- interface-interface
+|   |-- pom.xml
+|   ...
+|-- interface-test
+|   |-- pom.xml
+|   ...
+`-- pom.xml</programlisting>
+    </example>
+    
+    <para>So the question in this case is: How to test the different implementations?
+    But is this true? No. We don't have to test the implementations
+    we have to test the behavior of the interface for all implementations.
+    This can be achieved by writing unit tests in both modules <literal>interface-impl-a</literal>
+    and <literal>interface-impl-b</literal> which means in other words to copy&amp;paste
+    the unit test code but this is error prone and of course not effective.</para>
+    <para>The solution is to implement the unit test code in an abstract class
+    in a separate module <literal>interface-test</literal>.</para>
+    
+    <example>
+      <title>Interface Test</title>
+      <programlisting>public abstract class ImplementationUnitTest {
+
+    protected static IFunction function;
+
+    @Test
+    public void firstTest() {
+        assertTrue(function.function("function1"));
+    }
+
+    @Test
+    public void secondTest() {
+        assertFalse(function.function("function"));
+    }
+}</programlisting>
+    </example>
+
+    <para>The more important part is the <literal>pom.xml</literal> file which is needed in
+    this case. We have to make sure that the test code is made available
+    for other modules as well. So we have to define the pom like the
+    following:</para>
+
+  <example>
+    <title>POM for Interface Testing</title>
+    <programlisting>[...]
+&lt;build&gt;
+  &lt;plugins&gt;
+    &lt;plugin&gt;
+      &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+      &lt;artifactId&gt;maven-jar-plugin&lt;/artifactId&gt;
+      &lt;executions&gt;
+        &lt;execution&gt;
+          &lt;goals&gt;
+            &lt;goal&gt;test-jar&lt;/goal&gt;
+          &lt;/goals&gt;
+        &lt;/execution&gt;
+      &lt;/executions&gt;
+    &lt;/plugin&gt;
+  &lt;/plugins&gt;
+&lt;/build&gt;
+
+&lt;dependencies&gt;
+  &lt;dependency&gt;
+    &lt;groupId&gt;${project.groupId}&lt;/groupId&gt;
+    &lt;artifactId&gt;interface-interface&lt;/artifactId&gt;
+    &lt;version&gt;${project.version}&lt;/version&gt;
+  &lt;/dependency&gt;
+  &lt;dependency&gt;
+    &lt;groupId&gt;junit&lt;/groupId&gt;
+    &lt;artifactId&gt;junit&lt;/artifactId&gt;
+    &lt;scope&gt;test&lt;/scope&gt;
+  &lt;/dependency&gt;
+&lt;/dependencies&gt;
+[...]</programlisting>
+    </example>
+    
+    
+  </section>
   
 </chapter>
 

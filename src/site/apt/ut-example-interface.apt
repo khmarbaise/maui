@@ -51,7 +51,7 @@ How to Unit Test Interfaces
 `-- pom.xml
 +--------
 
-  So the question in this case is: How to test the implementations?
+  So the question in this case is: How to test the different implementations?
   But is this true? No. We don't have to test the implementations
   we have to test the behavior of the interface for all implementations.
   This can be achieved by writing unit tests in both modules <<<interface-impl-a>>>

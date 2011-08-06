@@ -75,6 +75,7 @@ Unit Test Example
 <project ...>
   [...]
   <dependencies>
+  [...]
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
@@ -99,24 +100,24 @@ Unit Test Example
 [INFO] ------------------------------------------------------------------------
 [INFO]
 [INFO] --- maven-clean-plugin:2.4.1:clean (default-clean) @ unit-test-example ---
-[INFO] Deleting /home/kama/ws-git/maui/examples/unit-test-example/target
+[INFO] Deleting /maui/examples/unit-test-example/target
 [INFO]
 [INFO] --- maven-resources-plugin:2.4.3:resources (default-resources) @ unit-test-example ---
 [INFO] Using 'UTF-8' encoding to copy filtered resources.
-[INFO] skip non existing resourceDirectory /home/kama/ws-git/maui/examples/unit-test-example/src/main/resources
+[INFO] skip non existing resourceDirectory /maui/examples/unit-test-example/src/main/resources
 [INFO]
 [INFO] --- maven-compiler-plugin:2.3.2:compile (default-compile) @ unit-test-example ---
-[INFO] Compiling 1 source file to /home/kama/ws-git/maui/examples/unit-test-example/target/classes
+[INFO] Compiling 1 source file to /maui/examples/unit-test-example/target/classes
 [INFO]
 [INFO] --- maven-resources-plugin:2.4.3:testResources (default-testResources) @ unit-test-example ---
 [INFO] Using 'UTF-8' encoding to copy filtered resources.
-[INFO] skip non existing resourceDirectory /home/kama/ws-git/maui/examples/unit-test-example/src/test/resources
+[INFO] skip non existing resourceDirectory /maui/examples/unit-test-example/src/test/resources
 [INFO]
 [INFO] --- maven-compiler-plugin:2.3.2:testCompile (default-testCompile) @ unit-test-example ---
-[INFO] Compiling 1 source file to /home/kama/ws-git/maui/examples/unit-test-example/target/test-classes
+[INFO] Compiling 1 source file to /maui/examples/unit-test-example/target/test-classes
 [INFO]
 [INFO] --- maven-surefire-plugin:2.7.2:test (default-test) @ unit-test-example ---
-[INFO] Surefire report directory: /home/kama/ws-git/maui/examples/unit-test-example/target/surefire-reports
+[INFO] Surefire report directory: /maui/examples/unit-test-example/target/surefire-reports
 
 -------------------------------------------------------
  T E S T S
@@ -130,7 +131,7 @@ Tests run: 5, Failures: 0, Errors: 0, Skipped: 0
 
 [INFO]
 [INFO] --- maven-jar-plugin:2.3.1:jar (default-jar) @ unit-test-example ---
-[INFO] Building jar: /home/kama/ws-git/maui/examples/unit-test-example/target/unit-test-example-0.1.0-SNAPSHOT.jar
+[INFO] Building jar: /maui/examples/unit-test-example/target/unit-test-example-0.1.0-SNAPSHOT.jar
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
