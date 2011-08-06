@@ -40,6 +40,11 @@ Examples
   * {{{./maui-${project.version}-src.tar.bz2}Examples as tar.bz2 archive}}
 
   * {{{./maui-${project.version}-src.zip}Examples as zip archive}}
+  
+Guide as PDF
+
+  * {{{./maui.pdf}Maui Guide as PDF}}.
+
 
   []
 #

@@ -54,6 +54,7 @@
               <xincludeSupported>true</xincludeSupported>
               <includes>maui.xml</includes>
               <foCustomization>src/docbkx/fopdf.xsl</foCustomization>
+              <targetDirectory>${project.build.directory}/site/</targetDirectory>
             </configuration>
           </execution>
         </executions>
