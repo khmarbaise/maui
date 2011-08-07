@@ -250,8 +250,57 @@ Tests run: 5, Failures: 0, Errors: 0, Skipped: 0
     function = new ImplementationB();
   }
 }</programlisting>
+    </example>
 
-  
+    <para> The only thing we need to implement is the initialization
+    code to create an instance of the particular class.</para>
+    <para>Based on the above steps the project layout <footnote>The complete code for the
+    example can be found on the <ulink url="http://xxx.de/maui/examples">web site</ulink></footnote>results into the following.</para>
+    <example>
+    <title>Project Structure</title>
+    <programlisting>|-- interface-impl-a
+|   |-- pom.xml
+|   `-- src
+|       |-- main
+|       |   `-- java
+|       |       `-- com
+|       |           `-- soebes
+|       |                 `-- ImplementationA.java
+|       `-- test
+|           `-- java
+|               `-- com
+|                   `-- soebes
+|                         `-- ImplementationAUnitTest.java
+|-- interface-impl-b
+|   |-- pom.xml
+|   `-- src
+|       |-- main
+|       |   `-- java
+|       |       `-- com
+|       |           `-- soebes
+|       |                `-- ImplementationB.java
+|       `-- test
+|           `-- java
+|               `-- com
+|                   `-- soebes
+|                        `-- ImplementationBUnitTest.java
+|-- interface-interface
+|   |-- pom.xml
+|   `-- src
+|       `-- main
+|           `-- java
+|               `-- com
+|                   `-- soebes
+|                        `-- IFunction.java
+|-- interface-test
+|   |-- pom.xml
+|   `-- src
+|       `-- test
+|           `-- java
+|               `-- com
+|                   `-- soebes
+|                        `-- ImplementationUnitTest.java
+`-- pom.xml</programlisting>
     </example>
   </section>
   
