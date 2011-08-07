@@ -192,7 +192,7 @@ Tests run: 5, Failures: 0, Errors: 0, Skipped: 0
 
     <para>The more important part is the <literal>pom.xml</literal> file which is needed in
     this case. We have to make sure that the test code is made available
-    for other modules as well. So we have to define the pom like the
+    for other modules as well. So we have to define the <literal>pom</literal> like the
     following:</para>
 
   <example>
@@ -228,8 +228,31 @@ Tests run: 5, Failures: 0, Errors: 0, Skipped: 0
 &lt;/dependencies&gt;
 [...]</programlisting>
     </example>
+
+    <para>Based on that we can now implement the unit test for implementation-a like this:
+    </para>
+    <example>
+      <title>Unit Test for Implementation A</title>
+      <programlisting>public class ImplementationAUnitTest extends ImplementationUnitTest {
+  @BeforeClass
+  public static void beforeClass() {
+    function = new ImplementationA();
+  }
+}</programlisting>
+    </example>
     
-    
+    <para>And for implementation-b like this:</para>
+    <example>
+      <title>Unit Test for Implementation B</title>
+      <programlisting>public class ImplementationBUnitTest extends ImplementationUnitTest {
+  @BeforeClass
+  public static void beforeClass() {
+    function = new ImplementationB();
+  }
+}</programlisting>
+
+  
+    </example>
   </section>
   
 </chapter>
