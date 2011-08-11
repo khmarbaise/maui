@@ -254,8 +254,8 @@ Tests run: 5, Failures: 0, Errors: 0, Skipped: 0
 
     <para> The only thing we need to implement is the initialization
     code to create an instance of the particular class.</para>
-    <para>Based on the above steps the project layout <footnote>The complete code for the
-    example can be found on the <ulink url="http://xxx.de/maui/examples">web site</ulink></footnote>results into the following.</para>
+    <para>Based on the above steps the project layout <footnote><para>The complete code for the
+    example can be found on the <ulink url="http://github.com/khmarbaise/maui/">web site</ulink>.</para></footnote>results into the following.</para>
     <example>
     <title>Project Structure</title>
     <programlisting>|-- interface-impl-a
