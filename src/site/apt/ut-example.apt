@@ -34,7 +34,7 @@ Unit Test Example
   {{{http://maven.apache.org/plugins/maven-surefire-plugin/examples/inclusion-exclusion.html}naming conventions}}
   which are defined by the {{{http://maven.apache.org/plugins/maven-surefire-plugin/index.html}Maven Surefire Plugin}}.
 
-  Assume we have the following structure of a simple Java project which currently consist of simple class <<<BitMask.java>>> and
+  Assume we have the following structure of a simple Java project which currently consisting of simple class <<<BitMask.java>>> and
   of course a unit test class <<<BitMaskTest.java>>>. Based on that we get the following folder
   structure in the unit test example.
 
@@ -89,7 +89,7 @@ Unit Test Example
 +--------
 
   If you like to execute the unit tests of the project, which can simply be
-  achieved by calling <<<mvn package>>>, you will get a result like the
+  achieved by calling <<<mvn test>>>, you will get a result like the
   following:
 
 +--------
@@ -129,9 +129,6 @@ Results :
 
 Tests run: 5, Failures: 0, Errors: 0, Skipped: 0
 
-[INFO]
-[INFO] --- maven-jar-plugin:2.3.1:jar (default-jar) @ unit-test-example ---
-[INFO] Building jar: /maui/examples/unit-test-example/target/unit-test-example-0.1.0-SNAPSHOT.jar
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------

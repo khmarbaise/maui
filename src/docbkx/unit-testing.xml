@@ -31,7 +31,7 @@
   
   <section>
     <title>First Basic Unit Test Example</title>
-    <para>Assuming we have the following structure of a simple Java project currently consists
+    <para>Assuming we have the following structure of a simple Java project currently consisting
     of a simple class <literal>BitMask.java</literal> and of course the unit test class <literal>BitMaskTest.java</literal>.
     </para>
    
@@ -86,7 +86,7 @@
     </example>
 
     <para>If you like to execute the unit tests of the project, which can simply be
-    achieved by calling <command>mvn package</command>, you will get a result like the
+    achieved by calling <command>mvn test</command>, you will get a result like the
     following</para>
     
     <example>
@@ -127,9 +127,6 @@ Results :
 
 Tests run: 5, Failures: 0, Errors: 0, Skipped: 0
 
-[INFO]
-[INFO] --- maven-jar-plugin:2.3.1:jar (default-jar) @ unit-test-example ---
-[INFO] Building jar: /maui/examples/unit-test-example/target/unit-test-example-0.1.0-SNAPSHOT.jar
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
