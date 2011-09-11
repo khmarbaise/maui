@@ -19,7 +19,7 @@
       around like <literal>src/it/java</literal>, but these are only rumors.
    </para>    
 
-   <para>
+   <para> (Think about the following!)
       In this guide we suggest to put them into the same directory structure
       like the unit tests which means in other words <literal>src/test/java</literal> and
       make them distinguishable by the
@@ -29,5 +29,97 @@
   </section>
   
 
+  <section>
+    <title>First Basic Integration Test Example</title>
+    <para>AXXXX</para>
+   
+    <example>
+      <title>Folder Structure of basic integration test</title>
+
+      <programlisting>.
+|-- pom.xml
+`-- src
+    |-- main
+    |   `-- java
+    |       `-- com
+    |           `-- soebes
+    |               `-- maui
+    |                   `-- it
+    |                       `-- BitMask.java
+    `-- test
+        `-- java
+            `-- com
+                `-- soebes
+                    `-- maui
+                        `-- it
+                            |-- BitMaskIT.java
+                            `-- BitMaskTest.java</programlisting>
+    </example>
+    
+   <example>
+      <title>POM for the integration test</title>
+
+      <programlisting>&lt;project
+  xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot;
+  xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+  xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd&quot;&gt;
+
+  &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+
+  &lt;groupId&gt;com.soebes.maui&lt;/groupId&gt;
+  &lt;artifactId&gt;it-test-example&lt;/artifactId&gt;
+  &lt;version&gt;0.1.0-SNAPSHOT&lt;/version&gt;
+
+  &lt;name&gt;MaUI Test Guide :: Integration Test Example&lt;/name&gt;
+
+  &lt;properties&gt;
+    &lt;project.build.sourceEncoding&gt;UTF-8&lt;/project.build.sourceEncoding&gt;
+    &lt;project.reporting.outputEncoding&gt;UTF-8&lt;/project.reporting.outputEncoding&gt;
+  &lt;/properties&gt;
+
+  &lt;build&gt;
+   &lt;plugins&gt;
+      &lt;plugin&gt;
+        &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+        &lt;artifactId&gt;maven-compiler-plugin&lt;/artifactId&gt;
+        &lt;version&gt;2.3.2&lt;/version&gt;
+        &lt;configuration&gt;
+          &lt;source&gt;1.6&lt;/source&gt;
+          &lt;target&gt;1.6&lt;/target&gt;
+        &lt;/configuration&gt;
+      &lt;/plugin&gt;
+      &lt;plugin&gt;
+        &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+        &lt;artifactId&gt;maven-failsafe-plugin&lt;/artifactId&gt;
+        &lt;version&gt;2.8&lt;/version&gt;
+        &lt;executions&gt;
+          &lt;execution&gt;
+            &lt;id&gt;integration-test&lt;/id&gt;
+            &lt;goals&gt;
+              &lt;goal&gt;integration-test&lt;/goal&gt;
+            &lt;/goals&gt;
+          &lt;/execution&gt;
+          &lt;execution&gt;
+            &lt;id&gt;verify&lt;/id&gt;
+            &lt;goals&gt;
+              &lt;goal&gt;verify&lt;/goal&gt;
+            &lt;/goals&gt;
+          &lt;/execution&gt;
+        &lt;/executions&gt;
+      &lt;/plugin&gt;
+    &lt;/plugins&gt;
+  &lt;/build&gt;
+  &lt;dependencies&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;junit&lt;/groupId&gt;
+      &lt;artifactId&gt;junit&lt;/artifactId&gt;
+      &lt;version&gt;4.8.1&lt;/version&gt;
+      &lt;scope&gt;test&lt;/scope&gt;
+    &lt;/dependency&gt;
+  &lt;/dependencies&gt;
+
+&lt;/project&gt;</programlisting>
+    </example>
+</section>
 </chapter>
 
