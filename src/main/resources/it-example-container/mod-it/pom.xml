@@ -46,8 +46,8 @@
             <containerId>tomcat${tomcat.major}x</containerId>
             <zipUrlInstaller>
               <url>http://archive.apache.org/dist/tomcat/tomcat-${tomcat.major}/v${tomcat.version}/bin/apache-tomcat-${tomcat.version}.tar.gz</url>
-              <downloadDir>${project.build.directory}/cargo/download/</downloadDir>
-              <extractDir>${installDir}</extractDir>
+              <extractDir>${project.build.directory}/extract/</extractDir>
+              <downloadDir>${project.build.directory}/download/</downloadDir>
             </zipUrlInstaller>
             <output>${project.build.directory}/tomcat${tomcat.major}x.log</output>
             <log>${project.build.directory}/cargo.log</log>
@@ -57,6 +57,7 @@
             <properties>
               <cargo.logging>high</cargo.logging>
               <cargo.servlet.port>9080</cargo.servlet.port>
+              <cargo.tomcat.ajp.port>9008</cargo.tomcat.ajp.port>
             </properties>
           </configuration>
         </configuration>
@@ -97,15 +98,8 @@
 
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-surefire-plugin</artifactId>
-        <executions>
-          <execution>
-            <phase>integration-test</phase>
-            <goals>
-              <goal>test</goal>
-            </goals>
-          </execution>
-        </executions>
+        <artifactId>maven-failsafe-plugin</artifactId>
+        <version>2.9</version>
         <configuration>
           <printSummary>true</printSummary>
           <testFailureIgnore>true</testFailureIgnore>
