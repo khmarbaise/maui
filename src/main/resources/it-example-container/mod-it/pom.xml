@@ -12,7 +12,7 @@
   </parent>
 
   <artifactId>mod-it</artifactId>
-  <packaging>pom</packaging>
+  <packaging>jar</packaging>
   <name>MaUI Test Guide :: IT Container - Mod-IT</name>
 
   <dependencies>
@@ -22,6 +22,14 @@
       <version>${project.version}</version>
       <type>war</type>
     </dependency>
+
+    <dependency>
+      <groupId>net.sourceforge.jwebunit</groupId>
+      <artifactId>jwebunit-core</artifactId>
+      <version>3.0</version>
+      <scope>test</scope>
+    </dependency>
+
   </dependencies>
 
   <build>
@@ -95,11 +103,20 @@
           </execution>
         </executions>
       </plugin>
-
+  
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-failsafe-plugin</artifactId>
         <version>2.9</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>integration-test</goal>
+              <goal>verify</goal>
+            </goals>
+          </execution>
+        </executions>
+  
         <configuration>
           <printSummary>true</printSummary>
           <testFailureIgnore>true</testFailureIgnore>
