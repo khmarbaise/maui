@@ -26,8 +26,8 @@
   <description>Maven Unit and Integration Test Guide (MaUI Test Guide)</description>
 
   <properties>
-    <surefireVersion>2.8</surefireVersion>
-    <failsafeVersion>2.8</failsafeVersion>
+    <surefireVersion>2.11</surefireVersion>
+    <failsafeVersion>2.11</failsafeVersion>
   </properties>
 
   <build>
@@ -123,7 +123,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-dependency-plugin</artifactId>
-        <version>2.2</version>
+        <version>2.4</version>
         <executions>
           <execution>
             <id>copy</id>

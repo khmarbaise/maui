@@ -47,5 +47,7 @@
   <xi:include href="unit-testing.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
 
   <xi:include href="integration-testing.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+  
+  <xi:include href="it-maven-plugins.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
 
 </book>
