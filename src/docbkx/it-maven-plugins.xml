@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<chapter id="integration-testing">
+  <title>Maven Plugin Integration Testing</title>
+
+  <section id="it-overview">
+    <title>Overview</title>
+
+    <para>If you are writing a Maven Plugin the time comes that you
+    need to test your plugin in an real environment. The best thing
+    you can do is to write integration test by the help of the
+    maven-invoker-plugin.
+   </para>    
+
+  </section>
+  
+
+  <section>
+    <title>First Basic Integration Test Example</title>
+    <para>AXXXX</para>
+    <example>
+      <title>Folder Structure of basic integration test</title>
+
+      <programlisting>.
+|-- pom.xml
+`-- src
+    |-- main
+    |   `-- java
+    |       `-- com
+    |           `-- soebes
+    |               `-- maui
+    |                   `-- it
+    |                       `-- BitMask.java
+    `-- test
+        `-- java
+            `-- com
+                `-- soebes
+                    `-- maui
+                        `-- it
+                            |-- BitMaskIT.java
+                            `-- BitMaskTest.java</programlisting>
+    </example>
+    
+    
+  </section>
+
+</chapter>
+
