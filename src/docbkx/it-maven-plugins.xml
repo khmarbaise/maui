@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<chapter id="integration-testing">
+<chapter id="mp-integration-testing">
   <title>Maven Plugin Integration Testing</title>
 
-  <section id="it-overview">
+  <section id="mp-it-overview">
     <title>Overview</title>
 
     <para>If you are writing a Maven Plugin the time comes that you
