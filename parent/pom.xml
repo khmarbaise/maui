@@ -60,10 +60,6 @@
           <id>ossrh-snapshots</id>
           <url>http://oss.sonatype.org/content/repositories/snapshots</url>
       </snapshotRepository>
-      <site>
-          <id>maui-project-site</id>
-          <url>gitsite:git@github.com/khmarbaise/maui.git</url>
-      </site>
   </distributionManagement>
 
   <build>
