@@ -71,6 +71,9 @@ In Module Integration Test Example with different source location
   you have to change the configuration accordingly. The following
   <<<pom.xml>>> snippet will show what you have to add.
 
+
+%{include|source=it-example-1/pom.xml|snippet=#start}
+
 +--------
 <project ...>
   [...]
@@ -113,6 +116,9 @@ In Module Integration Test Example with different source location
 
   The execution will be exactly the same as in the previous example.
   This can be done by calling <<<mvn clean verify>>>.
+  
+%{include|source=it/it-example-1/build.log|highlight-type=text}
+
 
 +--------
 [INFO] Scanning for projects...

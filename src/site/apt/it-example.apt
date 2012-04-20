@@ -70,107 +70,15 @@ In Module Integration Test Example
   {{{http://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html}life-cycle-phase}}
   of Maven.
 
-+--------
-<project ...>
-  [...]
-  <build>
-      [...]
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-failsafe-plugin</artifactId>
-        <version>2.8</version>
-        <executions>
-          <execution>
-            <id>integration-test</id>
-            <goals>
-              <goal>integration-test</goal>
-            </goals>
-          </execution>
-          <execution>
-            <id>verify</id>
-            <goals>
-              <goal>verify</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-      [...]
-  </build>
-  [...]
-</project>
-
-+--------
+%{include|source=it-example/pom.xml|snippet=#start}
 
   If you like to execute the integration tests as well as the unit tests you
   can simply call <<<mvn verify>>> which includes the <<<package>>> phase and
-  of course the <<<integration-test>>> phase. The Maven Failsafe Plugin will
-  be called after the unit test and will execute the integration test in the
+  of course the <<<integration-test>>> phase. The {{{http://maven.apache.org/plugins/maven-failsafe-plugin/}Maven Failsafe Plugin}}
+  will be called after the unit test and will execute the integration test in the
   <<<BitMaskIT.java>>> class.
-
-+--------
-[INFO] Scanning for projects...
-[INFO]
-[INFO] ------------------------------------------------------------------------
-[INFO] Building MaUI Test Guide :: Integration Test Example 0.1.0-SNAPSHOT
-[INFO] ------------------------------------------------------------------------
-[INFO]
-[INFO] --- maven-clean-plugin:2.4.1:clean (default-clean) @ it-test-example ---
-[INFO]
-[INFO] --- maven-resources-plugin:2.4.3:resources (default-resources) @ it-test-example ---
-[INFO] Using 'UTF-8' encoding to copy filtered resources.
-[INFO] skip non existing resourceDirectory /examples/it-example/src/main/resources
-[INFO]
-[INFO] --- maven-compiler-plugin:2.3.2:compile (default-compile) @ it-test-example ---
-[INFO] Compiling 1 source file to /examples/it-example/target/classes
-[INFO]
-[INFO] --- maven-resources-plugin:2.4.3:testResources (default-testResources) @ it-test-example ---
-[INFO] Using 'UTF-8' encoding to copy filtered resources.
-[INFO] skip non existing resourceDirectory /examples/it-example/src/test/resources
-[INFO]
-[INFO] --- maven-compiler-plugin:2.3.2:testCompile (default-testCompile) @ it-test-example ---
-[INFO] Compiling 2 source files to /examples/it-example/target/test-classes
-[INFO]
-[INFO] --- maven-surefire-plugin:2.7.2:test (default-test) @ it-test-example ---
-[INFO] Surefire report directory: /examples/it-example/target/surefire-reports
-
--------------------------------------------------------
- T E S T S
--------------------------------------------------------
-Running com.soebes.maui.it.BitMaskTest
-Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.064 sec
-
-Results :
-
-Tests run: 5, Failures: 0, Errors: 0, Skipped: 0
-
-[INFO]
-[INFO] --- maven-jar-plugin:2.3.1:jar (default-jar) @ it-test-example ---
-[INFO] Building jar: /examples/it-example/target/it-test-example-0.1.0-SNAPSHOT.jar
-[INFO]
-[INFO] --- maven-failsafe-plugin:2.8:integration-test (integration-test) @ it-test-example ---
-[INFO] Failsafe report directory: /examples/it-example/target/failsafe-reports
-
--------------------------------------------------------
- T E S T S
--------------------------------------------------------
-Running com.soebes.maui.it.BitMaskIT
-Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.066 sec
-
-Results :
-
-Tests run: 5, Failures: 0, Errors: 0, Skipped: 0
-
-[INFO]
-[INFO] --- maven-failsafe-plugin:2.8:verify (verify) @ it-test-example ---
-[INFO] Failsafe report directory: /examples/it-example/target/failsafe-reports
-[INFO] ------------------------------------------------------------------------
-[INFO] BUILD SUCCESS
-[INFO] ------------------------------------------------------------------------
-[INFO] Total time: 4.853s
-[INFO] Finished at: Sat Jun 04 21:45:52 CEST 2011
-[INFO] Final Memory: 11M/141M
-[INFO] ------------------------------------------------------------------------
-+--------
+  
+%{include|source=it/it-example/build.log|highlight-type=text}
 
   []
 

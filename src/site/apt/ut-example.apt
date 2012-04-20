@@ -68,31 +68,16 @@ Unit Test Example
   In this case we use {{{http://www.junit.org}JUnit}} for writing the unit test.
   This will work as well with {{{http://www.testng.org}TestNG}} if you prefer
   TestNG over JUnit.
-  
+
   The following <<<pom.xml>>> snippet shows how to add the dependency of JUnit to your project.
 
-+--------
-<project ...>
-  [...]
-  <dependencies>
-  [...]
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.8.1</version>
-      <scope>test</scope>
-    </dependency>
-  [...]
-  </dependencies>
-  [...]
-</project>
-+--------
+%{include|source=ut-example/pom.xml|snippet=#start}
 
   If you like to execute the unit tests of the project, which can simply be
   achieved by calling <<<mvn test>>>, you will get a result like the
   following:
 
-%{include|source=ut-example/x.log|highlight-type=text}
+%{include|source=it/ut-example/build.log|highlight-type=text}
 
   []
 

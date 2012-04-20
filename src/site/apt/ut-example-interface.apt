@@ -76,14 +76,6 @@ How to Unit Test Interfaces
 
 %{include|source=ut-example-interface/interface-impl-a/src/test/java/com/soebes/maui/ut/inter/ImplementationAUnitTest.java|snippet=#start}
 
-+----------
-public class ImplementationAUnitTest extends ImplementationUnitTest {
-  @BeforeClass
-  public static void beforeClass() {
-    function = new ImplementationA();
-  }
-}
-+----------
 
   And for implementation-b like this:
 

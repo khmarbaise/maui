@@ -192,7 +192,7 @@
           </books>
         </configuration>
       </plugin>
-     --> 
+     -->
       <plugin>
         <groupId>com.github.github</groupId>
         <artifactId>site-maven-plugin</artifactId>
@@ -228,6 +228,47 @@
           </execution>
         </executions>
       </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-invoker-plugin</artifactId>
+        <version>1.5</version>
+        <configuration>
+          <debug>false</debug>
+          <projectsDirectory>src/main/resources</projectsDirectory>
+          <cloneProjectsTo>${project.build.directory}/it</cloneProjectsTo>
+          <pomIncludes>
+            <pomInclude>ut-example/pom.xml</pomInclude>
+            <pomInclude>ut-example-1/pom.xml</pomInclude>
+            <pomInclude>it-example/pom.xml</pomInclude>
+            <pomInclude>it-example-1/pom.xml</pomInclude>
+          </pomIncludes>
+          <pomExcludes>
+            <!--  Currentyl not working -->
+            <pomExclude>ut-example-withcopy/pom.xml</pomExclude>
+          </pomExcludes>
+          <preBuildHookScript>setup</preBuildHookScript>
+          <postBuildHookScript>verify</postBuildHookScript>
+          <localRepositoryPath>${project.build.directory}/local-repo</localRepositoryPath>
+          <settingsFile>src/main/resources/settings.xml</settingsFile>
+          <goals>
+            <goal>clean</goal>
+            <goal>test</goal>
+          </goals>
+          <phase>pre-site</phase>
+        </configuration>
+        <executions>
+          <execution>
+            <id>pre-site</id>
+            <goals>
+              <goal>install</goal>
+              <goal>run</goal>
+            </goals>
+            <phase>pre-site</phase>
+          </execution>
+        </executions>
+      </plugin>
+
     </plugins>
   </build>
 
