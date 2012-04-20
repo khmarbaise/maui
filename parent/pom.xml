@@ -12,7 +12,7 @@
   <packaging>pom</packaging>
 
   <description>Best Practice for doing Unit Tests, Integration Tests</description>
-  <url>https://github.com/khmarbaise/</url>
+  <url>http://khmarbaise.github.com/maui/</url>
   <inceptionYear>2011</inceptionYear>
 
   <organization>
@@ -96,24 +96,6 @@
         </plugin>
       </plugins>
     </pluginManagement>
-    <extensions>
-      <extension>
-        <groupId>org.apache.maven.scm</groupId>
-        <artifactId>maven-scm-provider-gitexe</artifactId>
-        <version>1.5</version>
-      </extension>
-      <extension>
-        <groupId>org.apache.maven.scm</groupId>
-        <artifactId>maven-scm-manager-plexus</artifactId>
-        <version>1.5</version>
-      </extension>
-      <extension>
-        <groupId>org.kathrynhuxtable.maven.wagon</groupId>
-        <artifactId>wagon-gitsite</artifactId>
-        <version>0.3.1</version>
-      </extension>
-    </extensions>
-
   </build>
 
   <reporting>
