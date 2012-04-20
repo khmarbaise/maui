@@ -221,6 +221,9 @@
       <version>0.5</version>
       <configuration>
         <message>Creating site for ${project.version}</message>
+        <merge>false</merge>
+        <repositoryName>maui</repositoryName>
+	<userName>khmarbaise</userName>
       </configuration>
       <executions>
         <execution>
