@@ -7,6 +7,7 @@ import org.junit.Test;
 
 import com.soebes.maui.ut.inter.IFunction;
 
+// START SNIPPET: start
 public abstract class ImplementationUnitTest {
 
     protected static IFunction function;
@@ -21,3 +22,4 @@ public abstract class ImplementationUnitTest {
         assertFalse(function.function("function"));
     }
 }
+// END SNIPPET: start

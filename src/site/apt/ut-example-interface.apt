@@ -59,67 +59,22 @@ How to Unit Test Interfaces
   the unit test code but this is error prone and of course not effective.
 
   The solution is to implement the unit test code in an abstract class
-  in a separate module <<<interface-test>>>.
+  in a separate module <<interface-test>>.
 
-+----------
-public abstract class ImplementationUnitTest {
-
-    protected static IFunction function;
-
-    @Test
-    public void firstTest() {
-        assertTrue(function.function("function1"));
-    }
-
-    @Test
-    public void secondTest() {
-        assertFalse(function.function("function"));
-    }
-}
-+----------
-
-
+%{include|source=ut-example-interface/interface-test/src/test/java/com/soebes/maui/ut/inter/ImplementationUnitTest.java|snippet=#start}
+  
   The more important part is the <<<pom.xml>>> file which is needed in
   this case. We have to make sure that the test code is made available
   for other modules as well. So we have to define the pom like the
   following:
 
-+----------
-  [...]
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-jar-plugin</artifactId>
-        <executions>
-          <execution>
-            <goals>
-              <goal>test-jar</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-    </plugins>
-  </build>
-
-  <dependencies>
-    <dependency>
-      <groupId>${project.groupId}</groupId>
-      <artifactId>interface-interface</artifactId>
-      <version>${project.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <scope>test</scope>
-    </dependency>
-  </dependencies>
-  [...]
-+----------
+%{include|source=ut-example-interface/interface-test/pom.xml|snippet=#start}
 
 
   Based on that we can now implement the unit test for
   implementation-a like this:
+
+%{include|source=ut-example-interface/interface-impl-a/src/test/java/com/soebes/maui/ut/inter/ImplementationAUnitTest.java|snippet=#start}
 
 +----------
 public class ImplementationAUnitTest extends ImplementationUnitTest {
@@ -132,14 +87,7 @@ public class ImplementationAUnitTest extends ImplementationUnitTest {
 
   And for implementation-b like this:
 
-+----------
-public class ImplementationBUnitTest extends ImplementationUnitTest {
-  @BeforeClass
-  public static void beforeClass() {
-    function = new ImplementationB();
-  }
-}
-+----------
+%{include|source=ut-example-interface/interface-impl-b/src/test/java/com/soebes/maui/ut/inter/ImplementationBUnitTest.java|snippet=#start}
 
   The only thing we need to implement is the initialization
   code to create an instance of the particular class.

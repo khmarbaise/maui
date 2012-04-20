@@ -5,7 +5,7 @@ import org.junit.BeforeClass;
 import com.soebes.maui.ut.inter.ImplementationA;
 import com.soebes.maui.ut.inter.ImplementationUnitTest;
 
-
+// START SNIPPET: start
 public class ImplementationAUnitTest extends ImplementationUnitTest {
 
     @BeforeClass
@@ -14,3 +14,4 @@ public class ImplementationAUnitTest extends ImplementationUnitTest {
     }
 
 }
+// END SNIPPET: start

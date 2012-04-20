@@ -14,6 +14,7 @@
   <artifactId>interface-test</artifactId>
   <name>MaUI Test Guide :: UT Example - Test</name>
 
+  <!--  START SNIPPET: start -->
   <build>
     <plugins>
       <plugin>
@@ -42,6 +43,7 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+  <!--  END SNIPPET: start -->
 
 </project>
 
