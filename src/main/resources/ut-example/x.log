@@ -1,0 +1,48 @@
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building MaUI Test Guide :: Unit Test Example 0.1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.4.1:clean (default-clean) @ unit-test-example ---
+[INFO] Deleting /home/kama/ws-git/maui/src/main/resources/ut-example/target
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:resources (default-resources) @ unit-test-example ---
+[debug] execute contextualize
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/kama/ws-git/maui/src/main/resources/ut-example/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:compile (default-compile) @ unit-test-example ---
+[INFO] Compiling 1 source file to /home/kama/ws-git/maui/src/main/resources/ut-example/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:testResources (default-testResources) @ unit-test-example ---
+[debug] execute contextualize
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/kama/ws-git/maui/src/main/resources/ut-example/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:testCompile (default-testCompile) @ unit-test-example ---
+[INFO] Compiling 1 source file to /home/kama/ws-git/maui/src/main/resources/ut-example/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.10:test (default-test) @ unit-test-example ---
+[INFO] Surefire report directory: /home/kama/ws-git/maui/src/main/resources/ut-example/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running com.soebes.training.maven.simple.BitMaskTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.102 sec
+
+Results :
+
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-jar-plugin:2.3.2:jar (default-jar) @ unit-test-example ---
+[INFO] Building jar: /home/kama/ws-git/maui/src/main/resources/ut-example/target/unit-test-example-0.1.0-SNAPSHOT.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 4.907s
+[INFO] Finished at: Fri Apr 20 22:17:22 CEST 2012
+[INFO] Final Memory: 11M/148M
+[INFO] ------------------------------------------------------------------------

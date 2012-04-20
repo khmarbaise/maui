@@ -92,51 +92,7 @@ Unit Test Example
   achieved by calling <<<mvn test>>>, you will get a result like the
   following:
 
-+--------
-[INFO] Scanning for projects...
-[INFO]
-[INFO] ------------------------------------------------------------------------
-[INFO] Building Unit Test :: example 0.1.0-SNAPSHOT
-[INFO] ------------------------------------------------------------------------
-[INFO]
-[INFO] --- maven-clean-plugin:2.4.1:clean (default-clean) @ unit-test-example ---
-[INFO] Deleting /maui/examples/unit-test-example/target
-[INFO]
-[INFO] --- maven-resources-plugin:2.4.3:resources (default-resources) @ unit-test-example ---
-[INFO] Using 'UTF-8' encoding to copy filtered resources.
-[INFO] skip non existing resourceDirectory /maui/examples/unit-test-example/src/main/resources
-[INFO]
-[INFO] --- maven-compiler-plugin:2.3.2:compile (default-compile) @ unit-test-example ---
-[INFO] Compiling 1 source file to /maui/examples/unit-test-example/target/classes
-[INFO]
-[INFO] --- maven-resources-plugin:2.4.3:testResources (default-testResources) @ unit-test-example ---
-[INFO] Using 'UTF-8' encoding to copy filtered resources.
-[INFO] skip non existing resourceDirectory /maui/examples/unit-test-example/src/test/resources
-[INFO]
-[INFO] --- maven-compiler-plugin:2.3.2:testCompile (default-testCompile) @ unit-test-example ---
-[INFO] Compiling 1 source file to /maui/examples/unit-test-example/target/test-classes
-[INFO]
-[INFO] --- maven-surefire-plugin:2.7.2:test (default-test) @ unit-test-example ---
-[INFO] Surefire report directory: /maui/examples/unit-test-example/target/surefire-reports
-
--------------------------------------------------------
- T E S T S
--------------------------------------------------------
-Running com.soebes.training.maven.simple.BitMaskTest
-Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.078 sec
-
-Results :
-
-Tests run: 5, Failures: 0, Errors: 0, Skipped: 0
-
-[INFO] ------------------------------------------------------------------------
-[INFO] BUILD SUCCESS
-[INFO] ------------------------------------------------------------------------
-[INFO] Total time: 4.834s
-[INFO] Finished at: Fri Apr 01 20:02:40 CEST 2011
-[INFO] Final Memory: 9M/92M
-[INFO] ------------------------------------------------------------------------
-+--------
+%{include|source=ut-example/x.log|highlight-type=text}
 
   []
 
