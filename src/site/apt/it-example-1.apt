@@ -117,7 +117,7 @@ In Module Integration Test Example with different source location
   The execution will be exactly the same as in the previous example.
   This can be done by calling <<<mvn clean verify>>>.
   
-%{include|source=it/it-example-1/build.log|highlight-type=text}
+%{include|source=it/it-example-1/build-filtered.log|highlight-type=text}
 
   []
 

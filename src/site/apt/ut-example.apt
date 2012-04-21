@@ -77,7 +77,7 @@ Unit Test Example
   achieved by calling <<<mvn test>>>, you will get a result like the
   following:
 
-%{include|source=it/ut-example/build.log|highlight-type=text}
+%{include|source=it/ut-example/build-filtered.log|highlight-type=text}
 
   []
 

@@ -78,7 +78,7 @@ In Module Integration Test Example
   will be called after the unit test and will execute the integration test in the
   <<<BitMaskIT.java>>> class.
   
-%{include|source=it/it-example/build.log|highlight-type=text}
+%{include|source=it/it-example/build-filtered.log|highlight-type=text}
 
   []
 
