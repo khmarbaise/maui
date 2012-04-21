@@ -1,7 +1,7 @@
 <project
-    xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
   <modelVersion>4.0.0</modelVersion>
 
@@ -16,12 +16,14 @@
   <name>MaUI Test Guide :: IT Container - Mod-IT</name>
 
   <dependencies>
+    <!-- START SNIPPET: war-dependency -->
     <dependency>
       <groupId>${project.groupId}</groupId>
       <artifactId>mod-war</artifactId>
       <version>${project.version}</version>
       <type>war</type>
     </dependency>
+  <!-- END SNIPPET: war-dependency -->
 
     <dependency>
       <groupId>net.sourceforge.jwebunit</groupId>
@@ -46,6 +48,7 @@
         </executions>
       </plugin>
       <plugin>
+        <!-- START SNIPPET: cargo-plugin -->
         <groupId>org.codehaus.cargo</groupId>
         <artifactId>cargo-maven2-plugin</artifactId>
         <configuration>
@@ -69,6 +72,8 @@
             </properties>
           </configuration>
         </configuration>
+        <!-- END SNIPPET: cargo-plugin -->
+        <!-- START SNIPPET: cargo-plugin-start-execution -->
         <executions>
           <execution>
             <id>start-container</id>
@@ -94,6 +99,8 @@
               </deployer>
             </configuration>
           </execution>
+          <!-- END SNIPPET: cargo-plugin-start-execution -->
+          <!-- START SNIPPET: cargo-plugin-stop-execution -->
           <execution>
             <id>stop-container</id>
             <phase>post-integration-test</phase>
@@ -101,9 +108,10 @@
               <goal>stop</goal>
             </goals>
           </execution>
+          <!-- END SNIPPET: cargo-plugin-stop-execution -->
         </executions>
       </plugin>
-  
+
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-failsafe-plugin</artifactId>
@@ -115,7 +123,7 @@
             </goals>
           </execution>
         </executions>
-  
+
         <configuration>
           <printSummary>true</printSummary>
           <testFailureIgnore>true</testFailureIgnore>

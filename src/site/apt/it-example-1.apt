@@ -74,37 +74,6 @@ In Module Integration Test Example with different source location
 
 %{include|source=it-example-1/pom.xml|snippet=#start}
 
-+--------
-<project ...>
-  [...]
-  <build>
-    [...]
-     <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>build-helper-maven-plugin</artifactId>
-        <version>1.5</version>
-        <executions>
-          <execution>
-            <id>add-test-source</id>
-            <phase>generate-test-sources</phase>
-            <goals>
-              <goal>add-test-source</goal>
-            </goals>
-            <configuration>
-              <sources>
-                <source>src/it/java</source>
-              </sources>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
-      [...]
-  </build>
-  [...]
-</project>
-
-+--------
-
   Tip:
 
   If you like to add the new source folder automatically to your Eclipse
@@ -112,7 +81,7 @@ In Module Integration Test Example with different source location
   into <<<process-resources>>>. The result of this change is that you will
   see the <<<src/it/java>>> folder as source folder within in Eclipse after
   an <Update Project Configuration> as any other source folders. Furthermore
-  it achievable by changing the configuration of Eclipse.
+  it is achievable by changing the configuration of Eclipse.
 
   The execution will be exactly the same as in the previous example.
   This can be done by calling <<<mvn clean verify>>>.
