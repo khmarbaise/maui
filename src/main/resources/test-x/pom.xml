@@ -1,0 +1,62 @@
+<project
+  xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>com.soebes.smpp</groupId>
+    <artifactId>smpp</artifactId>
+    <version>0.5-SNAPSHOT</version>
+  </parent>
+
+  <groupId>com.soebes.training.module</groupId>
+  <artifactId>unit-test-example</artifactId>
+  <version>0.1.0-SNAPSHOT</version>
+
+  <name>MaUI Test Guide :: Unit Test Example</name>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+  </properties>
+
+
+  <build>
+
+    <plugins>
+   <plugin>
+      <groupId>com.soebes.maven.plugins</groupId>
+      <artifactId>maven-echo-plugin</artifactId>
+      <version>0.1</version>
+      <executions>
+        <execution>
+          <id>generate-sources-flag</id>
+          <phase>generate-sources</phase>
+          <goals>
+            <goal>echo</goal>
+          </goals>
+	      <configuration>
+		<echos>
+		  <echo xml:space="preserve">      GENERATE SOURCES IS EXECUTING</echo>
+		</echos>
+	      </configuration>
+        </execution>
+      </executions>
+    </plugin>
+
+    </plugins>
+  </build>
+
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.8.1</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+</project>
+
