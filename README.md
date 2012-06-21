@@ -70,8 +70,11 @@ TODOs
        run the tests there..
 
  - Reporting Unit Tests results
+
  - Reporting code coverage results
+
  - Reporting Integration test results
+
  - Reporting Integration test coverage results.
 
 Naming Convention for the examples
@@ -80,10 +83,15 @@ Naming Convention for the examples
   - Prefixes of the projects:
 
     mp - Maven Plugin
+
     ut - Unit Test
+
     it - Integration Test
 
+
     ut-       - Unit Test
+
     it-       - Integration Tests
+
     mp-it-... - Maven Plugin - Integration Test
 
