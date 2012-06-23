@@ -7,18 +7,18 @@
 
   <parent>
     <groupId>com.soebes.training.module</groupId>
-    <artifactId>ut-example-mm-common</artifactId>
+    <artifactId>ut-example-mm-separate</artifactId>
     <version>0.1.0-SNAPSHOT</version>
   </parent>
 
-  <artifactId>ut-example-mm-common-mod2</artifactId>
+  <artifactId>ut-example-mm-separate-mod2</artifactId>
 
-  <name>MaUI Test Guide :: UT Multi Module - Common :: Mod 2</name>
+  <name>MaUI Test Guide :: UT Multi Module - Separate :: Mod 2</name>
 
   <dependencies>
     <dependency>
       <groupId>${project.groupId}</groupId>
-      <artifactId>ut-example-mm-common-mod1</artifactId>
+      <artifactId>ut-example-mm-common</artifactId>
       <version>${project.version}</version>
       <type>test-jar</type>
       <scope>test</scope>
