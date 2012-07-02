@@ -6,10 +6,10 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.soebes.maui</groupId>
-  <artifactId>it-report-test-example</artifactId>
+  <artifactId>it-report-cc-test-example</artifactId>
   <version>0.1.0-SNAPSHOT</version>
 
-  <name>MaUI Test Guide :: Integration Report Test Example</name>
+  <name>MaUI Test Guide :: Integration Report Code Coverage Test Example</name>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -69,6 +69,24 @@
           </execution>
         </executions>
       </plugin>
+	<plugin>
+	  <groupId>org.jacoco</groupId>
+	  <artifactId>jacoco-maven-plugin</artifactId>
+	  <version>0.5.7.201204190339</version>
+	  <executions>
+	    <execution>
+              <id>pre-integration-test-prepare-agent</id>
+              <phase>pre-integration-test</phase>
+	      <goals>
+		<goal>prepare-agent</goal>
+	      </goals>
+              <configuration>
+                <destFile>${project.build.directory}/jacoco-it.exec</destFile>
+              </configuration>
+	    </execution>
+	  </executions>
+	</plugin>
+
     </plugins>
   </build>
   <dependencies>
@@ -111,6 +129,23 @@
           </reportSet>
         </reportSets>
       </plugin>
+	<plugin>
+	  <groupId>org.jacoco</groupId>
+	  <artifactId>jacoco-maven-plugin</artifactId>
+	  <version>0.5.7.201204190339</version>
+	  <reportSets>
+	    <reportSet>
+	      <id>it-report</id>
+	      <reports>
+		<report>report</report>
+	      </reports>
+              <configuration>
+                <dataFile>${project.build.directory}/jacoco-it.exec</dataFile>
+                <outputDirectory>${project.reporting.outputDirectory}/jacoco-it</outputDirectory>
+              </configuration>
+	    </reportSet>
+	  </reportSets>
+	</plugin>
     </plugins>
   </reporting>
 </project>
