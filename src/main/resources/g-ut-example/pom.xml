@@ -1,0 +1,80 @@
+<project
+  xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>com.soebes.smpp</groupId>
+    <artifactId>smpp</artifactId>
+    <version>0.5</version>
+  </parent>
+
+  <groupId>com.soebes.training.module.groovy</groupId>
+  <artifactId>g-unit-test-example</artifactId>
+  <version>0.1.0-SNAPSHOT</version>
+
+  <name>MaUI Test Guide :: Groovy Unit Test Example</name>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+  </properties>
+
+
+  <!-- START SNIPPET: start -->
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.8.1</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.codehaus.groovy</groupId>
+      <artifactId>groovy-all</artifactId>
+      <version>2.0.0</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.codehaus.gmaven.runtime</groupId>
+      <artifactId>gmaven-runtime-2.0</artifactId>
+      <version>1.4</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+  <!-- END SNIPPET: start -->
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <compilerId>groovy-eclipse-compiler</compilerId>
+          <compilerArgument>nowarn</compilerArgument>
+          <verbose>false</verbose>
+        </configuration>
+        <dependencies>
+          <dependency>
+            <groupId>org.codehaus.groovy</groupId>
+            <artifactId>groovy-eclipse-compiler</artifactId>
+            <version>2.7.0-01</version>
+          </dependency>
+          <dependency>
+            <groupId>org.codehaus.groovy</groupId>
+            <artifactId>groovy-eclipse-batch</artifactId>
+            <version>2.0.0-01</version>
+          </dependency>
+        </dependencies>
+      </plugin>
+<!--       <plugin> -->
+<!--         <groupId>org.codehaus.gmaven</groupId> -->
+<!--         <artifactId>gmaven-plugin</artifactId> -->
+<!--         <version>1.4</version> -->
+<!--       </plugin> -->
+    </plugins>
+  </build>
+</project>
+
