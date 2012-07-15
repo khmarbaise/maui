@@ -54,7 +54,7 @@
         <configuration>
           <compilerId>groovy-eclipse-compiler</compilerId>
           <compilerArgument>nowarn</compilerArgument>
-          <verbose>false</verbose>
+          <verbose>true</verbose>
         </configuration>
         <dependencies>
           <dependency>
