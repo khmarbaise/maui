@@ -3,17 +3,18 @@ package com.soebes.maui.it.c;
 import net.sourceforge.jwebunit.junit.WebTester;
 import net.sourceforge.jwebunit.util.TestingEngineRegistry;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+
 
 public class ContainerIT {
     private WebTester wt;
 
-    @Before
+    @BeforeClass
     public void prepare() {
         wt = new WebTester();
         wt.setTestingEngineKey(TestingEngineRegistry.TESTING_ENGINE_HTMLUNIT);
-        wt.setBaseUrl("http://localhost:9080/mod-war");
+        wt.setBaseUrl("http://localhost:9080/mod-war/");
     }
 
     @Test
