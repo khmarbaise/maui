@@ -273,6 +273,9 @@
         will deploy the site to github site.
        -->
       <id>github</id>
+      <activation>
+        <activeByDefault>false</activeByDefault>
+      </activation>
       <build>
         <plugins>
           <plugin>
