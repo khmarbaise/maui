@@ -15,5 +15,12 @@
 
   <name>MaUI Test Guide :: UT Multi Module :: Mod 2</name>
 
+  <dependencies>
+    <dependency>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>ut-example-mm-mod1</artifactId>
+      <version>${project.version}</version>
+  </dependency>
+</dependencies>
 </project>
 
