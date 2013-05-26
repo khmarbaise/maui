@@ -34,13 +34,13 @@
         <version>2.12</version>
         <executions>
           <execution>
-            <id>integration-test</id>
+            <id>anton</id>
             <goals>
               <goal>integration-test</goal>
             </goals>
           </execution>
           <execution>
-            <id>verify</id>
+            <id>anton-verify</id>
             <goals>
               <goal>verify</goal>
             </goals>
@@ -54,7 +54,7 @@
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>4.8.1</version>
+      <version>4.11</version>
       <scope>test</scope>
     </dependency>
   </dependencies>

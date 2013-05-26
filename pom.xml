@@ -261,7 +261,7 @@
   </build>
 
   <scm>
-    <developerConnection>scm:git:git+ssh://git@github.com:khmarbaise/maui.git</developerConnection>
+    <developerConnection>scm:git:git://github.com:khmarbaise/maui.git</developerConnection>
     <connection>scm:git:git://github.com/khmarbaise/maui.git</connection>
     <url>https://github.com/khmarbaise/maui</url>
   </scm>

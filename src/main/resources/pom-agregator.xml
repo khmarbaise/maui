@@ -12,12 +12,18 @@
   <name>MaUI Test Guide :: Example Aggregator</name>
 
   <modules>
+    <module>g-ut-example</module>
     <module>ut-example</module>
     <module>ut-example-interface</module>
     <module>ut-example-mu</module>
+    <module>ut-example-multi-module</module>
     <module>it-example</module>
+    <module>it-report-example-cc</module>
     <module>it-example-1</module>
     <module>it-example-container</module>
+    <module>ut-example-interface-withcopy</module>
+    <module>ut-example-multi-module-common</module>
+    <module>ut-example-multi-module-separate-common</module>
     <module>mp-it-1</module>
     <module>mp-it-2</module>
     <module>mp-it-ex</module>
