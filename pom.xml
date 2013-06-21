@@ -26,8 +26,8 @@
   <description>Maven Unit and Integration Test Guide (MaUI Test Guide)</description>
 
   <properties>
-    <surefireVersion>2.12.4</surefireVersion>
-    <failsafeVersion>2.12.4</failsafeVersion>
+    <surefireVersion>2.15</surefireVersion>
+    <failsafeVersion>2.15</failsafeVersion>
   </properties>
 
   <build>
@@ -104,7 +104,7 @@
         <artifactId>maven-assembly-plugin</artifactId>
         <configuration>
           <descriptors>
-            <descriptor>${basedir}/src.xml</descriptor>
+            <descriptor>src/main/assemblies/src.xml</descriptor>
           </descriptors>
           <tarLongFileMode>gnu</tarLongFileMode>
         </configuration>
