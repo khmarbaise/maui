@@ -129,7 +129,6 @@
 
                 <configuration>
                     <printSummary>true</printSummary>
-                    <testFailureIgnore>true</testFailureIgnore>
                 </configuration>
             </plugin>
 
