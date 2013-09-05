@@ -1,0 +1,149 @@
+<project
+    xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <artifactId>parent</artifactId>
+        <version>0.1.0-SNAPSHOT</version>
+        <groupId>com.soebes.training.module.it-container.selenium</groupId>
+    </parent>
+
+    <artifactId>mod-it</artifactId>
+    <packaging>jar</packaging>
+    <name>MaUI Test Guide :: IT Container - Mod-IT</name>
+
+    <dependencies>
+        <!-- START SNIPPET: war-dependency -->
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>mod-war</artifactId>
+            <version>${project.version}</version>
+            <type>war</type>
+        </dependency>
+        <!-- END SNIPPET: war-dependency -->
+
+
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>6.7</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+          <groupId>org.seleniumhq.selenium</groupId>
+          <artifactId>selenium-firefox-driver</artifactId>
+          <version>2.34.0</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+          <groupId>org.seleniumhq.selenium</groupId>
+          <artifactId>selenium-server</artifactId>
+          <version>2.34.0</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+          <groupId>org.easytesting</groupId>
+          <artifactId>fest-assert</artifactId>
+          <version>1.4</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <!-- START SNIPPET: cargo-plugin -->
+                <groupId>org.codehaus.cargo</groupId>
+                <artifactId>cargo-maven2-plugin</artifactId>
+                <configuration>
+                    <wait>false</wait>
+                    <container>
+                        <containerId>tomcat${tomcat.major}x</containerId>
+                        <zipUrlInstaller>
+                            <proxy>
+                              <host>webproxy.prod.barmer.bek</host>
+                              <port>8080</port>
+                            </proxy>
+                            <url>http://archive.apache.org/dist/tomcat/tomcat-${tomcat.major}/v${tomcat.version}/bin/apache-tomcat-${tomcat.version}.tar.gz</url>
+                            <extractDir>${project.build.directory}/extract/</extractDir>
+                            <downloadDir>${project.build.directory}/download/</downloadDir>
+                        </zipUrlInstaller>
+                        <output>${project.build.directory}/tomcat${tomcat.major}x.log</output>
+                        <log>${project.build.directory}/cargo.log</log>
+                    </container>
+                    <configuration>
+                        <home>${project.build.directory}/tomcat-${tomcat.version}/container</home>
+                        <properties>
+                            <cargo.logging>high</cargo.logging>
+                            <cargo.servlet.port>9080</cargo.servlet.port>
+                            <cargo.tomcat.ajp.port>9008</cargo.tomcat.ajp.port>
+                        </properties>
+                    </configuration>
+                </configuration>
+                <!-- END SNIPPET: cargo-plugin -->
+                <!-- START SNIPPET: cargo-plugin-start-execution -->
+                <executions>
+                    <execution>
+                        <id>start-container</id>
+                        <phase>pre-integration-test</phase>
+                        <goals>
+                            <goal>start</goal>
+                            <goal>deploy</goal>
+                        </goals>
+                        <configuration>
+                           <deployer>
+                                <deployables>
+                                    <deployable>
+                                        <groupId>${project.groupId}</groupId>
+                                        <artifactId>mod-war</artifactId>
+                                        <type>war</type>
+                                        <pingURL>http://localhost:9080/mod-war/</pingURL>
+                                        <pingTimeout>30000</pingTimeout>
+                                        <properties>
+                                            <context>mod-war</context>
+                                        </properties>
+                                    </deployable>
+                                </deployables>
+                           </deployer>
+                        </configuration>
+                    </execution>
+                    <!-- END SNIPPET: cargo-plugin-start-execution -->
+                    <!-- START SNIPPET: cargo-plugin-stop-execution -->
+                    <execution>
+                        <id>stop-container</id>
+                        <phase>post-integration-test</phase>
+                        <goals>
+                            <goal>stop</goal>
+                        </goals>
+                    </execution>
+                    <!-- END SNIPPET: cargo-plugin-stop-execution -->
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-failsafe-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>integration-test</goal>
+                            <goal>verify</goal>
+                        </goals>
+                    </execution>
+                </executions>
+
+                <configuration>
+                    <printSummary>true</printSummary>
+                </configuration>
+            </plugin>
+
+        </plugins>
+    </build>
+</project>
+
+
+
