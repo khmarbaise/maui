@@ -64,10 +64,11 @@
                     <container>
                         <containerId>tomcat${tomcat.major}x</containerId>
                         <zipUrlInstaller>
+                            <!-- if you are behind a proxy.
                             <proxy>
-                              <host>webproxy.prod.barmer.bek</host>
+                              <host>...</host>
                               <port>8080</port>
-                            </proxy>
+                            </proxy> -->
                             <url>http://archive.apache.org/dist/tomcat/tomcat-${tomcat.major}/v${tomcat.version}/bin/apache-tomcat-${tomcat.version}.tar.gz</url>
                             <extractDir>${project.build.directory}/extract/</extractDir>
                             <downloadDir>${project.build.directory}/download/</downloadDir>
