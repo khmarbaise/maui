@@ -41,6 +41,8 @@
 
   <properties>
     <maven-license-plugin.version>1.9.0</maven-license-plugin.version>
+    <maven-site-plugin.version>3.3</maven-site-plugin.version>
+    <maven-project-info-reports-plugin.version>2.2</maven-project-info-reports-plugin.version>
   </properties>
 
   <reporting>
