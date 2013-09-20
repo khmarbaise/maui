@@ -48,6 +48,9 @@
 
     </dependencies>
 
+    <profiles>
+    <profile>
+      <id>run-its</id>
     <build>
         <plugins>
             <plugin>
@@ -134,6 +137,8 @@
 
         </plugins>
     </build>
+    </profile>
+    </profiles>
 </project>
 
 

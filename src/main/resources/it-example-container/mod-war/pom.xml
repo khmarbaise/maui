@@ -23,6 +23,11 @@
     <log4j.version>1.2.14</log4j.version>
   </properties>
   <dependencies>
+    <dependency>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>mod-api</artifactId>
+      <version>${project.version}</version>
+    </dependency>
     <!-- WICKET DEPENDENCIES -->
     <dependency>
       <groupId>org.apache.wicket</groupId>
@@ -41,14 +46,12 @@
     <dependency>
       <groupId>log4j</groupId>
       <artifactId>log4j</artifactId>
-      <version>1.2.14</version>
     </dependency>
 
     <!-- JUNIT DEPENDENCY FOR TESTING -->
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>4.8.1</version>
       <scope>test</scope>
     </dependency>
 
@@ -82,7 +85,6 @@
   <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-war-plugin</artifactId>
-        <version>2.3</version>
         <configuration>
           <webappDirectory>${project.build.directory}/tmp</webappDirectory>
         </configuration>

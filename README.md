@@ -43,6 +43,7 @@ Roadmap
    - http://www.sonatype.com/people/2009/06/integration-tests-with-maven-part-2-test-coverage-reports/
    - http://blog.jayway.com/2008/12/13/getting-coverage-for-integration-tests/
    - https://github.com/activelylazy/coverage-example
+   - http://www.petrikainulainen.net/programming/maven/creating-code-coverage-reports-for-unit-and-integration-tests-with-the-jacoco-maven-plugin/
 
  - mvn release:.... -Darguments="-Dxxxx" caused by calling instance during release process.
 
