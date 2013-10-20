@@ -22,7 +22,7 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-site-plugin</artifactId>
-          <version>3.1</version>
+          <version>3.3</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
@@ -69,23 +69,23 @@
           </execution>
         </executions>
       </plugin>
-	<plugin>
-     <groupId>org.jacoco</groupId>
-    <artifactId>jacoco-maven-plugin</artifactId>
-    <version>0.6.3.201306030806</version>
-	  <executions>
-	    <execution>
-              <id>pre-integration-test-prepare-agent</id>
-              <phase>pre-integration-test</phase>
-	      <goals>
-		<goal>prepare-agent</goal>
-	      </goals>
-              <configuration>
-                <destFile>${project.build.directory}/jacoco-it.exec</destFile>
-              </configuration>
-	    </execution>
-	  </executions>
-	</plugin>
+      <plugin>
+        <groupId>org.jacoco</groupId>
+        <artifactId>jacoco-maven-plugin</artifactId>
+        <version>0.6.3.201306030806</version>
+        <executions>
+          <execution>
+            <id>pre-integration-test-prepare-agent</id>
+            <phase>pre-integration-test</phase>
+            <goals>
+              <goal>prepare-agent</goal>
+            </goals>
+            <configuration>
+              <destFile>${project.build.directory}/jacoco-it.exec</destFile>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
 
     </plugins>
   </build>
@@ -108,7 +108,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-site-plugin</artifactId>
-        <version>3.1</version>
+        <version>3.3</version>
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -129,23 +129,23 @@
           </reportSet>
         </reportSets>
       </plugin>
-	<plugin>
- <groupId>org.jacoco</groupId>
-    <artifactId>jacoco-maven-plugin</artifactId>
-    <version>0.6.3.201306030806</version>
-	  <reportSets>
-	    <reportSet>
-	      <id>it-report</id>
-	      <reports>
-		<report>report</report>
-	      </reports>
-              <configuration>
-                <dataFile>${project.build.directory}/jacoco-it.exec</dataFile>
-                <outputDirectory>${project.reporting.outputDirectory}/jacoco-it</outputDirectory>
-              </configuration>
-	    </reportSet>
-	  </reportSets>
-	</plugin>
+      <plugin>
+        <groupId>org.jacoco</groupId>
+        <artifactId>jacoco-maven-plugin</artifactId>
+        <version>0.6.3.201306030806</version>
+        <reportSets>
+          <reportSet>
+            <id>it-report</id>
+            <reports>
+              <report>report</report>
+            </reports>
+            <configuration>
+              <dataFile>${project.build.directory}/jacoco-it.exec</dataFile>
+              <outputDirectory>${project.reporting.outputDirectory}/jacoco-it</outputDirectory>
+            </configuration>
+          </reportSet>
+        </reportSets>
+      </plugin>
     </plugins>
   </reporting>
 </project>
