@@ -53,97 +53,104 @@
         </dependency>
     </dependencies>
 
-    <build>
-        <plugins>
-            <plugin>
-                <!-- START SNIPPET: cargo-plugin -->
-                <groupId>org.codehaus.cargo</groupId>
-                <artifactId>cargo-maven2-plugin</artifactId>
-                <configuration>
-                    <wait>false</wait>
-                    <container>
-                        <containerId>tomcat${tomcat.major}x</containerId>
-                        <zipUrlInstaller>
-                            <!-- if you are behind a proxy.
-                            <proxy>
-                              <host>...</host>
-                              <port>8080</port>
-                            </proxy> -->
-                            <url>http://archive.apache.org/dist/tomcat/tomcat-${tomcat.major}/v${tomcat.version}/bin/apache-tomcat-${tomcat.version}.tar.gz</url>
-                            <extractDir>${project.build.directory}/extract/</extractDir>
-                            <downloadDir>${project.build.directory}/download/</downloadDir>
-                        </zipUrlInstaller>
-                        <output>${project.build.directory}/tomcat${tomcat.major}x.log</output>
-                        <log>${project.build.directory}/cargo.log</log>
-                    </container>
-                    <configuration>
-                        <home>${project.build.directory}/tomcat-${tomcat.version}/container</home>
-                        <properties>
-                            <cargo.logging>high</cargo.logging>
-                            <cargo.servlet.port>9080</cargo.servlet.port>
-                            <cargo.tomcat.ajp.port>9008</cargo.tomcat.ajp.port>
-                        </properties>
-                    </configuration>
-                </configuration>
-                <!-- END SNIPPET: cargo-plugin -->
-                <!-- START SNIPPET: cargo-plugin-start-execution -->
-                <executions>
-                    <execution>
-                        <id>start-container</id>
-                        <phase>pre-integration-test</phase>
-                        <goals>
-                            <goal>start</goal>
-                            <goal>deploy</goal>
-                        </goals>
-                        <configuration>
-                           <deployer>
-                                <deployables>
-                                    <deployable>
-                                        <groupId>${project.groupId}</groupId>
-                                        <artifactId>mod-war</artifactId>
-                                        <type>war</type>
-                                        <pingURL>http://localhost:9080/mod-war/</pingURL>
-                                        <pingTimeout>30000</pingTimeout>
-                                        <properties>
-                                            <context>mod-war</context>
-                                        </properties>
-                                    </deployable>
-                                </deployables>
-                           </deployer>
-                        </configuration>
-                    </execution>
-                    <!-- END SNIPPET: cargo-plugin-start-execution -->
-                    <!-- START SNIPPET: cargo-plugin-stop-execution -->
-                    <execution>
-                        <id>stop-container</id>
-                        <phase>post-integration-test</phase>
-                        <goals>
-                            <goal>stop</goal>
-                        </goals>
-                    </execution>
-                    <!-- END SNIPPET: cargo-plugin-stop-execution -->
-                </executions>
-            </plugin>
+<profiles>
+<profile>
+  <id>run-its</id>
+  
+      <build>
+          <plugins>
+              <plugin>
+                  <!-- START SNIPPET: cargo-plugin -->
+                  <groupId>org.codehaus.cargo</groupId>
+                  <artifactId>cargo-maven2-plugin</artifactId>
+                  <configuration>
+                      <wait>false</wait>
+                      <container>
+                          <containerId>tomcat${tomcat.major}x</containerId>
+                          <zipUrlInstaller>
+                              <!-- if you are behind a proxy.
+                              <proxy>
+                                <host>...</host>
+                                <port>8080</port>
+                              </proxy> -->
+                              <url>http://archive.apache.org/dist/tomcat/tomcat-${tomcat.major}/v${tomcat.version}/bin/apache-tomcat-${tomcat.version}.tar.gz</url>
+                              <extractDir>${project.build.directory}/extract/</extractDir>
+                              <downloadDir>${project.build.directory}/download/</downloadDir>
+                          </zipUrlInstaller>
+                          <output>${project.build.directory}/tomcat${tomcat.major}x.log</output>
+                          <log>${project.build.directory}/cargo.log</log>
+                      </container>
+                      <configuration>
+                          <home>${project.build.directory}/tomcat-${tomcat.version}/container</home>
+                          <properties>
+                              <cargo.logging>high</cargo.logging>
+                              <cargo.servlet.port>9080</cargo.servlet.port>
+                              <cargo.tomcat.ajp.port>9008</cargo.tomcat.ajp.port>
+                          </properties>
+                      </configuration>
+                  </configuration>
+                  <!-- END SNIPPET: cargo-plugin -->
+                  <!-- START SNIPPET: cargo-plugin-start-execution -->
+                  <executions>
+                      <execution>
+                          <id>start-container</id>
+                          <phase>pre-integration-test</phase>
+                          <goals>
+                              <goal>start</goal>
+                              <goal>deploy</goal>
+                          </goals>
+                          <configuration>
+                             <deployer>
+                                  <deployables>
+                                      <deployable>
+                                          <groupId>${project.groupId}</groupId>
+                                          <artifactId>mod-war</artifactId>
+                                          <type>war</type>
+                                          <pingURL>http://localhost:9080/mod-war/</pingURL>
+                                          <pingTimeout>30000</pingTimeout>
+                                          <properties>
+                                              <context>mod-war</context>
+                                          </properties>
+                                      </deployable>
+                                  </deployables>
+                             </deployer>
+                          </configuration>
+                      </execution>
+                      <!-- END SNIPPET: cargo-plugin-start-execution -->
+                      <!-- START SNIPPET: cargo-plugin-stop-execution -->
+                      <execution>
+                          <id>stop-container</id>
+                          <phase>post-integration-test</phase>
+                          <goals>
+                              <goal>stop</goal>
+                          </goals>
+                      </execution>
+                      <!-- END SNIPPET: cargo-plugin-stop-execution -->
+                  </executions>
+              </plugin>
 
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-failsafe-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>integration-test</goal>
-                            <goal>verify</goal>
-                        </goals>
-                    </execution>
-                </executions>
+              <plugin>
+                  <groupId>org.apache.maven.plugins</groupId>
+                  <artifactId>maven-failsafe-plugin</artifactId>
+                  <executions>
+                      <execution>
+                          <goals>
+                              <goal>integration-test</goal>
+                              <goal>verify</goal>
+                          </goals>
+                      </execution>
+                  </executions>
 
-                <configuration>
-                    <printSummary>true</printSummary>
-                </configuration>
-            </plugin>
+                  <configuration>
+                      <printSummary>true</printSummary>
+                  </configuration>
+              </plugin>
 
-        </plugins>
-    </build>
+          </plugins>
+      </build>
+
+  </profile>
+</profiles>
 </project>
 
 
