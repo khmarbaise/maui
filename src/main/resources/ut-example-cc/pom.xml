@@ -44,13 +44,11 @@
           <formats>
             <format>xml</format>
           </formats>
-<!--
           <instrumentation>
             <excludes>
               <exclude>**/BitMask2.class</exclude>
             </excludes>
           </instrumentation>
--->
         </configuration>
         <executions>
           <execution>
