@@ -24,8 +24,11 @@ public class PageFirstIT extends PageBase {
 
 		firefoxProfile.setEnableNativeEvents(true);
 
+		String firefoxBinaryName = System.getProperty("firefoxbinary");
+		assertThat(firefoxBinaryName).isNotNull();
+		
 		FirefoxDriver firefoxDriver = new FirefoxDriver(
-			new FirefoxBinary(new File("/Applications/Firefox.app/Contents/MacOS/firefox-bin")), 
+			new FirefoxBinary(new File(firefoxBinaryName)), 
 			firefoxProfile
 		);
 
