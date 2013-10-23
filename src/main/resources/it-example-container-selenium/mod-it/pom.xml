@@ -143,14 +143,42 @@
 
                   <configuration>
                       <printSummary>true</printSummary>
+			<systemPropertyVariables>
+				<firefoxbinary>${firefoxbinary}</firefoxbinary>
+			</systemPropertyVariables>
                   </configuration>
               </plugin>
 
           </plugins>
       </build>
+      </profile>
 
-  </profile>
-</profiles>
+      <profile>
+        <id>linux</id>
+        <activation>
+          <os>
+            <name>linux</name>
+            <family>unix</family>
+          </os>
+        </activation>
+        <properties>
+          <firefoxbinary>/usr/bin/firefox</firefoxbinary>
+        </properties>
+      </profile>
+
+      <profile>
+        <id>mac-os-x</id>
+        <activation>
+          <os>
+            <name>mac os x</name>
+            <family>mac</family>
+          </os>
+        </activation>
+        <properties>
+          <firefoxbinary>/Applications/Firefox.app/Contents/MacOS/firefox-bin</firefoxbinary>
+        </properties>
+      </profile>
+  </profiles>
 </project>
 
 
