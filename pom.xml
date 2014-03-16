@@ -6,24 +6,43 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>com.soebes.maven.guide</groupId>
-    <artifactId>parent</artifactId>
-    <version>0.1-SNAPSHOT</version>
-    <relativePath>parent/pom.xml</relativePath>
+    <groupId>com.soebes.smpp</groupId>
+    <artifactId>smpp</artifactId>
+    <version>0.6.3</version>
   </parent>
+
+  <groupId>com.soebes.maven.guide</groupId>
+  <artifactId>maui</artifactId>
+  <version>0.1.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+  <name>MaUI Test Guide</name>
+  <description>Maven Unit and Integration Test Guide (MaUI Test Guide)</description>
+  <url>http://khmarbaise.github.com/maui/</url>
+  <inceptionYear>2010</inceptionYear>
 
   <organization>
     <name>SoftwareEntwicklung Beratung Schulung</name>
     <url>http://www.soebes.de</url>
   </organization>
 
-  <inceptionYear>2010</inceptionYear>
 
-  <artifactId>maui</artifactId>
-  <packaging>pom</packaging>
+  <developers>
+    <developer>
+      <id>kama</id>
+      <name>Karl Heinz Marbaise</name>
+      <email>sapm@soebes.de</email>
+      <roles>
+        <role>Lead</role>
+        <role>Committer</role>
+      </roles>
+    </developer>
+  </developers>
 
-  <name>MaUI Test Guide</name>
-  <description>Maven Unit and Integration Test Guide (MaUI Test Guide)</description>
+  <issueManagement>
+    <system>default</system>
+    <url>https://github.com/khmarbaise/maui/issues</url>
+  </issueManagement>
 
   <properties>
     <surefireVersion>2.15</surefireVersion>
@@ -60,46 +79,6 @@
         </executions>
       </plugin>
       <plugin>
-        <groupId>com.mycila.maven-license-plugin</groupId>
-        <artifactId>maven-license-plugin</artifactId>
-        <configuration>
-          <header>src/main/etc/header.txt</header>
-          <quiet>false</quiet>
-          <aggregate>true</aggregate>
-          <failIfMissing>false</failIfMissing>
-          <includes>
-            <include>src/**</include>
-            <include>src/site/**</include>
-          </includes>
-          <excludes>
-            <exclude>src/main/resources/**</exclude>
-            <exclude>src/test/resources/**</exclude>
-            <exclude>target/**</exclude>
-            <!-- Currently i have to exclude the following files, based on
-              this issue: http://code.google.com/p/maven-license-plugin/issues/detail?id=89 -->
-            <exclude>src/**/*.apt.vm</exclude>
-          </excludes>
-          <mapping>
-            <g>DOUBLESLASH_STYLE</g>
-            <apt.vm>DOUBLETILDE_STYLE</apt.vm> <!-- This does currently not work! see above issue! -->
-            <apt>DOUBLETILDE_STYLE</apt>
-            <xml>XML_STYLE</xml>
-          </mapping>
-          <properties>
-            <year>2011</year>
-            <email>maui@soebes.de</email>
-          </properties>
-        </configuration>
-        <executions>
-          <execution>
-            <goals>
-              <goal>check</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-
-      <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-assembly-plugin</artifactId>
         <configuration>
@@ -132,7 +111,7 @@
             <configuration>
               <artifactItems>
                 <artifactItem>
-                  <groupId>com.soebes.maven.guide</groupId>
+                  <groupId>${project.groupId}</groupId>
                   <artifactId>maui</artifactId>
                   <version>${project.version}</version>
                   <classifier>src</classifier>
@@ -141,7 +120,7 @@
                   <outputDirectory>${project.build.directory}/site/</outputDirectory>
                 </artifactItem>
                 <artifactItem>
-                  <groupId>com.soebes.maven.guide</groupId>
+                  <groupId>${project.groupId}</groupId>
                   <artifactId>maui</artifactId>
                   <version>${project.version}</version>
                   <classifier>src</classifier>
@@ -150,7 +129,7 @@
                   <outputDirectory>${project.build.directory}/site/</outputDirectory>
                 </artifactItem>
                 <artifactItem>
-                  <groupId>com.soebes.maven.guide</groupId>
+                  <groupId>${project.groupId}</groupId>
                   <artifactId>maui</artifactId>
                   <version>${project.version}</version>
                   <classifier>src</classifier>
@@ -301,6 +280,126 @@
         </plugins>
       </build>
     </profile>
+    <profile>
+      <activation>
+        <property>
+          <name>performRelease</name>
+          <value>true</value>
+        </property>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-gpg-plugin</artifactId>
+            <version>${maven-gpg-plugin.vesion}</version>
+            <executions>
+              <execution>
+                <id>sign-artifacts</id>
+                <phase>verify</phase>
+                <goals>
+                  <goal>sign</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+      <reporting>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-linkcheck-plugin</artifactId>
+            <version>1.1</version>
+          </plugin>
+        </plugins>
+      </reporting>
+    </profile>
+    <profile>
+      <id>maven-3</id>
+      <activation>
+        <file>
+          <exists>${basedir}</exists>
+        </file>
+      </activation>
+      <build>
+        <pluginManagement>
+          <plugins>
+            <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-site-plugin</artifactId>
+              <version>${maven-site-plugin.version}</version>
+              <dependencies>
+                        <!-- additional dependencies required by "source-class" implementations are added here -->
+                <dependency>
+                  <groupId>org.tinyjee.dim</groupId>
+                  <artifactId>doxia-include-macro</artifactId>
+                  <version>1.1</version>
+                </dependency>
+              </dependencies>
+            </plugin>
+            <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-project-info-reports-plugin</artifactId>
+              <version>${maven-project-info-reports-plugin.version}</version>
+            </plugin>
+          </plugins>
+        </pluginManagement>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-site-plugin</artifactId>
+            <dependencies>
+              <!-- additional dependencies required by "source-class" implementations are added here -->
+              <dependency>
+                <groupId>org.tinyjee.dim</groupId>
+                <artifactId>doxia-include-macro</artifactId>
+                <version>1.1</version>
+              </dependency>
+            </dependencies>
+            <executions>
+              <execution>
+                <id>attach-descriptor</id>
+                <goals>
+                  <goal>attach-descriptor</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+      <reporting>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-site-plugin</artifactId>
+            <version>${maven-site-plugin.version}</version>
+          </plugin>
+        </plugins>
+      </reporting>
+    </profile>
   </profiles>
+
+  <reporting>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-changes-plugin</artifactId>
+        <version>${maven-changes-plugin.version}</version>
+        <configuration>
+          <issueLinkTemplatePerSystem>
+            <default>https://github.com/khmarbaise/maui/issues/%ISSUE%</default>
+          </issueLinkTemplatePerSystem>
+        </configuration>
+        <reportSets>
+          <reportSet>
+            <reports>
+              <report>changes-report</report>
+            </reports>
+          </reportSet>
+        </reportSets>
+      </plugin>
+    </plugins>
+  </reporting>
 
 </project>
