@@ -1,183 +1,195 @@
 <project
-    xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
-    <modelVersion>4.0.0</modelVersion>
+  <modelVersion>4.0.0</modelVersion>
 
-    <parent>
-        <artifactId>parent</artifactId>
-        <version>0.1.0-SNAPSHOT</version>
-        <groupId>com.soebes.training.module.it-container.selenium</groupId>
-    </parent>
+  <parent>
+    <artifactId>parent</artifactId>
+    <version>0.1.0-SNAPSHOT</version>
+    <groupId>com.soebes.training.module.it-container.selenium</groupId>
+  </parent>
 
-    <artifactId>mod-it</artifactId>
-    <packaging>jar</packaging>
-    <name>MaUI Test Guide :: IT Container - Mod-IT</name>
+  <artifactId>mod-it</artifactId>
+  <packaging>jar</packaging>
+  <name>MaUI Test Guide :: IT Container - Mod-IT</name>
 
-    <dependencies>
-        <!-- START SNIPPET: war-dependency -->
-        <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>mod-war</artifactId>
-            <version>${project.version}</version>
-            <type>war</type>
-        </dependency>
-        <!-- END SNIPPET: war-dependency -->
+  <dependencies>
+    <!-- START SNIPPET: war-dependency -->
+    <dependency>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>mod-war</artifactId>
+      <version>${project.version}</version>
+      <type>war</type>
+    </dependency>
+    <!-- END SNIPPET: war-dependency -->
 
 
-        <dependency>
-            <groupId>org.testng</groupId>
-            <artifactId>testng</artifactId>
-            <version>6.7</version>
-            <scope>test</scope>
-        </dependency>
+    <dependency>
+      <groupId>org.testng</groupId>
+      <artifactId>testng</artifactId>
+      <version>6.7</version>
+      <scope>test</scope>
+    </dependency>
 
-        <dependency>
-          <groupId>org.seleniumhq.selenium</groupId>
-          <artifactId>selenium-firefox-driver</artifactId>
-          <version>2.34.0</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-          <groupId>org.seleniumhq.selenium</groupId>
-          <artifactId>selenium-server</artifactId>
-          <version>2.34.0</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-          <groupId>org.easytesting</groupId>
-          <artifactId>fest-assert</artifactId>
-          <version>1.4</version>
-            <scope>test</scope>
-        </dependency>
-    </dependencies>
+    <dependency>
+      <groupId>org.seleniumhq.selenium</groupId>
+      <artifactId>selenium-api</artifactId>
+      <version>2.41.0</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.seleniumhq.selenium</groupId>
+      <artifactId>selenium-firefox-driver</artifactId>
+      <version>2.41.0</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.seleniumhq.selenium</groupId>
+      <artifactId>selenium-java</artifactId>
+      <version>2.41.0</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.seleniumhq.selenium</groupId>
+      <artifactId>selenium-server</artifactId>
+      <version>2.41.0</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.easytesting</groupId>
+      <artifactId>fest-assert</artifactId>
+      <version>1.4</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
 
-<profiles>
-<profile>
-  <id>run-its</id>
-  
+  <profiles>
+    <profile>
+      <id>run-its</id>
+
       <build>
-          <plugins>
-              <plugin>
-                  <!-- START SNIPPET: cargo-plugin -->
-                  <groupId>org.codehaus.cargo</groupId>
-                  <artifactId>cargo-maven2-plugin</artifactId>
-                  <configuration>
-                      <wait>false</wait>
-                      <container>
-                          <containerId>tomcat${tomcat.major}x</containerId>
-                          <zipUrlInstaller>
-                              <!-- if you are behind a proxy.
-                              <proxy>
-                                <host>...</host>
-                                <port>8080</port>
-                              </proxy> -->
-                              <url>http://archive.apache.org/dist/tomcat/tomcat-${tomcat.major}/v${tomcat.version}/bin/apache-tomcat-${tomcat.version}.tar.gz</url>
-                              <extractDir>${project.build.directory}/extract/</extractDir>
-                              <downloadDir>${project.build.directory}/download/</downloadDir>
-                          </zipUrlInstaller>
-                          <output>${project.build.directory}/tomcat${tomcat.major}x.log</output>
-                          <log>${project.build.directory}/cargo.log</log>
-                      </container>
-                      <configuration>
-                          <home>${project.build.directory}/tomcat-${tomcat.version}/container</home>
-                          <properties>
-                              <cargo.logging>high</cargo.logging>
-                              <cargo.servlet.port>9080</cargo.servlet.port>
-                              <cargo.tomcat.ajp.port>9008</cargo.tomcat.ajp.port>
-                          </properties>
-                      </configuration>
-                  </configuration>
-                  <!-- END SNIPPET: cargo-plugin -->
-                  <!-- START SNIPPET: cargo-plugin-start-execution -->
-                  <executions>
-                      <execution>
-                          <id>start-container</id>
-                          <phase>pre-integration-test</phase>
-                          <goals>
-                              <goal>start</goal>
-                              <goal>deploy</goal>
-                          </goals>
-                          <configuration>
-                             <deployer>
-                                  <deployables>
-                                      <deployable>
-                                          <groupId>${project.groupId}</groupId>
-                                          <artifactId>mod-war</artifactId>
-                                          <type>war</type>
-                                          <pingURL>http://localhost:9080/mod-war/</pingURL>
-                                          <pingTimeout>30000</pingTimeout>
-                                          <properties>
-                                              <context>mod-war</context>
-                                          </properties>
-                                      </deployable>
-                                  </deployables>
-                             </deployer>
-                          </configuration>
-                      </execution>
-                      <!-- END SNIPPET: cargo-plugin-start-execution -->
-                      <!-- START SNIPPET: cargo-plugin-stop-execution -->
-                      <execution>
-                          <id>stop-container</id>
-                          <phase>post-integration-test</phase>
-                          <goals>
-                              <goal>stop</goal>
-                          </goals>
-                      </execution>
-                      <!-- END SNIPPET: cargo-plugin-stop-execution -->
-                  </executions>
-              </plugin>
+        <plugins>
+          <plugin>
+            <!-- START SNIPPET: cargo-plugin -->
+            <groupId>org.codehaus.cargo</groupId>
+            <artifactId>cargo-maven2-plugin</artifactId>
+            <configuration>
+              <wait>false</wait>
+              <container>
+                <containerId>tomcat${tomcat.major}x</containerId>
+                <zipUrlInstaller>
+                  <!-- if you are behind a proxy.
+                    <proxy>
+                    <host>...</host>
+                    <port>8080</port>
+                    </proxy> -->
+                  <url>http://archive.apache.org/dist/tomcat/tomcat-${tomcat.major}/v${tomcat.version}/bin/apache-tomcat-${tomcat.version}.tar.gz</url>
+                  <extractDir>${project.build.directory}/extract/</extractDir>
+                  <downloadDir>${project.build.directory}/download/</downloadDir>
+                </zipUrlInstaller>
+                <output>${project.build.directory}/tomcat${tomcat.major}x.log</output>
+                <log>${project.build.directory}/cargo.log</log>
+              </container>
+              <configuration>
+                <home>${project.build.directory}/tomcat-${tomcat.version}/container</home>
+                <properties>
+                  <cargo.logging>high</cargo.logging>
+                  <cargo.servlet.port>9080</cargo.servlet.port>
+                  <cargo.tomcat.ajp.port>9008</cargo.tomcat.ajp.port>
+                </properties>
+              </configuration>
+            </configuration>
+            <!-- END SNIPPET: cargo-plugin -->
+            <!-- START SNIPPET: cargo-plugin-start-execution -->
+            <executions>
+              <execution>
+                <id>start-container</id>
+                <phase>pre-integration-test</phase>
+                <goals>
+                  <goal>start</goal>
+                  <goal>deploy</goal>
+                </goals>
+                <configuration>
+                  <deployer>
+                    <deployables>
+                      <deployable>
+                        <groupId>${project.groupId}</groupId>
+                        <artifactId>mod-war</artifactId>
+                        <type>war</type>
+                        <pingURL>http://localhost:9080/mod-war/</pingURL>
+                        <pingTimeout>30000</pingTimeout>
+                        <properties>
+                          <context>mod-war</context>
+                        </properties>
+                      </deployable>
+                    </deployables>
+                  </deployer>
+                </configuration>
+              </execution>
+              <!-- END SNIPPET: cargo-plugin-start-execution -->
+              <!-- START SNIPPET: cargo-plugin-stop-execution -->
+              <execution>
+                <id>stop-container</id>
+                <phase>post-integration-test</phase>
+                <goals>
+                  <goal>stop</goal>
+                </goals>
+              </execution>
+              <!-- END SNIPPET: cargo-plugin-stop-execution -->
+            </executions>
+          </plugin>
 
-              <plugin>
-                  <groupId>org.apache.maven.plugins</groupId>
-                  <artifactId>maven-failsafe-plugin</artifactId>
-                  <executions>
-                      <execution>
-                          <goals>
-                              <goal>integration-test</goal>
-                              <goal>verify</goal>
-                          </goals>
-                      </execution>
-                  </executions>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-failsafe-plugin</artifactId>
+            <executions>
+              <execution>
+                <goals>
+                  <goal>integration-test</goal>
+                  <goal>verify</goal>
+                </goals>
+              </execution>
+            </executions>
 
-                  <configuration>
-                      <printSummary>true</printSummary>
-			<systemPropertyVariables>
-				<firefoxbinary>${firefoxbinary}</firefoxbinary>
-			</systemPropertyVariables>
-                  </configuration>
-              </plugin>
+            <configuration>
+              <printSummary>true</printSummary>
+              <systemPropertyVariables>
+                <firefoxbinary>${firefoxbinary}</firefoxbinary>
+              </systemPropertyVariables>
+            </configuration>
+          </plugin>
 
-          </plugins>
+        </plugins>
       </build>
-      </profile>
+    </profile>
 
-      <profile>
-        <id>linux</id>
-        <activation>
-          <os>
-            <name>linux</name>
-            <family>unix</family>
-          </os>
-        </activation>
-        <properties>
-          <firefoxbinary>/usr/bin/firefox</firefoxbinary>
-        </properties>
-      </profile>
+    <profile>
+      <id>linux</id>
+      <activation>
+        <os>
+          <name>linux</name>
+          <family>unix</family>
+        </os>
+      </activation>
+      <properties>
+        <firefoxbinary>/usr/bin/firefox</firefoxbinary>
+      </properties>
+    </profile>
 
-      <profile>
-        <id>mac-os-x</id>
-        <activation>
-          <os>
-            <name>mac os x</name>
-            <family>mac</family>
-          </os>
-        </activation>
-        <properties>
-          <firefoxbinary>/Applications/Firefox.app/Contents/MacOS/firefox-bin</firefoxbinary>
-        </properties>
-      </profile>
+    <profile>
+      <id>mac-os-x</id>
+      <activation>
+        <os>
+          <name>mac os x</name>
+          <family>mac</family>
+        </os>
+      </activation>
+      <properties>
+        <firefoxbinary>/Applications/Firefox.app/Contents/MacOS/firefox-bin</firefoxbinary>
+      </properties>
+    </profile>
   </profiles>
 </project>
 

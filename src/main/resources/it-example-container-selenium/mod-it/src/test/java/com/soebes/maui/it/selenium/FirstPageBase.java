@@ -1,9 +1,10 @@
 package com.soebes.maui.it.selenium;
 
-import org.openqa.selenium.WebDriverBackedSelenium;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.firefox.internal.ProfilesIni;
+
+import com.thoughtworks.selenium.webdriven.WebDriverBackedSelenium;
 
 public class FirstPageBase extends PageBase {
     
