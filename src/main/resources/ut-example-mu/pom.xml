@@ -8,7 +8,7 @@
   <parent>
     <groupId>com.soebes.smpp</groupId>
     <artifactId>smpp</artifactId>
-    <version>0.6.1</version>
+    <version>0.6.4</version>
   </parent>
 
   <groupId>com.soebes.training.module.ut.mu</groupId>
@@ -18,11 +18,6 @@
   <packaging>pom</packaging>
 
   <name>MaUI Test Guide :: UT Example - Parent</name>
-
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-  </properties>
 
   <build>
    <pluginManagement>
