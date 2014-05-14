@@ -8,7 +8,7 @@
   <parent>
     <groupId>com.soebes.smpp</groupId>
     <artifactId>smpp</artifactId>
-    <version>0.6.3</version>
+    <version>0.6.4</version>
   </parent>
 
   <groupId>com.soebes.maven.guide</groupId>
@@ -43,11 +43,6 @@
     <system>default</system>
     <url>https://github.com/khmarbaise/maui/issues</url>
   </issueManagement>
-
-  <properties>
-    <surefireVersion>2.15</surefireVersion>
-    <failsafeVersion>2.15</failsafeVersion>
-  </properties>
 
   <build>
     <plugins>
@@ -260,7 +255,7 @@
           <plugin>
             <groupId>com.github.github</groupId>
             <artifactId>site-maven-plugin</artifactId>
-            <version>0.8</version>
+            <version>0.9</version>
             <configuration>
               <message>Creating site for ${project.version}</message>
               <server>github</server>
