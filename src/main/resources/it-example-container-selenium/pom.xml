@@ -75,6 +75,18 @@
           <target>1.6</target>
         </configuration>
       </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-source-plugin</artifactId>
+        <version>2.4</version>
+        <executions>
+          <execution>
+          <goals>
+            <goal>jar-no-fork</goal>
+          </goals>
+        </execution>
+        </executions>
+      </plugin>
     </plugins>
   </build>
   <dependencies>
@@ -87,9 +99,9 @@
   </dependencies>
 
   <modules>
+    <module>mod-it</module>
     <module>mod-war</module>
     <module>mod-api</module>
-    <module>mod-it</module>
   </modules>
 </project>
 

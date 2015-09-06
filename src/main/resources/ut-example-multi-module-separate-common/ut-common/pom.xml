@@ -11,24 +11,9 @@
     <version>0.1.0-SNAPSHOT</version>
   </parent>
 
-  <artifactId>ut-example-mm-common</artifactId>
+  <artifactId>ut-example-mm-common-test</artifactId>
 
   <name>MaUI Test Guide :: UT Multi Module - Common</name>
 
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-jar-plugin</artifactId>
-        <executions>
-          <execution>
-            <goals>
-              <goal>test-jar</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-    </plugins>
-  </build>
 </project>
 
