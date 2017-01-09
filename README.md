@@ -4,7 +4,8 @@ Maven Unit / Integration Test Guide (MaUI Test Guide)
 
 Describe the best practice for doing unit and integrations tests in Maven.
 
-The Idea of this module based on [http://jira.codehaus.org/browse/MNG-1563](http://jira.codehaus.org/browse/MNG-1563).
+The Idea of this module based on
+[https://issues.apache.org/jira/browse/MNG-1563](https://issues.apache.org/jira/browse/MNG-1563).
 
 
 License
